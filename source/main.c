@@ -85,7 +85,7 @@ void main(void)
   // Zde v nekonecne smycce je beh programu na pozadi
   while (1)
   {
-      if(casove_preruseni == 1){ //filtr tlacitka
+      if(casove_preruseni == 1){ //filtr a aretace tlacitka
           casove_preruseni = 0;
           vstup = PORTJbits.RJ7;
           filtr(&vstup, &stav_tlacitka, &filtrovane_tlacitko_S4);
@@ -112,11 +112,6 @@ void __interrupt(low_priority) low_isr(void){
         INTCONbits.TMR0IF = 0;
         
         casove_preruseni=1;
-        
-        
-       
-        
-
     }
         
 }
