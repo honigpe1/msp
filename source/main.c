@@ -26,6 +26,7 @@
 /* ZDE ZACINA BLOK #include PRO VLASTNI HEADER SOUBORY */
 #include "./../header/filtr.h"
 #include "./../header/aretace.h"
+#include "./../header/smerOtaceniPocitadloHran.h"
 
 // #include "XXXXXX.h"
 
@@ -37,8 +38,15 @@
 
 //----------------------------------------------------------------------------
 /* ZDE ZACINA BLOK PRO DEKLARACI VLASTNICH GLOBALNICH PROMENNYCH */
+typedef struct{
+    int vstup;
+    int filtr;
+    int stav;
+}spinac;
+
 int vstup, filtrovane_tlacitko_S4, stav_tlacitka;
 int stav_aretace, zaaretovane_tlacitko;
+int A, B, filtrA, filtrB, stav_koderu, stav, smer, pocet;
 bool casove_preruseni;
 // Priklad pro deklaraci promenne typu uint8_t, se jmenem a
 // uint8_t x;
@@ -85,11 +93,17 @@ void main(void)
   // Zde v nekonecne smycce je beh programu na pozadi
   while (1)
   {
-      if(casove_preruseni == 1){ //filtr a aretace tlacitka
-          casove_preruseni = 0;
+      if(casove_preruseni == 1){
+          casove_preruseni = 0;             //filtr a aretace tlacitka
           vstup = PORTJbits.RJ7;
           filtr(&vstup, &stav_tlacitka, &filtrovane_tlacitko_S4);
           aretace(&filtrovane_tlacitko_S4, &stav_aretace, &zaaretovane_tlacitko);
+          
+          A = PORTJbits.RJ0;
+          filtr(&A, &)
+          B = PORTJbits.RJ1;
+          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &smer, &pocet);
+          
       }
       // Piste svuj kod pro program na pozadi
   }

@@ -12,9 +12,6 @@
 #include "./../header/filtr.h"
 
 
-
-
-
 void filtr(int *vstup, int *stav, int *vystup){
     switch (*stav){
         case fs0:{

@@ -909,11 +909,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "114
 [; ;source/main.c: 114:         casove_preruseni=1;
 [e = _casove_preruseni -> -> 1 `i `a ]
-"120
-[; ;source/main.c: 120:     }
+"115
+[; ;source/main.c: 115:     }
 }
 [e :U 579 ]
-"122
-[; ;source/main.c: 122: }
+"117
+[; ;source/main.c: 117: }
 [e :UE 578 ]
 }

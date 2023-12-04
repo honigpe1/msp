@@ -244,7 +244,7 @@ bssCOMRAM 1 15 COMRAM 1 1
 text2 1002 1327 CODE 1002 0
 %locals
 dist/default/debug/pokus.X.debug.o
-/tmp/xcXabMDeD/driver_tmp_1.s
+/tmp/xcXKaOBla/driver_tmp_1.s
 2474 1304 0 CODE 0
 2476 1304 0 CODE 0
 2479 1304 0 CODE 0
@@ -337,7 +337,7 @@ source/aretace.c
 47 127A 0 CODE 0
 47 1282 0 CODE 0
 48 128C 0 CODE 0
-/tmp/xcXabMDeD/driver_tmp_1.s
+/tmp/xcXKaOBla/driver_tmp_1.s
 3758 18 0 CODE 0
 source/main.c
 108 18 0 CODE 0
@@ -346,8 +346,8 @@ source/main.c
 111 38 0 CODE 0
 112 3C 0 CODE 0
 114 3E 0 CODE 0
-122 42 0 CODE 0
-/tmp/xcXabMDeD/driver_tmp_1.s
+117 42 0 CODE 0
+/tmp/xcXKaOBla/driver_tmp_1.s
 3845 8 0 CODE 0
 source/main.c
 102 8 0 CODE 0

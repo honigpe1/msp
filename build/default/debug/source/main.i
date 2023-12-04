@@ -8794,11 +8794,6 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
         INTCONbits.TMR0IF = 0;
 
         casove_preruseni=1;
-
-
-
-
-
     }
 
 }

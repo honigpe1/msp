@@ -8,6 +8,7 @@
       <itemPath>header/preambleInitialization.h</itemPath>
       <itemPath>header/filtr.h</itemPath>
       <itemPath>header/aretace.h</itemPath>
+      <itemPath>header/smerOtaceniPocitadloHran.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,6 +22,7 @@
       <itemPath>source/preambleInitialization.c</itemPath>
       <itemPath>source/filtr.c</itemPath>
       <itemPath>source/aretace.c</itemPath>
+      <itemPath>source/smerOtaceniPocitadloHran.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
