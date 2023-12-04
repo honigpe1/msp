@@ -1,4 +1,4 @@
-# 1 "source/filtr.c"
+# 1 "source/smerOtaceniPocitadloHran.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "source/filtr.c" 2
-# 12 "source/filtr.c"
-# 1 "source/./../header/filtr.h" 1
-# 14 "source/./../header/filtr.h"
+# 1 "source/smerOtaceniPocitadloHran.c" 2
+# 12 "source/smerOtaceniPocitadloHran.c"
+# 1 "source/./../header/smerOtaceniPocitadloHran.h" 1
+# 14 "source/./../header/smerOtaceniPocitadloHran.h"
 # 1 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -8651,76 +8651,105 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/xc.h" 2 3
-# 15 "source/./../header/filtr.h" 2
+# 15 "source/./../header/smerOtaceniPocitadloHran.h" 2
 
 # 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdbool.h" 1 3
-# 17 "source/./../header/filtr.h" 2
+# 17 "source/./../header/smerOtaceniPocitadloHran.h" 2
 
 
 
 
+enum {ks0,ks1,ks2,ks3};
 
+void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet);
+# 13 "source/smerOtaceniPocitadloHran.c" 2
 
-
-
-void filtr(Spinac *struktura);
-# 13 "source/filtr.c" 2
-
-
-void filtr(Spinac *struktura){
-    switch (struktura->stav){
-        case s0:{
-            if (struktura->vstup == 1){
-                struktura->stav = s1;
+void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet){
+    switch (*stav){
+        case ks0:{
+            if (*A == 1 && *B==0){
+                if (*pocet == 255){
+                    *pocet=0;
+                }
+                else{
+                    *pocet++;
+                }
+                *stav = ks1;
             }
-            else{
-                struktura->stav = s3;
-            }
-            struktura->filtr = 0;
-            break;
-        }
-
-        case s1:{
-            if (struktura->vstup == 1){
-                struktura->stav = s2;
-            }
-            else{
-                struktura->stav = s3;
-            }
-            struktura->filtr = 0;
-            break;
-        }
-
-        case s2:{
-            if (struktura->vstup == 1){
-                struktura->stav = s2;
-                struktura->filtr = 1;
-            }
-            else{
-                struktura->stav = s3;
-                struktura->filtr = 0;
+            else if (*A == 0 && *B==1){
+                if (*pocet == 0){
+                    *pocet=255;
+                }
+                else{
+                    *pocet--;
+                }
+                *stav = ks3;
             }
             break;
         }
 
-        case s3:{
-            if (struktura->vstup == 1){
-                struktura->stav = s1;
+        case ks1:{
+            if (*A == 1 && *B==1){
+                if (*pocet == 255){
+                    *pocet=0;
+                }
+                else{
+                    *pocet++;
+                }
+                *stav = ks2;
             }
-            else{
-                struktura->stav = s4;
+            else if (*A == 0 && *B==0){
+                if (*pocet == 0){
+                    *pocet=255;
+                }
+                else{
+                    *pocet--;
+                }
+                *stav = ks0;
             }
-            struktura->filtr = 0;
             break;
         }
 
-        case s4:{
-            if (struktura->vstup == 1){
-                struktura->stav = s1;
+        case ks2:{
+            if (*A == 0 && *B==1){
+                if (*pocet == 255){
+                    *pocet=0;
+                }
+                else{
+                    *pocet++;
+                }
+                *stav = ks3;
             }
-            else{
-                struktura->stav = s4;
-                struktura->filtr = 0;
+            else if (*A == 1 && *B==0){
+                if (*pocet == 0){
+                    *pocet=255;
+                }
+                else{
+                    *pocet--;
+                }
+                *stav = ks1;
+            }
+            break;
+        }
+
+        case ks3:{
+            if (*A == 0 && *B==0){
+                if (*pocet == 255){
+                    *pocet=0;
+                }
+                else{
+                    *pocet++;
+                }
+                *stav = ks0;
+            }
+            else if (*A == 1 && *B==1){
+                if (*pocet == 0){
+                    *pocet=255;
+                }
+                else{
+                    *pocet--;
+                }
+                *stav = ks2;
             }
             break;
         }

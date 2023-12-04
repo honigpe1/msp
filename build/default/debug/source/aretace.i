@@ -8655,45 +8655,39 @@ unsigned char __t3rd16on(void);
 
 # 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdbool.h" 1 3
 # 17 "source/./../header/aretace.h" 2
-
-
-
-
-enum {as0, as1, as2, as3};
-
-
-void aretace(int *vstup, int *stav, int *vystup);
+# 26 "source/./../header/aretace.h"
+void aretace(Spinac *struktura, int *stav, int *vystup);
 # 13 "source/aretace.c" 2
 
-void aretace(int *vstup, int *stav, int *vystup) {
+void aretace(Spinac *struktura, int *stav, int *vystup) {
     switch (*stav){
-        case as0:{
-            if (*vstup == 1){
-                *stav = as1;
+        case s0:{
+            if (struktura->filtr == 1){
+                *stav = s1;
                 *vystup = 1;
             }
             break;
         }
 
-        case as1:{
-            if (*vstup == 0){
-                *stav = as2;
+        case s1:{
+            if (struktura->filtr == 0){
+                *stav = s2;
             }
 
             break;
         }
 
-        case as2:{
-            if (*vstup == 1){
-                *stav = as3;
+        case s2:{
+            if (struktura->filtr == 1){
+                *stav = s3;
                 *vystup = 0;
             }
             break;
         }
 
-        case as3:{
-            if (*vstup == 0){
-                *stav = as0;
+        case s3:{
+            if (struktura->filtr == 0){
+                *stav = s0;
             }
 
             break;

@@ -12,60 +12,60 @@
 #include "./../header/filtr.h"
 
 
-void filtr(int *vstup, int *stav, int *vystup){
-    switch (*stav){
-        case fs0:{
-            if (*vstup == 1){
-                *stav = fs1;
+void filtr(Spinac *struktura){
+    switch (struktura->stav){
+        case s0:{
+            if (struktura->vstup == 1){
+                struktura->stav = s1;
             }
             else{
-                *stav = fs3;
+                struktura->stav = s3;
             }
-            *vystup = 0;           
+            struktura->filtr = 0;           
             break;
         }   
         
-        case fs1:{
-            if (*vstup == 1){
-                *stav = fs2;
+        case s1:{
+            if (struktura->vstup == 1){
+                struktura->stav = s2;
             }
             else{
-                *stav = fs3;
+                struktura->stav = s3;
             }
-            *vystup = 0;
+            struktura->filtr = 0;
             break;
         }    
         
-        case fs2:{
-            if (*vstup == 1){
-                *stav = fs2;
-                *vystup = 1;
+        case s2:{
+            if (struktura->vstup == 1){
+                struktura->stav = s2;
+                struktura->filtr = 1;
             }
             else{
-                *stav = fs3;
-                *vystup = 0;                
+                struktura->stav = s3;
+                struktura->filtr = 0;                
             }
             break;
         }   
         
-        case fs3:{
-            if (*vstup == 1){
-                *stav = fs1;
+        case s3:{
+            if (struktura->vstup == 1){
+                struktura->stav = s1;
             }
             else{
-                *stav = fs4;
+                struktura->stav = s4;
             }
-            *vystup = 0;            
+            struktura->filtr = 0;            
             break;
         }
         
-        case fs4:{
-            if (*vstup == 1){
-                *stav = fs1;                
+        case s4:{
+            if (struktura->vstup == 1){
+                struktura->stav = s1;                
             }
             else{
-                *stav = fs4;
-                *vystup = 0;
+                struktura->stav = s4;
+                struktura->filtr = 0;
             }
             break;
         }

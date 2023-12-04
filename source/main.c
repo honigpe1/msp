@@ -39,14 +39,22 @@
 //----------------------------------------------------------------------------
 /* ZDE ZACINA BLOK PRO DEKLARACI VLASTNICH GLOBALNICH PROMENNYCH */
 typedef struct{
-    int vstup;
-    int filtr;
-    int stav;
-}spinac;
+    int vstup; //vstup z portu
+    int filtr; //fitrovany vystup
+    int stav;  //stav filtrujiciho automatu
+} Spinac;
 
-int vstup, filtrovane_tlacitko_S4, stav_tlacitka;
+Spinac S4;
+Spinac *s4 = &S4;
+
+Spinac S5A;
+Spinac *s5A = &S5A;
+
+Spinac S5B;
+Spinac *s5B = &S5B;
+
 int stav_aretace, zaaretovane_tlacitko;
-int A, B, filtrA, filtrB, stav_koderu, stav, smer, pocet;
+enum {s0, s1, s3, s4};
 bool casove_preruseni;
 // Priklad pro deklaraci promenne typu uint8_t, se jmenem a
 // uint8_t x;
@@ -95,14 +103,15 @@ void main(void)
   {
       if(casove_preruseni == 1){
           casove_preruseni = 0;             //filtr a aretace tlacitka
-          vstup = PORTJbits.RJ7;
-          filtr(&vstup, &stav_tlacitka, &filtrovane_tlacitko_S4);
-          aretace(&filtrovane_tlacitko_S4, &stav_aretace, &zaaretovane_tlacitko);
+          s4->vstup = PORTJbits.RJ7;
+          filtr(&s4);
+          aretace(&s4, &stav_aretace, &zaaretovane_tlacitko);
           
-          A = PORTJbits.RJ0;
-          filtr(&A, &)
-          B = PORTJbits.RJ1;
-          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &smer, &pocet);
+          s5A->vstup = PORTJbits.RJ0;
+          filtr(&s5A);
+          s5B->vstup = PORTJbits.RJ1;
+          
+          
           
       }
       // Piste svuj kod pro program na pozadi
