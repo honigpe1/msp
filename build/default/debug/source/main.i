@@ -8717,12 +8717,21 @@ void preambleInitialization(void);
 
 
 # 1 "source/./../header/filtr.h" 1
-# 25 "source/./../header/filtr.h"
-void filtr(Spinac *struktura);
+# 21 "source/./../header/filtr.h"
+enum {fs0, fs1, fs2, fs3, fs4};
+
+
+
+void filtr(int *vstup, int *stav, int *vystup);
 # 28 "source/main.c" 2
 # 1 "source/./../header/aretace.h" 1
-# 26 "source/./../header/aretace.h"
-void aretace(Spinac *struktura, int *stav, int *vystup);
+# 21 "source/./../header/aretace.h"
+enum {as0, as1, as2, as3};
+
+
+
+
+void aretace(int *vstup, int *stav, int *vystup);
 # 29 "source/main.c" 2
 # 1 "source/./../header/smerOtaceniPocitadloHran.h" 1
 # 21 "source/./../header/smerOtaceniPocitadloHran.h"
@@ -8730,26 +8739,12 @@ enum {ks0,ks1,ks2,ks3};
 
 void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet);
 # 30 "source/main.c" 2
-# 41 "source/main.c"
-typedef struct{
-    int vstup;
-    int filtr;
-    int stav;
-} Spinac;
-
-Spinac S4;
-Spinac *s4 = &S4;
-
-Spinac S5A;
-Spinac *s5A = &S5A;
-
-Spinac S5B;
-Spinac *s5B = &S5B;
-
+# 42 "source/main.c"
+int vstup, filtrS4, stav_tlacitka;
 int stav_aretace, zaaretovane_tlacitko;
-enum {s0, s1, s3, s4};
+int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, smer, pocet;
 _Bool casove_preruseni;
-# 72 "source/main.c"
+# 59 "source/main.c"
 void main(void)
 {
 
@@ -8784,15 +8779,15 @@ void main(void)
   {
       if(casove_preruseni == 1){
           casove_preruseni = 0;
-          s4->vstup = PORTJbits.RJ7;
-          filtr(&s4);
-          aretace(&s4, &stav_aretace, &zaaretovane_tlacitko);
+          vstup = PORTJbits.RJ7;
+          filtr(&vstup, &stav_tlacitka, &filtrS4);
+          aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
 
-          s5A->vstup = PORTJbits.RJ0;
-          filtr(&s5A);
-          s5B->vstup = PORTJbits.RJ1;
-
-
+          A = PORTJbits.RJ0;
+          filtr(&A, &stav_filtru_A, &filtrA);
+          B = PORTJbits.RJ1;
+          filtr(&B, &stav_filtru_B, &filtrB);
+          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &smer, &pocet);
 
       }
 

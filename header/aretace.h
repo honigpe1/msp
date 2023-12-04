@@ -18,11 +18,11 @@
 #error "Invalid compiler selection"
 #endif
 
-//enum {as0, as1, as2, as3};
+enum {as0, as1, as2, as3};
 
 
 
 // Deklarace ukazkove funkce
-void aretace(Spinac *struktura, int *stav, int *vystup);
+void aretace(int *vstup, int *stav, int *vystup);
 
 #endif /* ARETACE_H */

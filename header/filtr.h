@@ -18,10 +18,10 @@
 #error "Invalid compiler selection"
 #endif
 
-//enum {fs0, fs1, fs2, fs3, fs4};
+enum {fs0, fs1, fs2, fs3, fs4};
 
 
 // Deklarace ukazkove funkce
-void filtr(Spinac *struktura);
+void filtr(int *vstup, int *stav, int *vystup);
 
 #endif /* _FILTR_H */
