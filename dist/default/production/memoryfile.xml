@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug/pokus.X.debug.hex">
+  <executable name="dist/default/production/pokus.X.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>131064</length>
-      <used>1770</used>
-      <free>129294</free>
+      <used>1786</used>
+      <free>129278</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

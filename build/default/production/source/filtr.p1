@@ -1,110 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13831 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13831:     struct {
-[s S546 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S546 . SCS . OSTS IRCF IDLEN ]
-"13838
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13838:     struct {
-[s S547 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S547 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"13830
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13830: typedef union {
-[u S545 `S546 1 `S547 1 ]
-[n S545 . . . ]
-"13847
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13847: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
-[v _OSCCONbits `VS545 ~T0 @X0 0 e@4051 ]
-"7386
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7386:     struct {
-[s S256 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S256 . TUN PLLEN INTSRC ]
-"7391
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7391:     struct {
-[s S257 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S257 . TUN0 TUN1 TUN2 TUN3 TUN4 TUN5 ]
-"7385
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7385: typedef union {
-[u S255 `S256 1 `S257 1 ]
-[n S255 . . . ]
-"7400
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7400: extern volatile OSCTUNEbits_t OSCTUNEbits __attribute__((address(0xF9B)));
-[v _OSCTUNEbits `VS255 ~T0 @X0 0 e@3995 ]
-"13039
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13039:     struct {
-[s S489 :1 `uc 1 ]
-[n S489 . NOT_BOR ]
-"13042
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13042:     struct {
-[s S490 :1 `uc 1 :1 `uc 1 ]
-[n S490 . . NOT_POR ]
-"13046
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13046:     struct {
-[s S491 :2 `uc 1 :1 `uc 1 ]
-[n S491 . . NOT_PD ]
-"13050
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13050:     struct {
-[s S492 :3 `uc 1 :1 `uc 1 ]
-[n S492 . . NOT_TO ]
-"13054
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13054:     struct {
-[s S493 :4 `uc 1 :1 `uc 1 ]
-[n S493 . . NOT_RI ]
-"13058
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13058:     struct {
-[s S494 :5 `uc 1 :1 `uc 1 ]
-[n S494 . . NOT_CM ]
-"13062
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13062:     struct {
-[s S495 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S495 . nBOR nPOR nPD nTO nRI nCM . IPEN ]
-"13072
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13072:     struct {
-[s S496 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S496 . BOR POR PD TO RI CM ]
-"13038
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13038: typedef union {
-[u S488 `S489 1 `S490 1 `S491 1 `S492 1 `S493 1 `S494 1 `S495 1 `S496 1 ]
-[n S488 . . . . . . . . . ]
-"13081
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13081: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
-[v _RCONbits `VS488 ~T0 @X0 0 e@4048 ]
-"6595
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6595:     struct {
-[s S232 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S232 . . TRISF1 TRISF2 TRISF3 TRISF4 TRISF5 TRISF6 TRISF7 ]
-"6605
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6605:     struct {
-[s S233 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S233 . . RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
-"6594
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6594: typedef union {
-[u S231 `S232 1 `S233 1 ]
-[n S231 . . . ]
-"6616
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6616: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF97)));
-[v _TRISFbits `VS231 ~T0 @X0 0 e@3991 ]
-"10726
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 10726: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"14523
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14523:     struct {
-[s S565 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S565 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"14533
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14533:     struct {
-[s S566 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S566 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"14543
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14543:     struct {
-[s S567 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S567 . . GIEL GIEH ]
-"14522
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14522: typedef union {
-[u S564 `S565 1 `S566 1 `S567 1 ]
-[n S564 . . . . ]
-"14549
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14549: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS564 ~T0 @X0 0 e@4082 ]
+"22 source/filtr.c
+[; ;source/filtr.c: 22:                 *stav = fs1;
+[c E5045 0 1 2 3 4 .. ]
+[n E5045 . fs0 fs1 fs2 fs3 fs4  ]
 "54 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 54: __asm("PMSTAT equ 0F5Ah");
 [; <" PMSTAT equ 0F5Ah ;# ">
@@ -798,80 +696,210 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14858
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14858: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"23 source/./../header/preambleInitialization.h
-[p x FOSC  =  HSPLL ]
-"26
-[p x IESO  =  OFF ]
-"29
-[p x FCMEN  =  OFF ]
-"32
-[p x MODE  =  MM ]
-"35
-[p x XINST  =  OFF ]
-"38
-[p x STVREN  =  ON ]
-"41
-[p x WDTEN  =  OFF ]
-"44
-[p x WDTPS  =  32768 ]
-"47
-[p x CP0  =  OFF ]
-"16 source/preambleInitialization.c
-[; ;source/preambleInitialization.c: 16: void preambleInitialization(void)
-[v _preambleInitialization `(v ~T0 @X0 1 ef ]
-"17
-[; ;source/preambleInitialization.c: 17: {
+"18 source/filtr.c
+[; ;source/filtr.c: 18: void filtr(int *vstup, int *stav, int *vystup){
+[v _filtr `(v ~T0 @X0 1 ef3`*i`*i`*i ]
 {
-[e :U _preambleInitialization ]
+[e :U _filtr ]
+[v _vstup `*i ~T0 @X0 1 r1 ]
+[v _stav `*i ~T0 @X0 1 r2 ]
+[v _vystup `*i ~T0 @X0 1 r3 ]
 [f ]
+"19
+[; ;source/filtr.c: 19:     switch (*stav){
+[e $U 574  ]
+{
+"20
+[; ;source/filtr.c: 20:         case fs0:{
+[e :U 575 ]
+{
+"21
+[; ;source/filtr.c: 21:             if (*vstup == 1){
+[e $ ! == *U _vstup -> 1 `i 576  ]
+{
+"22
+[; ;source/filtr.c: 22:                 *stav = fs1;
+[e = *U _stav -> . `E5045 1 `i ]
+"23
+[; ;source/filtr.c: 23:             }
+}
+[e $U 577  ]
+"24
+[; ;source/filtr.c: 24:             else{
+[e :U 576 ]
+{
+"25
+[; ;source/filtr.c: 25:                 *stav = fs3;
+[e = *U _stav -> . `E5045 3 `i ]
 "26
-[; ;source/preambleInitialization.c: 26:     OSCCONbits.SCS = 0;
-[e = . . _OSCCONbits 0 0 -> -> 0 `i `uc ]
+[; ;source/filtr.c: 26:             }
+}
+[e :U 577 ]
+"27
+[; ;source/filtr.c: 27:             *vystup = 0;
+[e = *U _vystup -> 0 `i ]
 "28
-[; ;source/preambleInitialization.c: 28:     OSCTUNEbits.PLLEN = 1;
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;source/filtr.c: 28:             break;
+[e $U 573  ]
+"29
+[; ;source/filtr.c: 29:         }
+}
 "31
-[; ;source/preambleInitialization.c: 31:     RCONbits.IPEN = 1;
-[e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
+[; ;source/filtr.c: 31:         case fs1:{
+[e :U 578 ]
+{
+"32
+[; ;source/filtr.c: 32:             if (*vstup == 1){
+[e $ ! == *U _vstup -> 1 `i 579  ]
+{
+"33
+[; ;source/filtr.c: 33:                 *stav = fs2;
+[e = *U _stav -> . `E5045 2 `i ]
 "34
-[; ;source/preambleInitialization.c: 34:     TRISFbits.RF3 = 1;
-[e = . . _TRISFbits 1 3 -> -> 1 `i `uc ]
+[; ;source/filtr.c: 34:             }
+}
+[e $U 580  ]
 "35
-[; ;source/preambleInitialization.c: 35:     ADCON1 = 11100001;
-[e = _ADCON1 -> -> 11100001 `l `uc ]
+[; ;source/filtr.c: 35:             else{
+[e :U 579 ]
+{
+"36
+[; ;source/filtr.c: 36:                 *stav = fs3;
+[e = *U _stav -> . `E5045 3 `i ]
 "37
-[; ;source/preambleInitialization.c: 37: }
-[e :UE 572 ]
+[; ;source/filtr.c: 37:             }
 }
-"41
-[; ;source/preambleInitialization.c: 41: void enableAllInterrupts(void) {
-[v _enableAllInterrupts `(v ~T0 @X0 1 ef ]
-{
-[e :U _enableAllInterrupts ]
-[f ]
+[e :U 580 ]
+"38
+[; ;source/filtr.c: 38:             *vystup = 0;
+[e = *U _vystup -> 0 `i ]
+"39
+[; ;source/filtr.c: 39:             break;
+[e $U 573  ]
+"40
+[; ;source/filtr.c: 40:         }
+}
 "42
-[; ;source/preambleInitialization.c: 42:     INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"43
-[; ;source/preambleInitialization.c: 43:     INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"44
-[; ;source/preambleInitialization.c: 44: }
-[e :UE 573 ]
-}
-"47
-[; ;source/preambleInitialization.c: 47: void disableAllInterrupts(void) {
-[v _disableAllInterrupts `(v ~T0 @X0 1 ef ]
+[; ;source/filtr.c: 42:         case fs2:{
+[e :U 581 ]
 {
-[e :U _disableAllInterrupts ]
-[f ]
+"43
+[; ;source/filtr.c: 43:             if (*vstup == 1){
+[e $ ! == *U _vstup -> 1 `i 582  ]
+{
+"44
+[; ;source/filtr.c: 44:                 *stav = fs2;
+[e = *U _stav -> . `E5045 2 `i ]
+"45
+[; ;source/filtr.c: 45:                 *vystup = 1;
+[e = *U _vystup -> 1 `i ]
+"46
+[; ;source/filtr.c: 46:             }
+}
+[e $U 583  ]
+"47
+[; ;source/filtr.c: 47:             else{
+[e :U 582 ]
+{
 "48
-[; ;source/preambleInitialization.c: 48:     INTCONbits.GIEH = 0;
-[e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
+[; ;source/filtr.c: 48:                 *stav = fs3;
+[e = *U _stav -> . `E5045 3 `i ]
 "49
-[; ;source/preambleInitialization.c: 49:     INTCONbits.GIEL = 0;
-[e = . . _INTCONbits 2 1 -> -> 0 `i `uc ]
+[; ;source/filtr.c: 49:                 *vystup = 0;
+[e = *U _vystup -> 0 `i ]
 "50
-[; ;source/preambleInitialization.c: 50: }
-[e :UE 574 ]
+[; ;source/filtr.c: 50:             }
+}
+[e :U 583 ]
+"51
+[; ;source/filtr.c: 51:             break;
+[e $U 573  ]
+"52
+[; ;source/filtr.c: 52:         }
+}
+"54
+[; ;source/filtr.c: 54:         case fs3:{
+[e :U 584 ]
+{
+"55
+[; ;source/filtr.c: 55:             if (*vstup == 1){
+[e $ ! == *U _vstup -> 1 `i 585  ]
+{
+"56
+[; ;source/filtr.c: 56:                 *stav = fs1;
+[e = *U _stav -> . `E5045 1 `i ]
+"57
+[; ;source/filtr.c: 57:             }
+}
+[e $U 586  ]
+"58
+[; ;source/filtr.c: 58:             else{
+[e :U 585 ]
+{
+"59
+[; ;source/filtr.c: 59:                 *stav = fs4;
+[e = *U _stav -> . `E5045 4 `i ]
+"60
+[; ;source/filtr.c: 60:             }
+}
+[e :U 586 ]
+"61
+[; ;source/filtr.c: 61:             *vystup = 0;
+[e = *U _vystup -> 0 `i ]
+"62
+[; ;source/filtr.c: 62:             break;
+[e $U 573  ]
+"63
+[; ;source/filtr.c: 63:         }
+}
+"65
+[; ;source/filtr.c: 65:         case fs4:{
+[e :U 587 ]
+{
+"66
+[; ;source/filtr.c: 66:             if (*vstup == 1){
+[e $ ! == *U _vstup -> 1 `i 588  ]
+{
+"67
+[; ;source/filtr.c: 67:                 *stav = fs1;
+[e = *U _stav -> . `E5045 1 `i ]
+"68
+[; ;source/filtr.c: 68:             }
+}
+[e $U 589  ]
+"69
+[; ;source/filtr.c: 69:             else{
+[e :U 588 ]
+{
+"70
+[; ;source/filtr.c: 70:                 *stav = fs4;
+[e = *U _stav -> . `E5045 4 `i ]
+"71
+[; ;source/filtr.c: 71:                 *vystup = 0;
+[e = *U _vystup -> 0 `i ]
+"72
+[; ;source/filtr.c: 72:             }
+}
+[e :U 589 ]
+"73
+[; ;source/filtr.c: 73:             break;
+[e $U 573  ]
+"74
+[; ;source/filtr.c: 74:         }
+}
+"75
+[; ;source/filtr.c: 75:     }
+}
+[e $U 573  ]
+[e :U 574 ]
+[e [\ *U _stav , $ . `E5045 0 575
+ , $ . `E5045 1 578
+ , $ . `E5045 2 581
+ , $ . `E5045 3 584
+ , $ . `E5045 4 587
+ 573 ]
+[e :U 573 ]
+"76
+[; ;source/filtr.c: 76: }
+[e :UE 572 ]
 }

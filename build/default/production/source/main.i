@@ -8791,6 +8791,7 @@ void main(void)
           PORTDbits.RD6 = filtrA;
           PORTDbits.RD5 = filtrB;
           smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet);
+          PORTH = pocet;
           if (pocet == 0){
               PORTFbits.RF2 = 1;
           }

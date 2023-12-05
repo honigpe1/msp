@@ -1,4 +1,4 @@
-# 1 "source/main.c"
+# 1 "source/filtr.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,116 +6,10 @@
 # 1 "<built-in>" 2
 # 1 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "source/main.c" 2
-# 15 "source/main.c"
-# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdbool.h" 1 3
-# 16 "source/main.c" 2
-# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 1 3
-
-
-
-# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/musl_xc8.h" 1 3
-# 5 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 2 3
-# 26 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 3
-# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
-# 133 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef unsigned __int24 uintptr_t;
-# 148 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef __int24 intptr_t;
-# 164 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef signed char int8_t;
-
-
-
-
-typedef short int16_t;
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-typedef long int32_t;
-
-
-
-
-
-typedef long long int64_t;
-# 194 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef long long intmax_t;
-
-
-
-
-
-typedef unsigned char uint8_t;
-
-
-
-
-typedef unsigned short uint16_t;
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-typedef unsigned long uint32_t;
-
-
-
-
-
-typedef unsigned long long uint64_t;
-# 235 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef unsigned long long uintmax_t;
-# 27 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 2 3
-
-typedef int8_t int_fast8_t;
-
-typedef int64_t int_fast64_t;
-
-
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-
-typedef int24_t int_least24_t;
-typedef int24_t int_fast24_t;
-
-typedef int32_t int_least32_t;
-
-typedef int64_t int_least64_t;
-
-
-typedef uint8_t uint_fast8_t;
-
-typedef uint64_t uint_fast64_t;
-
-
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-
-typedef uint24_t uint_least24_t;
-typedef uint24_t uint_fast24_t;
-
-typedef uint32_t uint_least32_t;
-
-typedef uint64_t uint_least64_t;
-# 148 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 3
-# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/stdint.h" 1 3
-typedef int16_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef uint16_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-# 149 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 2 3
-# 17 "source/main.c" 2
+# 1 "source/filtr.c" 2
+# 12 "source/filtr.c"
+# 1 "source/./../header/filtr.h" 1
+# 14 "source/./../header/filtr.h"
 # 1 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -129,7 +23,16 @@ extern double __fpnormalize(double);
 
 
 # 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdlib.h" 1 3
-# 10 "/opt/microchip/xc8/v2.45/pic/include/c99/stdlib.h" 3
+
+
+
+# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/musl_xc8.h" 1 3
+# 5 "/opt/microchip/xc8/v2.45/pic/include/c99/stdlib.h" 2 3
+
+
+
+
+
 # 1 "/opt/microchip/xc8/v2.45/pic/include/c99/features.h" 1 3
 # 11 "/opt/microchip/xc8/v2.45/pic/include/c99/stdlib.h" 2 3
 # 21 "/opt/microchip/xc8/v2.45/pic/include/c99/stdlib.h" 3
@@ -138,6 +41,10 @@ extern double __fpnormalize(double);
 typedef long int wchar_t;
 # 128 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
 typedef unsigned size_t;
+# 174 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef __uint24 uint24_t;
 # 22 "/opt/microchip/xc8/v2.45/pic/include/c99/stdlib.h" 2 3
 
 int atoi (const char *);
@@ -225,7 +132,91 @@ extern void __builtin_software_breakpoint(void);
 
 
 
+# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 1 3
+# 26 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 3
+# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
+# 133 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef unsigned __int24 uintptr_t;
+# 148 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef __int24 intptr_t;
+# 164 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef signed char int8_t;
 
+
+
+
+typedef short int16_t;
+# 179 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef long int32_t;
+
+
+
+
+
+typedef long long int64_t;
+# 194 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef long long intmax_t;
+
+
+
+
+
+typedef unsigned char uint8_t;
+
+
+
+
+typedef unsigned short uint16_t;
+# 215 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef unsigned long uint32_t;
+
+
+
+
+
+typedef unsigned long long uint64_t;
+# 235 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef unsigned long long uintmax_t;
+# 27 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 2 3
+
+typedef int8_t int_fast8_t;
+
+typedef int64_t int_fast64_t;
+
+
+typedef int8_t int_least8_t;
+typedef int16_t int_least16_t;
+
+typedef int24_t int_least24_t;
+typedef int24_t int_fast24_t;
+
+typedef int32_t int_least32_t;
+
+typedef int64_t int_least64_t;
+
+
+typedef uint8_t uint_fast8_t;
+
+typedef uint64_t uint_fast64_t;
+
+
+typedef uint8_t uint_least8_t;
+typedef uint16_t uint_least16_t;
+
+typedef uint24_t uint_least24_t;
+typedef uint24_t uint_fast24_t;
+
+typedef uint32_t uint_least32_t;
+
+typedef uint64_t uint_least64_t;
+# 148 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 3
+# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/bits/stdint.h" 1 3
+typedef int16_t int_fast16_t;
+typedef int32_t int_fast32_t;
+typedef uint16_t uint_fast16_t;
+typedef uint32_t uint_fast32_t;
+# 149 "/opt/microchip/xc8/v2.45/pic/include/c99/stdint.h" 2 3
+# 5 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/builtins.h" 2 3
 
 
 #pragma intrinsic(__nop)
@@ -8660,169 +8651,81 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/xc.h" 2 3
-# 18 "source/main.c" 2
+# 15 "source/./../header/filtr.h" 2
+
+# 1 "/opt/microchip/xc8/v2.45/pic/include/c99/stdbool.h" 1 3
+# 17 "source/./../header/filtr.h" 2
 
 
 
 
-
-# 1 "source/./../header/preambleInitialization.h" 1
-# 23 "source/./../header/preambleInitialization.h"
-#pragma config FOSC = HSPLL
-
-
-#pragma config IESO = OFF
-
-
-#pragma config FCMEN = OFF
-
-
-#pragma config MODE = MM
-
-
-#pragma config XINST = OFF
-
-
-#pragma config STVREN = ON
-
-
-#pragma config WDTEN = OFF
-
-
-#pragma config WDTPS = 32768
-
-
-#pragma config CP0 = OFF
-
-
-
-
-
-void __attribute__((picinterrupt(("high_priority")))) high_isr(void);
-
-
-void __attribute__((picinterrupt(("low_priority")))) low_isr(void);
-
-
-
-void enableAllInterrupts(void);
-
-
-void disableAllInterrupts(void);
-
-
-void preambleInitialization(void);
-# 24 "source/main.c" 2
-
-
-
-# 1 "source/./../header/filtr.h" 1
-# 21 "source/./../header/filtr.h"
 enum {fs0, fs1, fs2, fs3, fs4};
 
 
 
 void filtr(int *vstup, int *stav, int *vystup);
-# 28 "source/main.c" 2
-# 1 "source/./../header/aretace.h" 1
-# 21 "source/./../header/aretace.h"
-enum {as0, as1, as2, as3};
-
-
-
-
-void aretace(int *vstup, int *stav, int *vystup);
-# 29 "source/main.c" 2
-# 1 "source/./../header/smerOtaceniPocitadloHran.h" 1
-# 21 "source/./../header/smerOtaceniPocitadloHran.h"
-enum {ks0,ks1,ks2,ks3};
-
-void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet);
-# 30 "source/main.c" 2
-# 42 "source/main.c"
-int vstupS4, filtrS4, stav_tlacitka;
-int stav_aretace, zaaretovane_tlacitko;
-int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet;
-_Bool casove_preruseni;
-# 59 "source/main.c"
-void main(void)
-{
-
-  preambleInitialization();
-
-
-
-
-  T0CON = 0;
-  T0CONbits.PSA = 1;
-  TMR0H = 0xD8;
-  TMR0L = 0xEF;
-
-
-  T0CONbits.TMR0ON = 1;
-
-
-
-  INTCON2 = 0;
-  INTCONbits.TMR0IE = 1;
-
-  T0CONbits.TMR0ON = 1;
-
-  INTCONbits.GIEL = 1;
-  INTCONbits.GIEH = 1;
+# 13 "source/filtr.c" 2
 
 
 
 
 
-  while (1)
-  {
-      if(casove_preruseni == 1){
-          casove_preruseni = 0;
-          vstupS4 = PORTJbits.RJ7;
-          filtr(&vstupS4, &stav_tlacitka, &filtrS4);
-          aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
-          PORTDbits.RD7 = zaaretovane_tlacitko;
+void filtr(int *vstup, int *stav, int *vystup){
+    switch (*stav){
+        case fs0:{
+            if (*vstup == 1){
+                *stav = fs1;
+            }
+            else{
+                *stav = fs3;
+            }
+            *vystup = 0;
+            break;
+        }
 
-          A = PORTJbits.RJ0;
-          filtr(&A, &stav_filtru_A, &filtrA);
-          B = PORTJbits.RJ1;
-          filtr(&B, &stav_filtru_B, &filtrB);
-          PORTDbits.RD6 = filtrA;
-          PORTDbits.RD5 = filtrB;
-          smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet);
-          if (pocet == 0){
-              PORTFbits.RF2 = 1;
-          }
-          else if (pocet == 255){
-              PORTFbits.RF1 = 1;
-          }
-          else{
-              PORTFbits.RF2 = 0;
-              PORTFbits.RF1 = 0;
-          }
-      }
+        case fs1:{
+            if (*vstup == 1){
+                *stav = fs2;
+            }
+            else{
+                *stav = fs3;
+            }
+            *vystup = 0;
+            break;
+        }
 
-  }
-}
+        case fs2:{
+            if (*vstup == 1){
+                *stav = fs2;
+                *vystup = 1;
+            }
+            else{
+                *stav = fs3;
+                *vystup = 0;
+            }
+            break;
+        }
 
+        case fs3:{
+            if (*vstup == 1){
+                *stav = fs1;
+            }
+            else{
+                *stav = fs4;
+            }
+            *vystup = 0;
+            break;
+        }
 
-
-
-
-void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
-{
-
-}
-
-
-void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
-    if (INTCONbits.TMR0IF == 1){
-        TMR0H = 0xD8;
-        TMR0L = 0xEF;
-        INTCONbits.TMR0IF = 0;
-
-        casove_preruseni=1;
+        case fs4:{
+            if (*vstup == 1){
+                *stav = fs1;
+            }
+            else{
+                *stav = fs4;
+                *vystup = 0;
+            }
+            break;
+        }
     }
-
 }

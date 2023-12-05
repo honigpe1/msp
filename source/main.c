@@ -62,10 +62,7 @@ void main(void)
   preambleInitialization();
   
   // Inicializujte vlastni casti programu vlastnimi inicializacnimi funkcemi
-  
-  
-  
-  
+    
   //TIMER0 init
   T0CON = 0;
   T0CONbits.PSA = 1; // vypnuta preddelicka
@@ -85,6 +82,9 @@ void main(void)
   INTCONbits.GIEL = 1;
   INTCONbits.GIEH = 1;
 
+
+  
+  
   // Zde v nekonecne smycce je beh programu na pozadi
   while (1)
   {
@@ -93,13 +93,26 @@ void main(void)
           vstupS4 = PORTJbits.RJ7;
           filtr(&vstupS4, &stav_tlacitka, &filtrS4);
           aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
+          PORTDbits.RD7 = zaaretovane_tlacitko;
           
           A = PORTJbits.RJ0;
           filtr(&A, &stav_filtru_A, &filtrA);
           B = PORTJbits.RJ1;
           filtr(&B, &stav_filtru_B, &filtrB);
-          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &pocet);
-          
+          PORTDbits.RD6 = filtrA;
+          PORTDbits.RD5 = filtrB;
+          smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet);
+          PORTH = pocet;
+          if (pocet == 0){
+              PORTFbits.RF2 = 1;
+          }
+          else if (pocet == 255){
+              PORTFbits.RF1 = 1;
+          }
+          else{
+              PORTFbits.RF2 = 0;
+              PORTFbits.RF1 = 0;
+          }
       }
       // Piste svuj kod pro program na pozadi
   }

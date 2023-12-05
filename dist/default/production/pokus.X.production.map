@@ -3,11 +3,11 @@ Microchip MPLAB XC8 Compiler V2.45
 Linker command line:
 
 -W-3 --edf=/opt/microchip/xc8/v2.45/pic/dat/20230818022343_en.msgs -cn \
-  -h+dist/default/debug/pokus.X.debug.sym \
-  --cmf=dist/default/debug/pokus.X.debug.cmf -z -Q18F87J11 \
-  -o/tmp/xcXnnjHDO/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
-  --fixupoverflow=error -Mdist/default/debug/pokus.X.debug.map \
-  --md=/tmp/xcXnnjHDO/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  -h+dist/default/production/pokus.X.production.sym \
+  --cmf=dist/default/production/pokus.X.production.cmf -z -Q18F87J11 \
+  -o/tmp/xcXpCdDHK/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  --fixupoverflow=error -Mdist/default/production/pokus.X.production.map \
+  --md=/tmp/xcXpCdDHK/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
   -ACODE=00h-01FFF7h -ACONST=00h-01FFF7h \
   -ASMALLCONST=01000h-010FFhx495,01FF00h-01FFF7h \
   -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFF7h -ACOMRAM=01h-05Fh \
@@ -18,7 +18,7 @@ Linker command line:
   -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
   -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
   -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh -ABANK15=0F00h-0F3Fh \
-  -ASFR=0F5Ah-0F5Fh,0F60h-0FFCh -ABIGSFR=0F5Ah-0FFCh \
+  -ASFR=0F5Ah-0F5Fh,0F60h-0FFFh -ABIGSFR=0F5Ah-0FFFh \
   -ACONFIG=01FFF8h-01FFFDh \
   -preset_vec=00h,intcode=08h,intcodelo=018h,powerup,init -pramtop=01000h \
   -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
@@ -27,7 +27,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcXnnjHDO/driver_tmp_9.o dist/default/debug/pokus.X.debug.o 
+  /tmp/xcXpCdDHK/driver_tmp_9.o \
+  dist/default/production/pokus.X.production.o 
 
 Object code version is 3.11
 
@@ -36,39 +37,39 @@ Machine type is 18F87J11
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcXnnjHDO/driver_tmp_9.o
+/tmp/xcXpCdDHK/driver_tmp_9.o
                 config                            1FFF8    1FFF8        6        0       4
                 init                                 52       52        4        C       0
-                reset_vec                             0        0        6        0       0
-dist/default/debug/pokus.X.debug.o
+                reset_vec                             0        0        4        0       0
+dist/default/production/pokus.X.production.o
                 intcodelo                            18       18       3A        C       0
                 intcode                               8        8        6        4       0
                 config                            1FFF8    1FFF8        6        0       4
                 temp                                 28       28        1        1       1
                 smallconst                         1000     1000        2      800       0
-                intcode_body                       169C     169C        4      801       0
-                text4                              1572     1572      104      801       0
+                intcode_body                       16AE     16AE        4      801       0
+                text4                              1576     1576      104      801       0
                 text3                              12BA     12BA      188      801       0
-                text2                              168C     168C       10      801       0
+                text2                              167A     167A       1E      801       0
                 text1                              1002     1002      2B8      801       0
-                text0                              1442     1442      130      801       0
+                text0                              1442     1442      134      801       0
                 cstackCOMRAM                         1C       1C        C        1       1
                 bssCOMRAM                             1        1       1B        1       1
-                cinit                              1676     1676       16      801       0
+                cinit                              1698     1698       16      801       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 intcodelo                            18       18       3A         0
                 intcode                               8        8        6         0
                 init                                 52       52        4         0
-                reset_vec                             0        0        6         0
-                intcode_body                       169C     169C        4         0
-                text4                              1572     1572      104         0
+                reset_vec                             0        0        4         0
+                intcode_body                       16AE     16AE        4         0
+                text4                              1576     1576      104         0
                 text3                              12BA     12BA      188         0
-                text2                              168C     168C       10         0
+                text2                              167A     167A       1E         0
                 text1                              1002     1002      2B8         0
-                text0                              1442     1442      130         0
-                cinit                              1676     1676       16         0
+                text0                              1442     1442      134         0
+                cinit                              1698     1698       16         0
 
         CLASS   CONST          
 
@@ -140,8 +141,8 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 bssCOMRAM                      000001  000028  000029         1       1  COMRAM  
-                reset_vec                      000000  000006  000006         0       0  CODE    
-                text1                          001002  00069E  0016A0       801       0  CODE    
+                reset_vec                      000000  000004  000004         0       0  CODE    
+                text1                          001002  0006B0  0016B2       801       0  CODE    
                 intcode                        000008  000006  00000E         4       0  CODE    
                 intcodelo                      000018  00003E  000056         C       0  CODE    
                 smallconst                     001000  000002  001002       800       0  SMALLCON
@@ -167,21 +168,21 @@ UNUSED ADDRESS RANGES
         BANK8            00800-008FF             100
         BANK9            00900-009FF             100
         BIGRAM           00029-00F3F             F17
-        BIGSFR           00F5A-00FFC              A3
-        CODE             00006-00007               2
+        BIGSFR           00F5A-00FFF              A6
+        CODE             00004-00007               4
                          0000E-00017               A
                          00056-00FFF             FAA
-                         016A0-1FFF7           1E958
+                         016B2-1FFF7           1E946
         COMRAM           00029-0005F              37
-        CONST            00006-00007               2
+        CONST            00004-00007               4
                          0000E-00017               A
                          00056-00FFF             FAA
-                         016A0-1FFF7           1E958
-        MEDIUMCONST      016A0-0FFFF            E960
+                         016B2-1FFF7           1E946
+        MEDIUMCONST      016B2-0FFFF            E94E
                          11000-1FFF7            EFF8
         RAM              00060-00F3F             100
-        SFR              00F5A-00FFC               6
-        SMALLCONST       016A0-1FFF7             100
+        SFR              00F5A-00FFF               6
+        SMALLCONST       016B2-1FFF7             100
 
                                   Symbol Table
 
@@ -194,13 +195,18 @@ _OSCCONbits                       (abs)         00FD3
 _OSCTUNEbits                      (abs)         00F9B
 _PORTDbits                        (abs)         00F83
 _PORTFbits                        (abs)         00F85
+_PORTH                            (abs)         00F87
 _PORTJbits                        (abs)         00F88
 _RCONbits                         (abs)         00FD0
 _T0CON                            (abs)         00FD5
 _T0CONbits                        (abs)         00FD5
 _TMR0H                            (abs)         00FD7
 _TMR0L                            (abs)         00FD6
+_TRISD                            (abs)         00F95
+_TRISF                            (abs)         00F97
 _TRISFbits                        (abs)         00F97
+_TRISH                            (abs)         00F99
+_TRISJ                            (abs)         00F9A
 __HRAM                            (abs)         00000
 __H__absolute__                   __absolute__  00000
 __Habs1                           abs1          00000
@@ -260,7 +266,7 @@ __Hramtop                         ramtop        01000
 __Hrbit                           rbit          00000
 __Hrbss                           rbss          00000
 __Hrdata                          rdata         00000
-__Hreset_vec                      reset_vec     00006
+__Hreset_vec                      reset_vec     00004
 __Hrparam                         rparam        00000
 __Hsfr                            sfr           00000
 __Hsmallconst                     smallconst    01002
@@ -353,7 +359,7 @@ __Ltext1                          text1         00000
 __Ltext2                          text2         00000
 __Ltext3                          text3         00000
 __Ltext4                          text4         00000
-__S0                              (abs)         016A0
+__S0                              (abs)         016B2
 __S1                              (abs)         00029
 __S4                              (abs)         00000
 ___extmem_base                    (abs)         20000
@@ -372,31 +378,31 @@ ___stack_hi                       stack         00000
 ___stack_lo                       stack         00000
 __accesstop                       (abs)         00060
 __activetblptr                    (abs)         00003
-__end_of__initialization          cinit         01682
-__end_of_aretace                  text4         01676
+__end_of__initialization          cinit         016A4
+__end_of_aretace                  text4         0167A
 __end_of_filtr                    text3         01442
-__end_of_high_isr                 intcode_body  016A0
+__end_of_high_isr                 intcode_body  016B2
 __end_of_low_isr                  intcodelo     00052
-__end_of_main                     text0         01572
-__end_of_preambleInitialization   text2         0169C
+__end_of_main                     text0         01576
+__end_of_preambleInitialization   text2         01698
 __end_of_smerOtaceniPocitadloHran text1         012BA
-__initialization                  cinit         01676
+__initialization                  cinit         01698
 __mediumconst                     mediumconst   00000
 __pbssCOMRAM                      bssCOMRAM     00001
-__pcinit                          cinit         01676
+__pcinit                          cinit         01698
 __pcstackCOMRAM                   cstackCOMRAM  0001C
 __pintcode                        intcode       00008
-__pintcode_body                   intcode_body  0169C
+__pintcode_body                   intcode_body  016AE
 __pintcodelo                      intcodelo     00018
 __psmallconst                     smallconst    01000
 __ptext0                          text0         01442
 __ptext1                          text1         01002
-__ptext2                          text2         0168C
+__ptext2                          text2         0167A
 __ptext3                          text3         012BA
-__ptext4                          text4         01572
+__ptext4                          text4         01576
 __ramtop                          ramtop        01000
 __smallconst                      smallconst    01000
-_aretace                          text4         01572
+_aretace                          text4         01576
 _casove_preruseni                 bssCOMRAM     00001
 _filtr                            text3         012BA
 _filtrA                           bssCOMRAM     0000C
@@ -406,7 +412,7 @@ _high_isr                         intcode       00008
 _low_isr                          intcodelo     00018
 _main                             text0         01442
 _pocet                            bssCOMRAM     00002
-_preambleInitialization           text2         0168C
+_preambleInitialization           text2         0167A
 _smerOtaceniPocitadloHran         text1         01002
 _stav_aretace                     bssCOMRAM     00014
 _stav_filtru_A                    bssCOMRAM     00006
@@ -419,12 +425,12 @@ aretace@stav                      cstackCOMRAM  00020
 aretace@vstup                     cstackCOMRAM  0001F
 aretace@vystup                    cstackCOMRAM  00021
 btemp                             temp          00028
-end_of_initialization             cinit         01682
+end_of_initialization             cinit         016A4
 filtr@stav                        cstackCOMRAM  00020
 filtr@vstup                       cstackCOMRAM  0001F
 filtr@vystup                      cstackCOMRAM  00021
 int$flags                         temp          00028
-int_func                          intcode_body  0169C
+int_func                          intcode_body  016AE
 intlevel0                         text          00000
 intlevel1                         text          00000
 intlevel2                         text          00000
@@ -438,7 +444,7 @@ smerOtaceniPocitadloHran@stav     cstackCOMRAM  00021
 stackhi                           (abs)         00000
 stacklo                           (abs)         00000
 start                             init          00052
-start_initialization              cinit         01676
+start_initialization              cinit         01698
 ttemp5                            temp          00029
 ttemp6                            temp          0002C
 ttemp7                            temp          00030
@@ -449,21 +455,21 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 source/aretace.c
-		_aretace       		CODE           	1572	0000	260
+		_aretace       		CODE           	1576	0000	260
 
 source/aretace.c estimated size: 260
 
 source/main.c
-		_main          		CODE           	1442	0000	304
+		_main          		CODE           	1442	0000	308
 		_high_isr      		CODE           	0008	0000	10
 		_low_isr       		CODE           	0018	0000	58
 
-source/main.c estimated size: 372
+source/main.c estimated size: 376
 
 source/preambleInitialization.c
-		_preambleInitialization		CODE           	168C	0000	16
+		_preambleInitialization		CODE           	167A	0000	30
 
-source/preambleInitialization.c estimated size: 16
+source/preambleInitialization.c estimated size: 30
 
 source/smerOtaceniPocitadloHran.c
 		_smerOtaceniPocitadloHran		CODE           	1002	0000	696
@@ -476,7 +482,7 @@ source/filtr.c
 source/filtr.c estimated size: 392
 
 shared
-		__initialization		CODE           	1676	0000	12
+		__initialization		CODE           	1698	0000	12
 
 shared estimated size: 12
 

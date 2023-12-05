@@ -27,10 +27,22 @@ void preambleInitialization(void)
 
     OSCTUNEbits.PLLEN = 1;
 
-
-
     // Povoleni vysoke a nizke priority preruseni
     RCONbits.IPEN = 1;
+    
+    //vstupy vystupy
+    TRISD = 0x00;
+    TRISJ = 0xFF;
+    TRISH = 0x00;
+    TRISF = 0x00;
+    
+    //AD prevodnik
+    TRISFbits.RF3 = 1;
+    ADCON1 = 11100001;
+    ADCON0 = 10000010;
+    PIE1 = ADIE;
+    IPR1bits.ADIP = 0;
+    
 }
 
 

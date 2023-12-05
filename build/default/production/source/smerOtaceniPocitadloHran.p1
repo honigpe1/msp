@@ -1,110 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13831 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13831:     struct {
-[s S546 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S546 . SCS . OSTS IRCF IDLEN ]
-"13838
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13838:     struct {
-[s S547 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S547 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"13830
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13830: typedef union {
-[u S545 `S546 1 `S547 1 ]
-[n S545 . . . ]
-"13847
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13847: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
-[v _OSCCONbits `VS545 ~T0 @X0 0 e@4051 ]
-"7386
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7386:     struct {
-[s S256 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S256 . TUN PLLEN INTSRC ]
-"7391
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7391:     struct {
-[s S257 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S257 . TUN0 TUN1 TUN2 TUN3 TUN4 TUN5 ]
-"7385
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7385: typedef union {
-[u S255 `S256 1 `S257 1 ]
-[n S255 . . . ]
-"7400
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7400: extern volatile OSCTUNEbits_t OSCTUNEbits __attribute__((address(0xF9B)));
-[v _OSCTUNEbits `VS255 ~T0 @X0 0 e@3995 ]
-"13039
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13039:     struct {
-[s S489 :1 `uc 1 ]
-[n S489 . NOT_BOR ]
-"13042
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13042:     struct {
-[s S490 :1 `uc 1 :1 `uc 1 ]
-[n S490 . . NOT_POR ]
-"13046
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13046:     struct {
-[s S491 :2 `uc 1 :1 `uc 1 ]
-[n S491 . . NOT_PD ]
-"13050
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13050:     struct {
-[s S492 :3 `uc 1 :1 `uc 1 ]
-[n S492 . . NOT_TO ]
-"13054
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13054:     struct {
-[s S493 :4 `uc 1 :1 `uc 1 ]
-[n S493 . . NOT_RI ]
-"13058
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13058:     struct {
-[s S494 :5 `uc 1 :1 `uc 1 ]
-[n S494 . . NOT_CM ]
-"13062
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13062:     struct {
-[s S495 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S495 . nBOR nPOR nPD nTO nRI nCM . IPEN ]
-"13072
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13072:     struct {
-[s S496 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S496 . BOR POR PD TO RI CM ]
-"13038
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13038: typedef union {
-[u S488 `S489 1 `S490 1 `S491 1 `S492 1 `S493 1 `S494 1 `S495 1 `S496 1 ]
-[n S488 . . . . . . . . . ]
-"13081
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13081: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
-[v _RCONbits `VS488 ~T0 @X0 0 e@4048 ]
-"6595
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6595:     struct {
-[s S232 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S232 . . TRISF1 TRISF2 TRISF3 TRISF4 TRISF5 TRISF6 TRISF7 ]
-"6605
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6605:     struct {
-[s S233 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S233 . . RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
-"6594
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6594: typedef union {
-[u S231 `S232 1 `S233 1 ]
-[n S231 . . . ]
-"6616
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6616: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF97)));
-[v _TRISFbits `VS231 ~T0 @X0 0 e@3991 ]
-"10726
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 10726: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"14523
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14523:     struct {
-[s S565 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S565 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"14533
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14533:     struct {
-[s S566 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S566 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"14543
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14543:     struct {
-[s S567 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S567 . . GIEL GIEH ]
-"14522
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14522: typedef union {
-[u S564 `S565 1 `S566 1 `S567 1 ]
-[n S564 . . . . ]
-"14549
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14549: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS564 ~T0 @X0 0 e@4082 ]
+"24 source/smerOtaceniPocitadloHran.c
+[; ;source/smerOtaceniPocitadloHran.c: 24:                 *stav = ks1;
+[c E5045 0 1 2 3 .. ]
+[n E5045 . ks0 ks1 ks2 ks3  ]
 "54 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 54: __asm("PMSTAT equ 0F5Ah");
 [; <" PMSTAT equ 0F5Ah ;# ">
@@ -798,80 +696,212 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14858
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14858: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"23 source/./../header/preambleInitialization.h
-[p x FOSC  =  HSPLL ]
-"26
-[p x IESO  =  OFF ]
-"29
-[p x FCMEN  =  OFF ]
-"32
-[p x MODE  =  MM ]
-"35
-[p x XINST  =  OFF ]
-"38
-[p x STVREN  =  ON ]
-"41
-[p x WDTEN  =  OFF ]
-"44
-[p x WDTPS  =  32768 ]
-"47
-[p x CP0  =  OFF ]
-"16 source/preambleInitialization.c
-[; ;source/preambleInitialization.c: 16: void preambleInitialization(void)
-[v _preambleInitialization `(v ~T0 @X0 1 ef ]
+"14 source/smerOtaceniPocitadloHran.c
+[; ;source/smerOtaceniPocitadloHran.c: 14: void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet){
+[v _smerOtaceniPocitadloHran `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
+{
+[e :U _smerOtaceniPocitadloHran ]
+[v _A `*i ~T0 @X0 1 r1 ]
+[v _B `*i ~T0 @X0 1 r2 ]
+[v _stav `*i ~T0 @X0 1 r3 ]
+[v _pocet `*i ~T0 @X0 1 r4 ]
+[f ]
+"15
+[; ;source/smerOtaceniPocitadloHran.c: 15:     switch (*stav){
+[e $U 574  ]
+{
+"16
+[; ;source/smerOtaceniPocitadloHran.c: 16:         case ks0:{
+[e :U 575 ]
+{
 "17
-[; ;source/preambleInitialization.c: 17: {
+[; ;source/smerOtaceniPocitadloHran.c: 17:             if (*A == 1 && *B==0){
+[e $ ! && == *U _A -> 1 `i == *U _B -> 0 `i 576  ]
 {
-[e :U _preambleInitialization ]
-[f ]
+"18
+[; ;source/smerOtaceniPocitadloHran.c: 18:                 if (*pocet == 255){
+[e $ ! == *U _pocet -> 255 `i 577  ]
+{
+"19
+[; ;source/smerOtaceniPocitadloHran.c: 19:                     *pocet=255;
+[e = *U _pocet -> 255 `i ]
+"20
+[; ;source/smerOtaceniPocitadloHran.c: 20:                 }
+}
+[e $U 578  ]
+"21
+[; ;source/smerOtaceniPocitadloHran.c: 21:                 else{
+[e :U 577 ]
+{
+"22
+[; ;source/smerOtaceniPocitadloHran.c: 22:                     *pocet = *pocet +1;
+[e = *U _pocet + *U _pocet -> 1 `i ]
+"23
+[; ;source/smerOtaceniPocitadloHran.c: 23:                 }
+}
+[e :U 578 ]
+"24
+[; ;source/smerOtaceniPocitadloHran.c: 24:                 *stav = ks1;
+[e = *U _stav -> . `E5045 1 `i ]
+"25
+[; ;source/smerOtaceniPocitadloHran.c: 25:             }
+}
+[e $U 579  ]
 "26
-[; ;source/preambleInitialization.c: 26:     OSCCONbits.SCS = 0;
-[e = . . _OSCCONbits 0 0 -> -> 0 `i `uc ]
+[; ;source/smerOtaceniPocitadloHran.c: 26:             else if (*A == 0 && *B==1){
+[e :U 576 ]
+[e $ ! && == *U _A -> 0 `i == *U _B -> 1 `i 580  ]
+{
+"27
+[; ;source/smerOtaceniPocitadloHran.c: 27:                 if (*pocet == 0){
+[e $ ! == *U _pocet -> 0 `i 581  ]
+{
 "28
-[; ;source/preambleInitialization.c: 28:     OSCTUNEbits.PLLEN = 1;
-[e = . . _OSCTUNEbits 0 1 -> -> 1 `i `uc ]
+[; ;source/smerOtaceniPocitadloHran.c: 28:                     *pocet=0;
+[e = *U _pocet -> 0 `i ]
+"29
+[; ;source/smerOtaceniPocitadloHran.c: 29:                 }
+}
+[e $U 582  ]
+"30
+[; ;source/smerOtaceniPocitadloHran.c: 30:                 else{
+[e :U 581 ]
+{
 "31
-[; ;source/preambleInitialization.c: 31:     RCONbits.IPEN = 1;
-[e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
+[; ;source/smerOtaceniPocitadloHran.c: 31:                     *pocet = *pocet - 1;
+[e = *U _pocet - *U _pocet -> 1 `i ]
+"32
+[; ;source/smerOtaceniPocitadloHran.c: 32:                 }
+}
+[e :U 582 ]
+"33
+[; ;source/smerOtaceniPocitadloHran.c: 33:                 *stav = ks3;
+[e = *U _stav -> . `E5045 3 `i ]
 "34
-[; ;source/preambleInitialization.c: 34:     TRISFbits.RF3 = 1;
-[e = . . _TRISFbits 1 3 -> -> 1 `i `uc ]
+[; ;source/smerOtaceniPocitadloHran.c: 34:             }
+}
+[e :U 580 ]
+[e :U 579 ]
 "35
-[; ;source/preambleInitialization.c: 35:     ADCON1 = 11100001;
-[e = _ADCON1 -> -> 11100001 `l `uc ]
-"37
-[; ;source/preambleInitialization.c: 37: }
-[e :UE 572 ]
+[; ;source/smerOtaceniPocitadloHran.c: 35:             break;
+[e $U 573  ]
+"36
+[; ;source/smerOtaceniPocitadloHran.c: 36:         }
 }
+"38
+[; ;source/smerOtaceniPocitadloHran.c: 38:         case ks1:{
+[e :U 583 ]
+{
+"39
+[; ;source/smerOtaceniPocitadloHran.c: 39:             if (*A == 1 && *B==1){
+[e $ ! && == *U _A -> 1 `i == *U _B -> 1 `i 584  ]
+{
+"40
+[; ;source/smerOtaceniPocitadloHran.c: 40:                 *stav = ks2;
+[e = *U _stav -> . `E5045 2 `i ]
 "41
-[; ;source/preambleInitialization.c: 41: void enableAllInterrupts(void) {
-[v _enableAllInterrupts `(v ~T0 @X0 1 ef ]
-{
-[e :U _enableAllInterrupts ]
-[f ]
-"42
-[; ;source/preambleInitialization.c: 42:     INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"43
-[; ;source/preambleInitialization.c: 43:     INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"44
-[; ;source/preambleInitialization.c: 44: }
-[e :UE 573 ]
+[; ;source/smerOtaceniPocitadloHran.c: 41:             }
 }
-"47
-[; ;source/preambleInitialization.c: 47: void disableAllInterrupts(void) {
-[v _disableAllInterrupts `(v ~T0 @X0 1 ef ]
+[e $U 585  ]
+"42
+[; ;source/smerOtaceniPocitadloHran.c: 42:             else if (*A == 0 && *B==0){
+[e :U 584 ]
+[e $ ! && == *U _A -> 0 `i == *U _B -> 0 `i 586  ]
 {
-[e :U _disableAllInterrupts ]
-[f ]
+"43
+[; ;source/smerOtaceniPocitadloHran.c: 43:                *stav = ks0;
+[e = *U _stav -> . `E5045 0 `i ]
+"44
+[; ;source/smerOtaceniPocitadloHran.c: 44:             }
+}
+[e :U 586 ]
+[e :U 585 ]
+"45
+[; ;source/smerOtaceniPocitadloHran.c: 45:             break;
+[e $U 573  ]
+"46
+[; ;source/smerOtaceniPocitadloHran.c: 46:         }
+}
 "48
-[; ;source/preambleInitialization.c: 48:     INTCONbits.GIEH = 0;
-[e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
+[; ;source/smerOtaceniPocitadloHran.c: 48:         case ks2:{
+[e :U 587 ]
+{
 "49
-[; ;source/preambleInitialization.c: 49:     INTCONbits.GIEL = 0;
-[e = . . _INTCONbits 2 1 -> -> 0 `i `uc ]
+[; ;source/smerOtaceniPocitadloHran.c: 49:             if (*A == 0 && *B==1){
+[e $ ! && == *U _A -> 0 `i == *U _B -> 1 `i 588  ]
+{
 "50
-[; ;source/preambleInitialization.c: 50: }
-[e :UE 574 ]
+[; ;source/smerOtaceniPocitadloHran.c: 50:                 *stav = ks3;
+[e = *U _stav -> . `E5045 3 `i ]
+"51
+[; ;source/smerOtaceniPocitadloHran.c: 51:             }
+}
+[e $U 589  ]
+"52
+[; ;source/smerOtaceniPocitadloHran.c: 52:             else if (*A == 1 && *B==0){
+[e :U 588 ]
+[e $ ! && == *U _A -> 1 `i == *U _B -> 0 `i 590  ]
+{
+"53
+[; ;source/smerOtaceniPocitadloHran.c: 53:                 *stav = ks1;
+[e = *U _stav -> . `E5045 1 `i ]
+"54
+[; ;source/smerOtaceniPocitadloHran.c: 54:             }
+}
+[e :U 590 ]
+[e :U 589 ]
+"55
+[; ;source/smerOtaceniPocitadloHran.c: 55:             break;
+[e $U 573  ]
+"56
+[; ;source/smerOtaceniPocitadloHran.c: 56:         }
+}
+"58
+[; ;source/smerOtaceniPocitadloHran.c: 58:         case ks3:{
+[e :U 591 ]
+{
+"59
+[; ;source/smerOtaceniPocitadloHran.c: 59:             if (*A == 0 && *B==0){
+[e $ ! && == *U _A -> 0 `i == *U _B -> 0 `i 592  ]
+{
+"60
+[; ;source/smerOtaceniPocitadloHran.c: 60:                 *stav = ks0;
+[e = *U _stav -> . `E5045 0 `i ]
+"61
+[; ;source/smerOtaceniPocitadloHran.c: 61:             }
+}
+[e $U 593  ]
+"62
+[; ;source/smerOtaceniPocitadloHran.c: 62:             else if (*A == 1 && *B==1){
+[e :U 592 ]
+[e $ ! && == *U _A -> 1 `i == *U _B -> 1 `i 594  ]
+{
+"63
+[; ;source/smerOtaceniPocitadloHran.c: 63:                *stav = ks2;
+[e = *U _stav -> . `E5045 2 `i ]
+"64
+[; ;source/smerOtaceniPocitadloHran.c: 64:             }
+}
+[e :U 594 ]
+[e :U 593 ]
+"65
+[; ;source/smerOtaceniPocitadloHran.c: 65:             break;
+[e $U 573  ]
+"66
+[; ;source/smerOtaceniPocitadloHran.c: 66:         }
+}
+"67
+[; ;source/smerOtaceniPocitadloHran.c: 67:     }
+}
+[e $U 573  ]
+[e :U 574 ]
+[e [\ *U _stav , $ . `E5045 0 575
+ , $ . `E5045 1 583
+ , $ . `E5045 2 587
+ , $ . `E5045 3 591
+ 573 ]
+[e :U 573 ]
+"68
+[; ;source/smerOtaceniPocitadloHran.c: 68: }
+[e :UE 572 ]
 }

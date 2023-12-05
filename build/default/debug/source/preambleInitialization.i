@@ -8716,9 +8716,12 @@ void preambleInitialization(void)
     OSCTUNEbits.PLLEN = 1;
 
 
-
-
     RCONbits.IPEN = 1;
+
+
+    TRISFbits.RF3 = 1;
+    ADCON1 = 11100001;
+
 }
 
 
