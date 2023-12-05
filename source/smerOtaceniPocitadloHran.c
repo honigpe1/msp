@@ -11,24 +11,24 @@
 /* Hlavickove soubory*/
 #include "./../header/smerOtaceniPocitadloHran.h"
 
-void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet){
+void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet){
     switch (*stav){
         case ks0:{
             if (*A == 1 && *B==0){
                 if (*pocet == 255){
-                    *pocet=0;
+                    *pocet=255;
                 }
                 else{
-                    *pocet++;
+                    *pocet = *pocet +1;
                 }
                 *stav = ks1;
             }
             else if (*A == 0 && *B==1){
                 if (*pocet == 0){
-                    *pocet=255;
+                    *pocet=0;
                 }
                 else{
-                    *pocet--;
+                    *pocet = *pocet - 1;
                 }
                 *stav = ks3;
             }        
@@ -37,43 +37,19 @@ void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet){
         
         case ks1:{
             if (*A == 1 && *B==1){
-                if (*pocet == 255){
-                    *pocet=0;
-                }
-                else{
-                    *pocet++;
-                }
                 *stav = ks2;
             }
             else if (*A == 0 && *B==0){
-                if (*pocet == 0){
-                    *pocet=255;
-                }
-                else{
-                    *pocet--;
-                }
-                *stav = ks0;
+               *stav = ks0;
             }
             break;
         }
         
         case ks2:{
             if (*A == 0 && *B==1){
-                if (*pocet == 255){
-                    *pocet=0;
-                }
-                else{
-                    *pocet++;
-                }
                 *stav = ks3;
             }
             else if (*A == 1 && *B==0){
-                if (*pocet == 0){
-                    *pocet=255;
-                }
-                else{
-                    *pocet--;
-                }
                 *stav = ks1;
             }         
             break;
@@ -81,22 +57,10 @@ void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet){
         
         case ks3:{
             if (*A == 0 && *B==0){
-                if (*pocet == 255){
-                    *pocet=0;
-                }
-                else{
-                    *pocet++;
-                }
                 *stav = ks0;
             }
             else if (*A == 1 && *B==1){
-                if (*pocet == 0){
-                    *pocet=255;
-                }
-                else{
-                    *pocet--;
-                }
-                *stav = ks2;
+               *stav = ks2;
             }
             break;
         }

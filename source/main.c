@@ -39,9 +39,9 @@
 //----------------------------------------------------------------------------
 /* ZDE ZACINA BLOK PRO DEKLARACI VLASTNICH GLOBALNICH PROMENNYCH */
 
-int vstup, filtrS4, stav_tlacitka;
+int vstupS4, filtrS4, stav_tlacitka;
 int stav_aretace, zaaretovane_tlacitko;
-int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, smer, pocet;
+int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet;
 bool casove_preruseni;
 // Priklad pro deklaraci promenne typu uint8_t, se jmenem a
 // uint8_t x;
@@ -80,7 +80,7 @@ void main(void)
   INTCON2 = 0;
   INTCONbits.TMR0IE = 1;
   
-  T0CONbits.TMR0ON = 1;//zapnuti timeru
+  T0CONbits.TMR0ON = 1; //zapnuti timeru
   
   INTCONbits.GIEL = 1;
   INTCONbits.GIEH = 1;
@@ -89,16 +89,16 @@ void main(void)
   while (1)
   {
       if(casove_preruseni == 1){
-          casove_preruseni = 0;             //filtr a aretace tlacitka
-          vstup = PORTJbits.RJ7;
-          filtr(&vstup, &stav_tlacitka, &filtrS4);
+          casove_preruseni = 0; //filtr a aretace tlacitka
+          vstupS4 = PORTJbits.RJ7;
+          filtr(&vstupS4, &stav_tlacitka, &filtrS4);
           aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
           
           A = PORTJbits.RJ0;
           filtr(&A, &stav_filtru_A, &filtrA);
           B = PORTJbits.RJ1;
           filtr(&B, &stav_filtru_B, &filtrB);
-          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &smer, &pocet);
+          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &pocet);
           
       }
       // Piste svuj kod pro program na pozadi

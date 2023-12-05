@@ -20,6 +20,6 @@
 
 enum {ks0,ks1,ks2,ks3};
 
-void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet);
+void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet);
 
 #endif /* _SMEROTACENIPOCITADLOHRAN_H */

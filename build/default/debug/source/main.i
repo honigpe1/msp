@@ -8737,12 +8737,12 @@ void aretace(int *vstup, int *stav, int *vystup);
 # 21 "source/./../header/smerOtaceniPocitadloHran.h"
 enum {ks0,ks1,ks2,ks3};
 
-void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet);
+void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet);
 # 30 "source/main.c" 2
 # 42 "source/main.c"
-int vstup, filtrS4, stav_tlacitka;
+int vstupS4, filtrS4, stav_tlacitka;
 int stav_aretace, zaaretovane_tlacitko;
-int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, smer, pocet;
+int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet=10;
 _Bool casove_preruseni;
 # 59 "source/main.c"
 void main(void)
@@ -8779,15 +8779,15 @@ void main(void)
   {
       if(casove_preruseni == 1){
           casove_preruseni = 0;
-          vstup = PORTJbits.RJ7;
-          filtr(&vstup, &stav_tlacitka, &filtrS4);
+          vstupS4 = PORTJbits.RJ7;
+          filtr(&vstupS4, &stav_tlacitka, &filtrS4);
           aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
 
           A = PORTJbits.RJ0;
           filtr(&A, &stav_filtru_A, &filtrA);
           B = PORTJbits.RJ1;
           filtr(&B, &stav_filtru_B, &filtrB);
-          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &smer, &pocet);
+          smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &pocet);
 
       }
 

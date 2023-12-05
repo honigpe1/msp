@@ -70,8 +70,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;source/./../header/aretace.h: 26: void aretace(int *vstup, int *stav, int *vystup);
 [v _aretace `(v ~T0 @X0 0 ef3`*i`*i`*i ]
 "23 source/./../header/smerOtaceniPocitadloHran.h
-[; ;source/./../header/smerOtaceniPocitadloHran.h: 23: void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet);
-[v _smerOtaceniPocitadloHran `(v ~T0 @X0 0 ef5`*i`*i`*i`*i`*i ]
+[; ;source/./../header/smerOtaceniPocitadloHran.h: 23: void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet);
+[v _smerOtaceniPocitadloHran `(v ~T0 @X0 0 ef4`*i`*i`*i`*i ]
 [t ~ __interrupt . k ]
 [t T129 __interrupt high_priority ]
 [t T130 __interrupt low_priority ]
@@ -787,8 +787,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47
 [p x CP0  =  OFF ]
 "42 source/main.c
-[; ;source/main.c: 42: int vstup, filtrS4, stav_tlacitka;
-[v _vstup `i ~T0 @X0 1 e ]
+[; ;source/main.c: 42: int vstupS4, filtrS4, stav_tlacitka;
+[v _vstupS4 `i ~T0 @X0 1 e ]
 [v _filtrS4 `i ~T0 @X0 1 e ]
 [v _stav_tlacitka `i ~T0 @X0 1 e ]
 "43
@@ -796,7 +796,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _stav_aretace `i ~T0 @X0 1 e ]
 [v _zaaretovane_tlacitko `i ~T0 @X0 1 e ]
 "44
-[; ;source/main.c: 44: int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, smer, pocet;
+[; ;source/main.c: 44: int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet=10;
 [v _A `i ~T0 @X0 1 e ]
 [v _B `i ~T0 @X0 1 e ]
 [v _filtrA `i ~T0 @X0 1 e ]
@@ -804,8 +804,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _stav_koderu `i ~T0 @X0 1 e ]
 [v _stav_filtru_A `i ~T0 @X0 1 e ]
 [v _stav_filtru_B `i ~T0 @X0 1 e ]
-[v _smer `i ~T0 @X0 1 e ]
 [v _pocet `i ~T0 @X0 1 e ]
+[i _pocet
+-> 10 `i
+]
 "45
 [; ;source/main.c: 45: _Bool casove_preruseni;
 [v _casove_preruseni `a ~T0 @X0 1 e ]
@@ -865,11 +867,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;source/main.c: 92:           casove_preruseni = 0;
 [e = _casove_preruseni -> -> 0 `i `a ]
 "93
-[; ;source/main.c: 93:           vstup = PORTJbits.RJ7;
-[e = _vstup -> . . _PORTJbits 0 7 `i ]
+[; ;source/main.c: 93:           vstupS4 = PORTJbits.RJ7;
+[e = _vstupS4 -> . . _PORTJbits 0 7 `i ]
 "94
-[; ;source/main.c: 94:           filtr(&vstup, &stav_tlacitka, &filtrS4);
-[e ( _filtr (3 , , &U _vstup &U _stav_tlacitka &U _filtrS4 ]
+[; ;source/main.c: 94:           filtr(&vstupS4, &stav_tlacitka, &filtrS4);
+[e ( _filtr (3 , , &U _vstupS4 &U _stav_tlacitka &U _filtrS4 ]
 "95
 [; ;source/main.c: 95:           aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
 [e ( _aretace (3 , , &U _filtrS4 &U _stav_aretace &U _zaaretovane_tlacitko ]
@@ -886,8 +888,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;source/main.c: 100:           filtr(&B, &stav_filtru_B, &filtrB);
 [e ( _filtr (3 , , &U _B &U _stav_filtru_B &U _filtrB ]
 "101
-[; ;source/main.c: 101:           smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &smer, &pocet);
-[e ( _smerOtaceniPocitadloHran (4 , , , , &U _A &U _B &U _stav_koderu &U _smer &U _pocet ]
+[; ;source/main.c: 101:           smerOtaceniPocitadloHran(&A, &B, &stav_koderu, &pocet);
+[e ( _smerOtaceniPocitadloHran (4 , , , &U _A &U _B &U _stav_koderu &U _pocet ]
 "103
 [; ;source/main.c: 103:       }
 }

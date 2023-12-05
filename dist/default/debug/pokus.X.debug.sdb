@@ -84,39 +84,39 @@ ks3 3
 ]
 [u S128 . 1 `S110 1 . 1 0 `S119 1 . 1 0 ]
 [v _PORTJbits PORTJbits `VES128  1 e 1 @3976 ]
-[s S258 . 1 `uc 1 TUN 1 0 :6:0 
+[s S256 . 1 `uc 1 TUN 1 0 :6:0 
 `uc 1 PLLEN 1 0 :1:6 
 `uc 1 INTSRC 1 0 :1:7 
 ]
 "7400
-[s S262 . 1 `uc 1 TUN0 1 0 :1:0 
+[s S260 . 1 `uc 1 TUN0 1 0 :1:0 
 `uc 1 TUN1 1 0 :1:1 
 `uc 1 TUN2 1 0 :1:2 
 `uc 1 TUN3 1 0 :1:3 
 `uc 1 TUN4 1 0 :1:4 
 `uc 1 TUN5 1 0 :1:5 
 ]
-[u S269 . 1 `S258 1 . 1 0 `S262 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES269  1 e 1 @3995 ]
-[s S284 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[u S267 . 1 `S256 1 . 1 0 `S260 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES267  1 e 1 @3995 ]
+[s S282 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "13081
-[s S286 . 1 `uc 1 . 1 0 :1:0 
+[s S284 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S289 . 1 `uc 1 . 1 0 :2:0 
+[s S287 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S292 . 1 `uc 1 . 1 0 :3:0 
+[s S290 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S295 . 1 `uc 1 . 1 0 :4:0 
+[s S293 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S298 . 1 `uc 1 . 1 0 :5:0 
+[s S296 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_CM 1 0 :1:5 
 ]
-[s S301 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S299 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -125,31 +125,31 @@ ks3 3
 `uc 1 . 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S310 . 1 `uc 1 BOR 1 0 :1:0 
+[s S308 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 `uc 1 CM 1 0 :1:5 
 ]
-[u S317 . 1 `S284 1 . 1 0 `S286 1 . 1 0 `S289 1 . 1 0 `S292 1 . 1 0 `S295 1 . 1 0 `S298 1 . 1 0 `S301 1 . 1 0 `S310 1 . 1 0 ]
-[v _RCONbits RCONbits `VES317  1 e 1 @4048 ]
-[s S228 . 1 `uc 1 SCS 1 0 :2:0 
+[u S315 . 1 `S282 1 . 1 0 `S284 1 . 1 0 `S287 1 . 1 0 `S290 1 . 1 0 `S293 1 . 1 0 `S296 1 . 1 0 `S299 1 . 1 0 `S308 1 . 1 0 ]
+[v _RCONbits RCONbits `VES315  1 e 1 @4048 ]
+[s S226 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 . 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "13847
-[s S234 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S232 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S241 . 1 `S228 1 . 1 0 `S234 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES241  1 e 1 @4051 ]
+[u S239 . 1 `S226 1 . 1 0 `S232 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES239  1 e 1 @4051 ]
 "13962
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
 [s S30 . 1 `uc 1 T0PS 1 0 :3:0 
@@ -199,7 +199,7 @@ ks3 3
 [u S83 . 1 `S61 1 . 1 0 `S70 1 . 1 0 `S79 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES83  1 e 1 @4082 ]
 "42 /home/hukki/Documents/MIS/MSP/pokus.X/source/main.c
-[v _vstup vstup `i  1 e 2 0 ]
+[v _vstupS4 vstupS4 `i  1 e 2 0 ]
 [v _filtrS4 filtrS4 `i  1 e 2 0 ]
 [v _stav_tlacitka stav_tlacitka `i  1 e 2 0 ]
 "43
@@ -213,7 +213,6 @@ ks3 3
 [v _stav_koderu stav_koderu `i  1 e 2 0 ]
 [v _stav_filtru_A stav_filtru_A `i  1 e 2 0 ]
 [v _stav_filtru_B stav_filtru_B `i  1 e 2 0 ]
-[v _smer smer `i  1 e 2 0 ]
 [v _pocet pocet `i  1 e 2 0 ]
 "45
 [v _casove_preruseni casove_preruseni `a  1 e 1 0 ]
@@ -228,9 +227,8 @@ ks3 3
 [v smerOtaceniPocitadloHran@A A `*.30i  1 p 1 3 ]
 [v smerOtaceniPocitadloHran@B B `*.30i  1 p 1 4 ]
 [v smerOtaceniPocitadloHran@stav stav `*.30i  1 p 1 5 ]
-[v smerOtaceniPocitadloHran@smer smer `*.30i  1 p 1 6 ]
-[v smerOtaceniPocitadloHran@pocet pocet `*.30i  1 p 1 7 ]
-"104
+[v smerOtaceniPocitadloHran@pocet pocet `*.30i  1 p 1 6 ]
+"68
 } 0
 "16 /home/hukki/Documents/MIS/MSP/pokus.X/source/preambleInitialization.c
 [v _preambleInitialization preambleInitialization `(v  1 e 1 0 ]

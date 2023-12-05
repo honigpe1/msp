@@ -9,7 +9,6 @@
       <itemPath>header/filtr.h</itemPath>
       <itemPath>header/aretace.h</itemPath>
       <itemPath>header/smerOtaceniPocitadloHran.h</itemPath>
-      <itemPath>header/spinac</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

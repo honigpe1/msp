@@ -697,15 +697,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14858: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "14 source/smerOtaceniPocitadloHran.c
-[; ;source/smerOtaceniPocitadloHran.c: 14: void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *smer, int *pocet){
-[v _smerOtaceniPocitadloHran `(v ~T0 @X0 1 ef5`*i`*i`*i`*i`*i ]
+[; ;source/smerOtaceniPocitadloHran.c: 14: void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet){
+[v _smerOtaceniPocitadloHran `(v ~T0 @X0 1 ef4`*i`*i`*i`*i ]
 {
 [e :U _smerOtaceniPocitadloHran ]
 [v _A `*i ~T0 @X0 1 r1 ]
 [v _B `*i ~T0 @X0 1 r2 ]
 [v _stav `*i ~T0 @X0 1 r3 ]
-[v _smer `*i ~T0 @X0 1 r4 ]
-[v _pocet `*i ~T0 @X0 1 r5 ]
+[v _pocet `*i ~T0 @X0 1 r4 ]
 [f ]
 "15
 [; ;source/smerOtaceniPocitadloHran.c: 15:     switch (*stav){
@@ -724,8 +723,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == *U _pocet -> 255 `i 577  ]
 {
 "19
-[; ;source/smerOtaceniPocitadloHran.c: 19:                     *pocet=0;
-[e = *U _pocet -> 0 `i ]
+[; ;source/smerOtaceniPocitadloHran.c: 19:                     *pocet=255;
+[e = *U _pocet -> 255 `i ]
 "20
 [; ;source/smerOtaceniPocitadloHran.c: 20:                 }
 }
@@ -735,8 +734,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 577 ]
 {
 "22
-[; ;source/smerOtaceniPocitadloHran.c: 22:                     *pocet++;
-[e *U ++ _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
+[; ;source/smerOtaceniPocitadloHran.c: 22:                     *pocet = *pocet +1;
+[e = *U _pocet + *U _pocet -> 1 `i ]
 "23
 [; ;source/smerOtaceniPocitadloHran.c: 23:                 }
 }
@@ -758,8 +757,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == *U _pocet -> 0 `i 581  ]
 {
 "28
-[; ;source/smerOtaceniPocitadloHran.c: 28:                     *pocet=255;
-[e = *U _pocet -> 255 `i ]
+[; ;source/smerOtaceniPocitadloHran.c: 28:                     *pocet=0;
+[e = *U _pocet -> 0 `i ]
 "29
 [; ;source/smerOtaceniPocitadloHran.c: 29:                 }
 }
@@ -769,8 +768,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 581 ]
 {
 "31
-[; ;source/smerOtaceniPocitadloHran.c: 31:                     *pocet--;
-[e *U -- _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
+[; ;source/smerOtaceniPocitadloHran.c: 31:                     *pocet = *pocet - 1;
+[e = *U _pocet - *U _pocet -> 1 `i ]
 "32
 [; ;source/smerOtaceniPocitadloHran.c: 32:                 }
 }
@@ -798,243 +797,111 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! && == *U _A -> 1 `i == *U _B -> 1 `i 584  ]
 {
 "40
-[; ;source/smerOtaceniPocitadloHran.c: 40:                 if (*pocet == 255){
-[e $ ! == *U _pocet -> 255 `i 585  ]
-{
+[; ;source/smerOtaceniPocitadloHran.c: 40:                 *stav = ks2;
+[e = *U _stav -> . `E5045 2 `i ]
 "41
-[; ;source/smerOtaceniPocitadloHran.c: 41:                     *pocet=0;
-[e = *U _pocet -> 0 `i ]
-"42
-[; ;source/smerOtaceniPocitadloHran.c: 42:                 }
+[; ;source/smerOtaceniPocitadloHran.c: 41:             }
 }
-[e $U 586  ]
-"43
-[; ;source/smerOtaceniPocitadloHran.c: 43:                 else{
-[e :U 585 ]
+[e $U 585  ]
+"42
+[; ;source/smerOtaceniPocitadloHran.c: 42:             else if (*A == 0 && *B==0){
+[e :U 584 ]
+[e $ ! && == *U _A -> 0 `i == *U _B -> 0 `i 586  ]
 {
+"43
+[; ;source/smerOtaceniPocitadloHran.c: 43:                *stav = ks0;
+[e = *U _stav -> . `E5045 0 `i ]
 "44
-[; ;source/smerOtaceniPocitadloHran.c: 44:                     *pocet++;
-[e *U ++ _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
-"45
-[; ;source/smerOtaceniPocitadloHran.c: 45:                 }
+[; ;source/smerOtaceniPocitadloHran.c: 44:             }
 }
 [e :U 586 ]
+[e :U 585 ]
+"45
+[; ;source/smerOtaceniPocitadloHran.c: 45:             break;
+[e $U 573  ]
 "46
-[; ;source/smerOtaceniPocitadloHran.c: 46:                 *stav = ks2;
-[e = *U _stav -> . `E5045 2 `i ]
-"47
-[; ;source/smerOtaceniPocitadloHran.c: 47:             }
+[; ;source/smerOtaceniPocitadloHran.c: 46:         }
 }
-[e $U 587  ]
 "48
-[; ;source/smerOtaceniPocitadloHran.c: 48:             else if (*A == 0 && *B==0){
-[e :U 584 ]
-[e $ ! && == *U _A -> 0 `i == *U _B -> 0 `i 588  ]
+[; ;source/smerOtaceniPocitadloHran.c: 48:         case ks2:{
+[e :U 587 ]
 {
 "49
-[; ;source/smerOtaceniPocitadloHran.c: 49:                 if (*pocet == 0){
-[e $ ! == *U _pocet -> 0 `i 589  ]
+[; ;source/smerOtaceniPocitadloHran.c: 49:             if (*A == 0 && *B==1){
+[e $ ! && == *U _A -> 0 `i == *U _B -> 1 `i 588  ]
 {
 "50
-[; ;source/smerOtaceniPocitadloHran.c: 50:                     *pocet=255;
-[e = *U _pocet -> 255 `i ]
+[; ;source/smerOtaceniPocitadloHran.c: 50:                 *stav = ks3;
+[e = *U _stav -> . `E5045 3 `i ]
 "51
-[; ;source/smerOtaceniPocitadloHran.c: 51:                 }
+[; ;source/smerOtaceniPocitadloHran.c: 51:             }
 }
-[e $U 590  ]
+[e $U 589  ]
 "52
-[; ;source/smerOtaceniPocitadloHran.c: 52:                 else{
-[e :U 589 ]
+[; ;source/smerOtaceniPocitadloHran.c: 52:             else if (*A == 1 && *B==0){
+[e :U 588 ]
+[e $ ! && == *U _A -> 1 `i == *U _B -> 0 `i 590  ]
 {
 "53
-[; ;source/smerOtaceniPocitadloHran.c: 53:                     *pocet--;
-[e *U -- _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
+[; ;source/smerOtaceniPocitadloHran.c: 53:                 *stav = ks1;
+[e = *U _stav -> . `E5045 1 `i ]
 "54
-[; ;source/smerOtaceniPocitadloHran.c: 54:                 }
+[; ;source/smerOtaceniPocitadloHran.c: 54:             }
 }
 [e :U 590 ]
+[e :U 589 ]
 "55
-[; ;source/smerOtaceniPocitadloHran.c: 55:                 *stav = ks0;
-[e = *U _stav -> . `E5045 0 `i ]
-"56
-[; ;source/smerOtaceniPocitadloHran.c: 56:             }
-}
-[e :U 588 ]
-[e :U 587 ]
-"57
-[; ;source/smerOtaceniPocitadloHran.c: 57:             break;
+[; ;source/smerOtaceniPocitadloHran.c: 55:             break;
 [e $U 573  ]
-"58
-[; ;source/smerOtaceniPocitadloHran.c: 58:         }
+"56
+[; ;source/smerOtaceniPocitadloHran.c: 56:         }
 }
-"60
-[; ;source/smerOtaceniPocitadloHran.c: 60:         case ks2:{
+"58
+[; ;source/smerOtaceniPocitadloHran.c: 58:         case ks3:{
 [e :U 591 ]
 {
-"61
-[; ;source/smerOtaceniPocitadloHran.c: 61:             if (*A == 0 && *B==1){
-[e $ ! && == *U _A -> 0 `i == *U _B -> 1 `i 592  ]
+"59
+[; ;source/smerOtaceniPocitadloHran.c: 59:             if (*A == 0 && *B==0){
+[e $ ! && == *U _A -> 0 `i == *U _B -> 0 `i 592  ]
 {
+"60
+[; ;source/smerOtaceniPocitadloHran.c: 60:                 *stav = ks0;
+[e = *U _stav -> . `E5045 0 `i ]
+"61
+[; ;source/smerOtaceniPocitadloHran.c: 61:             }
+}
+[e $U 593  ]
 "62
-[; ;source/smerOtaceniPocitadloHran.c: 62:                 if (*pocet == 255){
-[e $ ! == *U _pocet -> 255 `i 593  ]
+[; ;source/smerOtaceniPocitadloHran.c: 62:             else if (*A == 1 && *B==1){
+[e :U 592 ]
+[e $ ! && == *U _A -> 1 `i == *U _B -> 1 `i 594  ]
 {
 "63
-[; ;source/smerOtaceniPocitadloHran.c: 63:                     *pocet=0;
-[e = *U _pocet -> 0 `i ]
+[; ;source/smerOtaceniPocitadloHran.c: 63:                *stav = ks2;
+[e = *U _stav -> . `E5045 2 `i ]
 "64
-[; ;source/smerOtaceniPocitadloHran.c: 64:                 }
-}
-[e $U 594  ]
-"65
-[; ;source/smerOtaceniPocitadloHran.c: 65:                 else{
-[e :U 593 ]
-{
-"66
-[; ;source/smerOtaceniPocitadloHran.c: 66:                     *pocet++;
-[e *U ++ _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
-"67
-[; ;source/smerOtaceniPocitadloHran.c: 67:                 }
+[; ;source/smerOtaceniPocitadloHran.c: 64:             }
 }
 [e :U 594 ]
-"68
-[; ;source/smerOtaceniPocitadloHran.c: 68:                 *stav = ks3;
-[e = *U _stav -> . `E5045 3 `i ]
-"69
-[; ;source/smerOtaceniPocitadloHran.c: 69:             }
-}
-[e $U 595  ]
-"70
-[; ;source/smerOtaceniPocitadloHran.c: 70:             else if (*A == 1 && *B==0){
-[e :U 592 ]
-[e $ ! && == *U _A -> 1 `i == *U _B -> 0 `i 596  ]
-{
-"71
-[; ;source/smerOtaceniPocitadloHran.c: 71:                 if (*pocet == 0){
-[e $ ! == *U _pocet -> 0 `i 597  ]
-{
-"72
-[; ;source/smerOtaceniPocitadloHran.c: 72:                     *pocet=255;
-[e = *U _pocet -> 255 `i ]
-"73
-[; ;source/smerOtaceniPocitadloHran.c: 73:                 }
-}
-[e $U 598  ]
-"74
-[; ;source/smerOtaceniPocitadloHran.c: 74:                 else{
-[e :U 597 ]
-{
-"75
-[; ;source/smerOtaceniPocitadloHran.c: 75:                     *pocet--;
-[e *U -- _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
-"76
-[; ;source/smerOtaceniPocitadloHran.c: 76:                 }
-}
-[e :U 598 ]
-"77
-[; ;source/smerOtaceniPocitadloHran.c: 77:                 *stav = ks1;
-[e = *U _stav -> . `E5045 1 `i ]
-"78
-[; ;source/smerOtaceniPocitadloHran.c: 78:             }
-}
-[e :U 596 ]
-[e :U 595 ]
-"79
-[; ;source/smerOtaceniPocitadloHran.c: 79:             break;
+[e :U 593 ]
+"65
+[; ;source/smerOtaceniPocitadloHran.c: 65:             break;
 [e $U 573  ]
-"80
-[; ;source/smerOtaceniPocitadloHran.c: 80:         }
+"66
+[; ;source/smerOtaceniPocitadloHran.c: 66:         }
 }
-"82
-[; ;source/smerOtaceniPocitadloHran.c: 82:         case ks3:{
-[e :U 599 ]
-{
-"83
-[; ;source/smerOtaceniPocitadloHran.c: 83:             if (*A == 0 && *B==0){
-[e $ ! && == *U _A -> 0 `i == *U _B -> 0 `i 600  ]
-{
-"84
-[; ;source/smerOtaceniPocitadloHran.c: 84:                 if (*pocet == 255){
-[e $ ! == *U _pocet -> 255 `i 601  ]
-{
-"85
-[; ;source/smerOtaceniPocitadloHran.c: 85:                     *pocet=0;
-[e = *U _pocet -> 0 `i ]
-"86
-[; ;source/smerOtaceniPocitadloHran.c: 86:                 }
-}
-[e $U 602  ]
-"87
-[; ;source/smerOtaceniPocitadloHran.c: 87:                 else{
-[e :U 601 ]
-{
-"88
-[; ;source/smerOtaceniPocitadloHran.c: 88:                     *pocet++;
-[e *U ++ _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
-"89
-[; ;source/smerOtaceniPocitadloHran.c: 89:                 }
-}
-[e :U 602 ]
-"90
-[; ;source/smerOtaceniPocitadloHran.c: 90:                 *stav = ks0;
-[e = *U _stav -> . `E5045 0 `i ]
-"91
-[; ;source/smerOtaceniPocitadloHran.c: 91:             }
-}
-[e $U 603  ]
-"92
-[; ;source/smerOtaceniPocitadloHran.c: 92:             else if (*A == 1 && *B==1){
-[e :U 600 ]
-[e $ ! && == *U _A -> 1 `i == *U _B -> 1 `i 604  ]
-{
-"93
-[; ;source/smerOtaceniPocitadloHran.c: 93:                 if (*pocet == 0){
-[e $ ! == *U _pocet -> 0 `i 605  ]
-{
-"94
-[; ;source/smerOtaceniPocitadloHran.c: 94:                     *pocet=255;
-[e = *U _pocet -> 255 `i ]
-"95
-[; ;source/smerOtaceniPocitadloHran.c: 95:                 }
-}
-[e $U 606  ]
-"96
-[; ;source/smerOtaceniPocitadloHran.c: 96:                 else{
-[e :U 605 ]
-{
-"97
-[; ;source/smerOtaceniPocitadloHran.c: 97:                     *pocet--;
-[e *U -- _pocet * -> -> 1 `i `x -> -> # *U _pocet `i `x ]
-"98
-[; ;source/smerOtaceniPocitadloHran.c: 98:                 }
-}
-[e :U 606 ]
-"99
-[; ;source/smerOtaceniPocitadloHran.c: 99:                 *stav = ks2;
-[e = *U _stav -> . `E5045 2 `i ]
-"100
-[; ;source/smerOtaceniPocitadloHran.c: 100:             }
-}
-[e :U 604 ]
-[e :U 603 ]
-"101
-[; ;source/smerOtaceniPocitadloHran.c: 101:             break;
-[e $U 573  ]
-"102
-[; ;source/smerOtaceniPocitadloHran.c: 102:         }
-}
-"103
-[; ;source/smerOtaceniPocitadloHran.c: 103:     }
+"67
+[; ;source/smerOtaceniPocitadloHran.c: 67:     }
 }
 [e $U 573  ]
 [e :U 574 ]
 [e [\ *U _stav , $ . `E5045 0 575
  , $ . `E5045 1 583
- , $ . `E5045 2 591
- , $ . `E5045 3 599
+ , $ . `E5045 2 587
+ , $ . `E5045 3 591
  573 ]
 [e :U 573 ]
-"104
-[; ;source/smerOtaceniPocitadloHran.c: 104: }
+"68
+[; ;source/smerOtaceniPocitadloHran.c: 68: }
 [e :UE 572 ]
 }
