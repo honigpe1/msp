@@ -2,3 +2,14 @@
 */debug/*
 */dist/*
 *.log*
+
+# build
+*.o
+*.cof
+*.hex
+*.map
+*.mcs
+
+# system
+.vscode
+.DS_Store
