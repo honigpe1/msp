@@ -8744,7 +8744,9 @@ int vstupS4, filtrS4, stav_tlacitka;
 int stav_aretace, zaaretovane_tlacitko;
 int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet;
 _Bool casove_preruseni;
-# 59 "source/main.c"
+int citac_ms, ADhotovo;
+long ADprevod;
+# 61 "source/main.c"
 void main(void)
 {
 
@@ -8791,6 +8793,7 @@ void main(void)
           PORTDbits.RD6 = filtrA;
           PORTDbits.RD5 = filtrB;
           smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet);
+          PORTH = pocet;
           if (pocet == 0){
               PORTFbits.RF2 = 1;
           }
@@ -8802,6 +8805,21 @@ void main(void)
               PORTFbits.RF1 = 0;
           }
       }
+
+      if(ADhotovo == 1){
+          if(ADprevod > 1000){
+              ADprevod = 1000;
+          }
+          else if(ADprevod < 50){
+              ADprevod = 50;
+          }
+          ADprevod = ADprevod - 50;
+          ADprevod = ADprevod * 255;
+          ADprevod = ADprevod / 950;
+
+          ADhotovo = 0;
+      }
+
 
   }
 }
@@ -8822,7 +8840,25 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
         TMR0L = 0xEF;
         INTCONbits.TMR0IF = 0;
 
-        casove_preruseni=1;
+        if (citac_ms < 10){
+            citac_ms = citac_ms + 1;
+        }
+        else if(citac_ms == 10){
+            ADCON0bits.GO = 1;
+            citac_ms = 0;
+        }
+        casove_preruseni = 1;
+    }
+
+    if (PIR1bits.ADIF == 1){
+
+
+
+        ADprevod = ADRESH;
+        ADprevod = ADprevod << 8;
+        ADprevod = ADRESL + ADprevod;
+        PIR1bits.ADIF = 0;
+        ADhotovo = 1;
     }
 
 }

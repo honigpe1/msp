@@ -68,6 +68,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13081
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 13081: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
 [v _RCONbits `VS488 ~T0 @X0 0 e@4048 ]
+"6140
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6140: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"7158
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7158: extern volatile unsigned char TRISJ __attribute__((address(0xF9A)));
+[v _TRISJ `Vuc ~T0 @X0 0 e@3994 ]
+"6936
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6936: extern volatile unsigned char TRISH __attribute__((address(0xF99)));
+[v _TRISH `Vuc ~T0 @X0 0 e@3993 ]
+"6584
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6584: extern volatile unsigned char TRISF __attribute__((address(0xF97)));
+[v _TRISF `Vuc ~T0 @X0 0 e@3991 ]
 "6595
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6595:     struct {
 [s S232 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -83,9 +95,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6616
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 6616: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF97)));
 [v _TRISFbits `VS231 ~T0 @X0 0 e@3991 ]
+"10897
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 10897: extern volatile unsigned char ADCON0 __attribute__((address(0xFC2)));
+[v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
 "10726
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 10726: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"7628
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7628: extern volatile unsigned char PIE1 __attribute__((address(0xF9D)));
+[v _PIE1 `Vuc ~T0 @X0 0 e@3997 ]
+"15011
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 15011: extern volatile __bit ADIE __attribute__((address(0x7CEE)));
+[v _ADIE `Vb ~T0 @X0 0 e@31982 ]
+"7818
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7818:     struct {
+[s S276 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . TMR1IP TMR2IP CCP1IP SSP1IP TX1IP RC1IP ADIP PMPIP ]
+"7828
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7828:     struct {
+[s S277 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S277 . . SSPIP TXIP RCIP ]
+"7834
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7834:     struct {
+[s S278 :7 `uc 1 :1 `uc 1 ]
+[n S278 . . PSPIP ]
+"7817
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7817: typedef union {
+[u S275 `S276 1 `S277 1 `S278 1 ]
+[n S275 . . . . ]
+"7839
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 7839: extern volatile IPR1bits_t IPR1bits __attribute__((address(0xF9F)));
+[v _IPR1bits `VS275 ~T0 @X0 0 e@3999 ]
 "14523
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14523:     struct {
 [s S565 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -834,44 +874,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;source/preambleInitialization.c: 31:     RCONbits.IPEN = 1;
 [e = . . _RCONbits 6 7 -> -> 1 `i `uc ]
 "34
-[; ;source/preambleInitialization.c: 34:     TRISFbits.RF3 = 1;
-[e = . . _TRISFbits 1 3 -> -> 1 `i `uc ]
+[; ;source/preambleInitialization.c: 34:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
 "35
-[; ;source/preambleInitialization.c: 35:     ADCON1 = 11100001;
-[e = _ADCON1 -> -> 11100001 `l `uc ]
+[; ;source/preambleInitialization.c: 35:     TRISJ = 0xFF;
+[e = _TRISJ -> -> 255 `i `uc ]
+"36
+[; ;source/preambleInitialization.c: 36:     TRISH = 0x00;
+[e = _TRISH -> -> 0 `i `uc ]
 "37
-[; ;source/preambleInitialization.c: 37: }
+[; ;source/preambleInitialization.c: 37:     TRISF = 0x00;
+[e = _TRISF -> -> 0 `i `uc ]
+"40
+[; ;source/preambleInitialization.c: 40:     TRISFbits.RF3 = 1;
+[e = . . _TRISFbits 1 3 -> -> 1 `i `uc ]
+"41
+[; ;source/preambleInitialization.c: 41:     ADCON0 = 11100001;
+[e = _ADCON0 -> -> 11100001 `l `uc ]
+"42
+[; ;source/preambleInitialization.c: 42:     ADCON1 = 10000010;
+[e = _ADCON1 -> -> 10000010 `l `uc ]
+"43
+[; ;source/preambleInitialization.c: 43:     PIE1 = ADIE;
+[e = _PIE1 -> _ADIE `uc ]
+"44
+[; ;source/preambleInitialization.c: 44:     IPR1bits.ADIP = 0;
+[e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
+"46
+[; ;source/preambleInitialization.c: 46: }
 [e :UE 572 ]
 }
-"41
-[; ;source/preambleInitialization.c: 41: void enableAllInterrupts(void) {
+"50
+[; ;source/preambleInitialization.c: 50: void enableAllInterrupts(void) {
 [v _enableAllInterrupts `(v ~T0 @X0 1 ef ]
 {
 [e :U _enableAllInterrupts ]
 [f ]
-"42
-[; ;source/preambleInitialization.c: 42:     INTCONbits.GIEH = 1;
+"51
+[; ;source/preambleInitialization.c: 51:     INTCONbits.GIEH = 1;
 [e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"43
-[; ;source/preambleInitialization.c: 43:     INTCONbits.GIEL = 1;
+"52
+[; ;source/preambleInitialization.c: 52:     INTCONbits.GIEL = 1;
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"44
-[; ;source/preambleInitialization.c: 44: }
+"53
+[; ;source/preambleInitialization.c: 53: }
 [e :UE 573 ]
 }
-"47
-[; ;source/preambleInitialization.c: 47: void disableAllInterrupts(void) {
+"56
+[; ;source/preambleInitialization.c: 56: void disableAllInterrupts(void) {
 [v _disableAllInterrupts `(v ~T0 @X0 1 ef ]
 {
 [e :U _disableAllInterrupts ]
 [f ]
-"48
-[; ;source/preambleInitialization.c: 48:     INTCONbits.GIEH = 0;
+"57
+[; ;source/preambleInitialization.c: 57:     INTCONbits.GIEH = 0;
 [e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
-"49
-[; ;source/preambleInitialization.c: 49:     INTCONbits.GIEL = 0;
+"58
+[; ;source/preambleInitialization.c: 58:     INTCONbits.GIEL = 0;
 [e = . . _INTCONbits 2 1 -> -> 0 `i `uc ]
-"50
-[; ;source/preambleInitialization.c: 50: }
+"59
+[; ;source/preambleInitialization.c: 59: }
 [e :UE 574 ]
 }

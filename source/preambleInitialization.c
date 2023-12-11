@@ -38,8 +38,8 @@ void preambleInitialization(void)
     
     //AD prevodnik
     TRISFbits.RF3 = 1;
-    ADCON1 = 11100001;
-    ADCON0 = 10000010;
+    ADCON0 = 11100001;
+    ADCON1 = 10000010;
     PIE1 = ADIE;
     IPR1bits.ADIP = 0;
     

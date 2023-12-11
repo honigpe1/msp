@@ -43,6 +43,8 @@ int vstupS4, filtrS4, stav_tlacitka;
 int stav_aretace, zaaretovane_tlacitko;
 int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet;
 bool casove_preruseni;
+int citac_ms, ADhotovo;
+long ADprevod;
 // Priklad pro deklaraci promenne typu uint8_t, se jmenem a
 // uint8_t x;
 
@@ -114,6 +116,21 @@ void main(void)
               PORTFbits.RF1 = 0;
           }
       }
+      
+      if(ADhotovo == 1){
+          if(ADprevod > 1000){
+              ADprevod = 1000;
+          }
+          else if(ADprevod < 50){
+              ADprevod = 50;
+          }
+          ADprevod = ADprevod - 50;
+          ADprevod = ADprevod * 255;
+          ADprevod = ADprevod / 950;
+          
+          ADhotovo = 0;
+      }
+      
       // Piste svuj kod pro program na pozadi
   }
 }
@@ -134,7 +151,25 @@ void __interrupt(low_priority) low_isr(void){
         TMR0L = 0xEF;
         INTCONbits.TMR0IF = 0;
         
-        casove_preruseni=1;
+        if (citac_ms < 10){
+            citac_ms = citac_ms + 1;
+        }
+        else if(citac_ms == 10){
+            ADCON0bits.GO = 1;
+            citac_ms = 0;            
+        }
+        casove_preruseni = 1;
+    }
+    
+    if (PIR1bits.ADIF == 1){
+        /*ADprevod = 0b11111111;
+        ADprevod = ADprevod << 8;
+        */ //pokus rucne s posunem
+        ADprevod = ADRESH;
+        ADprevod = ADprevod << 8;
+        ADprevod = ADRESL + ADprevod;
+        PIR1bits.ADIF = 0;
+        ADhotovo = 1;
     }
         
 }

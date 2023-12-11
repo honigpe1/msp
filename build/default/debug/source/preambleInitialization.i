@@ -8719,8 +8719,17 @@ void preambleInitialization(void)
     RCONbits.IPEN = 1;
 
 
+    TRISD = 0x00;
+    TRISJ = 0xFF;
+    TRISH = 0x00;
+    TRISF = 0x00;
+
+
     TRISFbits.RF3 = 1;
-    ADCON1 = 11100001;
+    ADCON0 = 11100001;
+    ADCON1 = 10000010;
+    PIE1 = ADIE;
+    IPR1bits.ADIP = 0;
 
 }
 
