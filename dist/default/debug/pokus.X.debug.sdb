@@ -57,9 +57,9 @@ ks3 3
 [v _filtr filtr `(v  1 e 1 0 ]
 "61 /home/hukki/Documents/MIS/MSP/pokus.X/source/main.c
 [v _main main `(v  1 e 1 0 ]
-"142
-[v _high_isr high_isr `IIH(v  1 e 1 0 ]
 "148
+[v _high_isr high_isr `IIH(v  1 e 1 0 ]
+"154
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
 "16 /home/hukki/Documents/MIS/MSP/pokus.X/source/preambleInitialization.c
 [v _preambleInitialization preambleInitialization `(v  1 e 1 0 ]
@@ -105,7 +105,7 @@ ks3 3
 ]
 [u S201 . 1 `S164 1 . 1 0 `S173 1 . 1 0 `S182 1 . 1 0 `S191 1 . 1 0 `S196 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES201  1 e 1 @3971 ]
-[s S254 . 1 `uc 1 . 1 0 :1:0 
+[s S253 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RF1 1 0 :1:1 
 `uc 1 RF2 1 0 :1:2 
 `uc 1 RF3 1 0 :1:3 
@@ -115,7 +115,7 @@ ks3 3
 `uc 1 RF7 1 0 :1:7 
 ]
 "3865
-[s S263 . 1 `uc 1 . 1 0 :1:0 
+[s S262 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 AN6 1 0 :1:1 
 `uc 1 AN7 1 0 :1:2 
 `uc 1 AN8 1 0 :1:3 
@@ -124,10 +124,10 @@ ks3 3
 `uc 1 AN11 1 0 :1:6 
 `uc 1 SS 1 0 :1:7 
 ]
-[s S272 . 1 `uc 1 . 1 0 :5:0 
+[s S271 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 CVREF 1 0 :1:5 
 ]
-[s S275 . 1 `uc 1 . 1 0 :1:0 
+[s S274 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 C2OUT 1 0 :1:1 
 `uc 1 C1OUT 1 0 :1:2 
 `uc 1 C2INB 1 0 :1:3 
@@ -135,19 +135,19 @@ ks3 3
 `uc 1 C1INB 1 0 :1:5 
 `uc 1 C1INA 1 0 :1:6 
 ]
-[s S283 . 1 `uc 1 . 1 0 :2:0 
+[s S282 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PMA5 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 PMD2 1 0 :1:5 
 `uc 1 PMD1 1 0 :1:6 
 `uc 1 PMD0 1 0 :1:7 
 ]
-[s S290 . 1 `uc 1 . 1 0 :1:0 
+[s S289 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 C2OUTF 1 0 :1:1 
 `uc 1 C1OUTF 1 0 :1:2 
 ]
-[u S294 . 1 `S254 1 . 1 0 `S263 1 . 1 0 `S272 1 . 1 0 `S275 1 . 1 0 `S283 1 . 1 0 `S290 1 . 1 0 ]
-[v _PORTFbits PORTFbits `VES294  1 e 1 @3973 ]
+[u S293 . 1 `S253 1 . 1 0 `S262 1 . 1 0 `S271 1 . 1 0 `S274 1 . 1 0 `S282 1 . 1 0 `S289 1 . 1 0 ]
+[v _PORTFbits PORTFbits `VES293  1 e 1 @3973 ]
 "4174
 [v _PORTH PORTH `VEuc  1 e 1 @3975 ]
 [s S110 . 1 `uc 1 RJ0 1 0 :1:0 
@@ -185,7 +185,7 @@ ks3 3
 `uc 1 TRISF7 1 0 :1:7 
 ]
 "6616
-[u S691 . 1 `S673 1 . 1 0 `S254 1 . 1 0 ]
+[u S691 . 1 `S673 1 . 1 0 `S253 1 . 1 0 ]
 [v _TRISFbits TRISFbits `VES691  1 e 1 @3991 ]
 "6936
 [v _TRISH TRISH `VEuc  1 e 1 @3993 ]
@@ -417,7 +417,7 @@ ks3 3
 "61
 [v _main main `(v  1 e 1 0 ]
 {
-"136
+"142
 } 0
 "14 /home/hukki/Documents/MIS/MSP/pokus.X/source/smerOtaceniPocitadloHran.c
 [v _smerOtaceniPocitadloHran smerOtaceniPocitadloHran `(v  1 e 1 0 ]
@@ -472,13 +472,13 @@ ks3 3
 [v ___aldiv@divisor divisor `l  1 p 4 11 ]
 "41
 } 0
-"148 /home/hukki/Documents/MIS/MSP/pokus.X/source/main.c
+"154 /home/hukki/Documents/MIS/MSP/pokus.X/source/main.c
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
 {
-"175
+"178
 } 0
-"142
+"148
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
 {
-"145
+"151
 } 0

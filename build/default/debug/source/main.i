@@ -8780,7 +8780,6 @@ void main(void)
   while (1)
   {
       if(casove_preruseni == 1){
-          casove_preruseni = 0;
           vstupS4 = PORTJbits.RJ7;
           filtr(&vstupS4, &stav_tlacitka, &filtrS4);
           aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
@@ -8792,8 +8791,8 @@ void main(void)
           filtr(&B, &stav_filtru_B, &filtrB);
           PORTDbits.RD6 = filtrA;
           PORTDbits.RD5 = filtrB;
+
           smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet);
-          PORTH = pocet;
           if (pocet == 0){
               PORTFbits.RF2 = 1;
           }
@@ -8804,6 +8803,7 @@ void main(void)
               PORTFbits.RF2 = 0;
               PORTFbits.RF1 = 0;
           }
+          casove_preruseni = 0;
       }
 
       if(ADhotovo == 1){
@@ -8820,6 +8820,12 @@ void main(void)
           ADhotovo = 0;
       }
 
+      if (zaaretovane_tlacitko == 0){
+          PORTH = pocet;
+      }
+      else if (zaaretovane_tlacitko == 1){
+          PORTH = ADprevod;
+      }
 
   }
 }
@@ -8851,9 +8857,6 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
     }
 
     if (PIR1bits.ADIF == 1){
-
-
-
         ADprevod = ADRESH;
         ADprevod = ADprevod << 8;
         ADprevod = ADRESL + ADprevod;

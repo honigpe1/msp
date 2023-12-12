@@ -48,9 +48,22 @@ void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet){
         case ks2:{
             if (*A == 0 && *B==1){
                 *stav = ks3;
+                if (*pocet == 255){
+                    *pocet=255;
+                }
+                else{
+                    *pocet = *pocet +1;
+                }
+
             }
             else if (*A == 1 && *B==0){
                 *stav = ks1;
+                if (*pocet == 0){
+                    *pocet=0;
+                }
+                else{
+                    *pocet = *pocet - 1;
+                }
             }         
             break;
         }   

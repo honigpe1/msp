@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xcXGffICF/driver_tmp_3.o
+ /tmp/xcXlKodoO/driver_tmp_3.o
  -Odist/default/debug/pokus.X.debug.hex
  -logfile=dist/default/debug/pokus.X.debug.hxl
  -addressing=1
@@ -9,25 +9,25 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(/tmp/xcXGffICF/driver_tmp_3.o)
-  8h - Dh		(/tmp/xcXGffICF/driver_tmp_3.o)
-  18h - F7h		(/tmp/xcXGffICF/driver_tmp_3.o)
-  1000h - 1935h		(/tmp/xcXGffICF/driver_tmp_3.o)
-  1FFF8h - 1FFFDh		(/tmp/xcXGffICF/driver_tmp_3.o)
+  0h - 5h		(/tmp/xcXlKodoO/driver_tmp_3.o)
+  8h - Dh		(/tmp/xcXlKodoO/driver_tmp_3.o)
+  18h - F7h		(/tmp/xcXlKodoO/driver_tmp_3.o)
+  1000h - 1961h		(/tmp/xcXlKodoO/driver_tmp_3.o)
+  1FFF8h - 1FFFDh		(/tmp/xcXlKodoO/driver_tmp_3.o)
  Unused ranges:
-  4h - 7h
+  6h - 7h
   Eh - 17h
   F8h - FFFh
-  1936h - 1FFF7h
+  1962h - 1FFF7h
 
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xcXGffICF/driver_tmp_3.o)
+  H1 = Input file             (/tmp/xcXlKodoO/driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
-00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 -- --
+00000000 | H1 H1 H1 H1 H1 H1 -- -- H1 H1 H1 H1 H1 H1 -- --
 00000010 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
 00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -191,7 +191,10 @@
 00001900 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001910 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001920 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001930 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
+00001930 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001940 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001950 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001960 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 0001FFF0 | -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1 -- --
 00020000 | --

@@ -99,10 +99,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 source/./../header/smerOtaceniPocitadloHran.h
 [; ;source/./../header/smerOtaceniPocitadloHran.h: 23: void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet);
 [v _smerOtaceniPocitadloHran `(v ~T0 @X0 0 ef4`*i`*i`*i`*i ]
-"4174 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
-[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 4174: extern volatile unsigned char PORTH __attribute__((address(0xF87)));
-[v _PORTH `Vuc ~T0 @X0 0 e@3975 ]
-"3818
+"3818 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 3818:     struct {
 [s S152 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S152 . . RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
@@ -133,6 +130,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3865
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 3865: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF85)));
 [v _PORTFbits `VS151 ~T0 @X0 0 e@3973 ]
+"4174
+[; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 4174: extern volatile unsigned char PORTH __attribute__((address(0xF87)));
+[v _PORTH `Vuc ~T0 @X0 0 e@3975 ]
 [t ~ __interrupt . k ]
 [t T129 __interrupt high_priority ]
 [t T130 __interrupt low_priority ]
@@ -989,82 +989,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _casove_preruseni `i -> 1 `i 576  ]
 {
 "94
-[; ;source/main.c: 94:           casove_preruseni = 0;
-[e = _casove_preruseni -> -> 0 `i `a ]
-"95
-[; ;source/main.c: 95:           vstupS4 = PORTJbits.RJ7;
+[; ;source/main.c: 94:           vstupS4 = PORTJbits.RJ7;
 [e = _vstupS4 -> . . _PORTJbits 0 7 `i ]
-"96
-[; ;source/main.c: 96:           filtr(&vstupS4, &stav_tlacitka, &filtrS4);
+"95
+[; ;source/main.c: 95:           filtr(&vstupS4, &stav_tlacitka, &filtrS4);
 [e ( _filtr (3 , , &U _vstupS4 &U _stav_tlacitka &U _filtrS4 ]
-"97
-[; ;source/main.c: 97:           aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
+"96
+[; ;source/main.c: 96:           aretace(&filtrS4, &stav_aretace, &zaaretovane_tlacitko);
 [e ( _aretace (3 , , &U _filtrS4 &U _stav_aretace &U _zaaretovane_tlacitko ]
-"98
-[; ;source/main.c: 98:           PORTDbits.RD7 = zaaretovane_tlacitko;
+"97
+[; ;source/main.c: 97:           PORTDbits.RD7 = zaaretovane_tlacitko;
 [e = . . _PORTDbits 0 7 -> _zaaretovane_tlacitko `uc ]
-"100
-[; ;source/main.c: 100:           A = PORTJbits.RJ0;
+"99
+[; ;source/main.c: 99:           A = PORTJbits.RJ0;
 [e = _A -> . . _PORTJbits 0 0 `i ]
-"101
-[; ;source/main.c: 101:           filtr(&A, &stav_filtru_A, &filtrA);
+"100
+[; ;source/main.c: 100:           filtr(&A, &stav_filtru_A, &filtrA);
 [e ( _filtr (3 , , &U _A &U _stav_filtru_A &U _filtrA ]
-"102
-[; ;source/main.c: 102:           B = PORTJbits.RJ1;
+"101
+[; ;source/main.c: 101:           B = PORTJbits.RJ1;
 [e = _B -> . . _PORTJbits 0 1 `i ]
-"103
-[; ;source/main.c: 103:           filtr(&B, &stav_filtru_B, &filtrB);
+"102
+[; ;source/main.c: 102:           filtr(&B, &stav_filtru_B, &filtrB);
 [e ( _filtr (3 , , &U _B &U _stav_filtru_B &U _filtrB ]
-"104
-[; ;source/main.c: 104:           PORTDbits.RD6 = filtrA;
+"103
+[; ;source/main.c: 103:           PORTDbits.RD6 = filtrA;
 [e = . . _PORTDbits 0 6 -> _filtrA `uc ]
-"105
-[; ;source/main.c: 105:           PORTDbits.RD5 = filtrB;
+"104
+[; ;source/main.c: 104:           PORTDbits.RD5 = filtrB;
 [e = . . _PORTDbits 0 5 -> _filtrB `uc ]
 "106
 [; ;source/main.c: 106:           smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet);
 [e ( _smerOtaceniPocitadloHran (4 , , , &U _filtrA &U _filtrB &U _stav_koderu &U _pocet ]
 "107
-[; ;source/main.c: 107:           PORTH = pocet;
-[e = _PORTH -> _pocet `uc ]
-"108
-[; ;source/main.c: 108:           if (pocet == 0){
+[; ;source/main.c: 107:           if (pocet == 0){
 [e $ ! == _pocet -> 0 `i 577  ]
 {
-"109
-[; ;source/main.c: 109:               PORTFbits.RF2 = 1;
+"108
+[; ;source/main.c: 108:               PORTFbits.RF2 = 1;
 [e = . . _PORTFbits 0 2 -> -> 1 `i `uc ]
-"110
-[; ;source/main.c: 110:           }
+"109
+[; ;source/main.c: 109:           }
 }
 [e $U 578  ]
-"111
-[; ;source/main.c: 111:           else if (pocet == 255){
+"110
+[; ;source/main.c: 110:           else if (pocet == 255){
 [e :U 577 ]
 [e $ ! == _pocet -> 255 `i 579  ]
 {
-"112
-[; ;source/main.c: 112:               PORTFbits.RF1 = 1;
+"111
+[; ;source/main.c: 111:               PORTFbits.RF1 = 1;
 [e = . . _PORTFbits 0 1 -> -> 1 `i `uc ]
-"113
-[; ;source/main.c: 113:           }
+"112
+[; ;source/main.c: 112:           }
 }
 [e $U 580  ]
-"114
-[; ;source/main.c: 114:           else{
+"113
+[; ;source/main.c: 113:           else{
 [e :U 579 ]
 {
-"115
-[; ;source/main.c: 115:               PORTFbits.RF2 = 0;
+"114
+[; ;source/main.c: 114:               PORTFbits.RF2 = 0;
 [e = . . _PORTFbits 0 2 -> -> 0 `i `uc ]
-"116
-[; ;source/main.c: 116:               PORTFbits.RF1 = 0;
+"115
+[; ;source/main.c: 115:               PORTFbits.RF1 = 0;
 [e = . . _PORTFbits 0 1 -> -> 0 `i `uc ]
-"117
-[; ;source/main.c: 117:           }
+"116
+[; ;source/main.c: 116:           }
 }
 [e :U 580 ]
 [e :U 578 ]
+"117
+[; ;source/main.c: 117:           casove_preruseni = 0;
+[e = _casove_preruseni -> -> 0 `i `a ]
 "118
 [; ;source/main.c: 118:       }
 }
@@ -1113,107 +1110,131 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;source/main.c: 132:       }
 }
 [e :U 581 ]
+"134
+[; ;source/main.c: 134:       if (zaaretovane_tlacitko == 0){
+[e $ ! == _zaaretovane_tlacitko -> 0 `i 585  ]
+{
 "135
-[; ;source/main.c: 135:   }
+[; ;source/main.c: 135:           PORTH = pocet;
+[e = _PORTH -> _pocet `uc ]
+"136
+[; ;source/main.c: 136:       }
+}
+[e $U 586  ]
+"137
+[; ;source/main.c: 137:       else if (zaaretovane_tlacitko == 1){
+[e :U 585 ]
+[e $ ! == _zaaretovane_tlacitko -> 1 `i 587  ]
+{
+"138
+[; ;source/main.c: 138:           PORTH = ADprevod;
+[e = _PORTH -> _ADprevod `uc ]
+"139
+[; ;source/main.c: 139:       }
+}
+[e :U 587 ]
+[e :U 586 ]
+"141
+[; ;source/main.c: 141:   }
 }
 [e :U 573 ]
 [e $U 574  ]
 [e :U 575 ]
-"136
-[; ;source/main.c: 136: }
+"142
+[; ;source/main.c: 142: }
 [e :UE 572 ]
 }
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-"142
-[; ;source/main.c: 142: void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
+"148
+[; ;source/main.c: 148: void __attribute__((picinterrupt(("high_priority")))) high_isr(void)
 [v _high_isr `(v ~T129 @X0 1 ef ]
-"143
-[; ;source/main.c: 143: {
+"149
+[; ;source/main.c: 149: {
 {
 [e :U _high_isr ]
 [f ]
-"145
-[; ;source/main.c: 145: }
-[e :UE 585 ]
+"151
+[; ;source/main.c: 151: }
+[e :UE 588 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"148
-[; ;source/main.c: 148: void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
+"154
+[; ;source/main.c: 154: void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
 [v _low_isr `(v ~T130 @X0 1 ef ]
 {
 [e :U _low_isr ]
 [f ]
-"149
-[; ;source/main.c: 149:     if (INTCONbits.TMR0IF == 1){
-[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 587  ]
-{
-"150
-[; ;source/main.c: 150:         TMR0H = 0xD8;
-[e = _TMR0H -> -> 216 `i `uc ]
-"151
-[; ;source/main.c: 151:         TMR0L = 0xEF;
-[e = _TMR0L -> -> 239 `i `uc ]
-"152
-[; ;source/main.c: 152:         INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"154
-[; ;source/main.c: 154:         if (citac_ms < 10){
-[e $ ! < _citac_ms -> 10 `i 588  ]
-{
 "155
-[; ;source/main.c: 155:             citac_ms = citac_ms + 1;
-[e = _citac_ms + _citac_ms -> 1 `i ]
-"156
-[; ;source/main.c: 156:         }
-}
-[e $U 589  ]
-"157
-[; ;source/main.c: 157:         else if(citac_ms == 10){
-[e :U 588 ]
-[e $ ! == _citac_ms -> 10 `i 590  ]
+[; ;source/main.c: 155:     if (INTCONbits.TMR0IF == 1){
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 590  ]
 {
+"156
+[; ;source/main.c: 156:         TMR0H = 0xD8;
+[e = _TMR0H -> -> 216 `i `uc ]
+"157
+[; ;source/main.c: 157:         TMR0L = 0xEF;
+[e = _TMR0L -> -> 239 `i `uc ]
 "158
-[; ;source/main.c: 158:             ADCON0bits.GO = 1;
-[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
-"159
-[; ;source/main.c: 159:             citac_ms = 0;
-[e = _citac_ms -> 0 `i ]
+[; ;source/main.c: 158:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "160
-[; ;source/main.c: 160:         }
+[; ;source/main.c: 160:         if (citac_ms < 10){
+[e $ ! < _citac_ms -> 10 `i 591  ]
+{
+"161
+[; ;source/main.c: 161:             citac_ms = citac_ms + 1;
+[e = _citac_ms + _citac_ms -> 1 `i ]
+"162
+[; ;source/main.c: 162:         }
+}
+[e $U 592  ]
+"163
+[; ;source/main.c: 163:         else if(citac_ms == 10){
+[e :U 591 ]
+[e $ ! == _citac_ms -> 10 `i 593  ]
+{
+"164
+[; ;source/main.c: 164:             ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+"165
+[; ;source/main.c: 165:             citac_ms = 0;
+[e = _citac_ms -> 0 `i ]
+"166
+[; ;source/main.c: 166:         }
+}
+[e :U 593 ]
+[e :U 592 ]
+"167
+[; ;source/main.c: 167:         casove_preruseni = 1;
+[e = _casove_preruseni -> -> 1 `i `a ]
+"168
+[; ;source/main.c: 168:     }
 }
 [e :U 590 ]
-[e :U 589 ]
-"161
-[; ;source/main.c: 161:         casove_preruseni = 1;
-[e = _casove_preruseni -> -> 1 `i `a ]
-"162
-[; ;source/main.c: 162:     }
-}
-[e :U 587 ]
-"164
-[; ;source/main.c: 164:     if (PIR1bits.ADIF == 1){
-[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 591  ]
-{
-"168
-[; ;source/main.c: 168:         ADprevod = ADRESH;
-[e = _ADprevod -> _ADRESH `l ]
-"169
-[; ;source/main.c: 169:         ADprevod = ADprevod << 8;
-[e = _ADprevod << _ADprevod -> 8 `i ]
 "170
-[; ;source/main.c: 170:         ADprevod = ADRESL + ADprevod;
-[e = _ADprevod + -> _ADRESL `l _ADprevod ]
+[; ;source/main.c: 170:     if (PIR1bits.ADIF == 1){
+[e $ ! == -> . . _PIR1bits 0 6 `i -> 1 `i 594  ]
+{
 "171
-[; ;source/main.c: 171:         PIR1bits.ADIF = 0;
-[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
+[; ;source/main.c: 171:         ADprevod = ADRESH;
+[e = _ADprevod -> _ADRESH `l ]
 "172
-[; ;source/main.c: 172:         ADhotovo = 1;
-[e = _ADhotovo -> 1 `i ]
+[; ;source/main.c: 172:         ADprevod = ADprevod << 8;
+[e = _ADprevod << _ADprevod -> 8 `i ]
 "173
-[; ;source/main.c: 173:     }
-}
-[e :U 591 ]
+[; ;source/main.c: 173:         ADprevod = ADRESL + ADprevod;
+[e = _ADprevod + -> _ADRESL `l _ADprevod ]
+"174
+[; ;source/main.c: 174:         PIR1bits.ADIF = 0;
+[e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
 "175
-[; ;source/main.c: 175: }
-[e :UE 586 ]
+[; ;source/main.c: 175:         ADhotovo = 1;
+[e = _ADhotovo -> 1 `i ]
+"176
+[; ;source/main.c: 176:     }
+}
+[e :U 594 ]
+"178
+[; ;source/main.c: 178: }
+[e :UE 589 ]
 }
