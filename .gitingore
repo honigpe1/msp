@@ -1,4 +1,4 @@
-*/build/*
-*/debug/*
-*/dist/*
-*.log*
+build/
+debug/
+dist/
+*.log
