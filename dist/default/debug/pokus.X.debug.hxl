@@ -1,7 +1,7 @@
 ### HEXMate logfile and output summary ###
 
 ### Command-line arguments ###
- /tmp/xcXlOMpdG/driver_tmp_3.o
+ /tmp/xcXAHmnAj/driver_tmp_3.o
  -Odist/default/debug/pokus.X.debug.hex
  -logfile=dist/default/debug/pokus.X.debug.hxl
  -addressing=1
@@ -9,11 +9,11 @@
 
 ### Memory Usage ###
  Input file ranges:
-  0h - 3h		(/tmp/xcXlOMpdG/driver_tmp_3.o)
-  8h - Dh		(/tmp/xcXlOMpdG/driver_tmp_3.o)
-  18h - F7h		(/tmp/xcXlOMpdG/driver_tmp_3.o)
-  1000h - 1935h		(/tmp/xcXlOMpdG/driver_tmp_3.o)
-  1FFF8h - 1FFFDh		(/tmp/xcXlOMpdG/driver_tmp_3.o)
+  0h - 3h		(/tmp/xcXAHmnAj/driver_tmp_3.o)
+  8h - Dh		(/tmp/xcXAHmnAj/driver_tmp_3.o)
+  18h - F7h		(/tmp/xcXAHmnAj/driver_tmp_3.o)
+  1000h - 1935h		(/tmp/xcXAHmnAj/driver_tmp_3.o)
+  1FFF8h - 1FFFDh		(/tmp/xcXAHmnAj/driver_tmp_3.o)
  Unused ranges:
   4h - 7h
   Eh - 17h
@@ -23,7 +23,7 @@
 ### Hex Memory Map ###
  Legend:
   -- = Unused memory
-  H1 = Input file             (/tmp/xcXlOMpdG/driver_tmp_3.o)
+  H1 = Input file             (/tmp/xcXAHmnAj/driver_tmp_3.o)
 ----------------------------------------------------------
          | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 ----------------------------------------------------------
