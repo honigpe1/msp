@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=pokus.X
+PROJECTNAME=msp
 
 # Active Configuration
 DEFAULTCONF=default
