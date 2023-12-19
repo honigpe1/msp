@@ -1,0 +1,556 @@
+Microchip MPLAB XC8 Compiler V2.45
+
+Linker command line:
+
+-W-3 --edf=/opt/microchip/xc8/v2.45/pic/dat/20230818022343_en.msgs -cn \
+  -h+dist/default/production/pokus.X.production.sym \
+  --cmf=dist/default/production/pokus.X.production.cmf -z -Q18F87J11 \
+  -o/tmp/xcXahOepM/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  --fixupoverflow=error -Mdist/default/production/pokus.X.production.map \
+  --md=/tmp/xcXahOepM/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  -ACODE=00h-01FFF7h -ACONST=00h-01FFF7h \
+  -ASMALLCONST=01000h-010FFhx495,01FF00h-01FFF7h \
+  -AMEDIUMCONST=01000h-0FFFFh,011000h-01FFF7h -ACOMRAM=01h-05Fh \
+  -AABS1=00h-0F3Fh -ABIGRAM=01h-0F3Fh \
+  -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F3Fh -ABANK0=060h-0FFh \
+  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
+  -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
+  -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
+  -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
+  -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh -ABANK15=0F00h-0F3Fh \
+  -ASFR=0F5Ah-0F5Fh,0F60h-0FFFh -ABIGSFR=0F5Ah-0FFFh \
+  -ACONFIG=01FFF8h-01FFFDh \
+  -preset_vec=00h,intcode=08h,intcodelo=018h,powerup,init -pramtop=01000h \
+  -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
+  -AFARRAM=00h-00h -pjflash_buffer=01F800h \
+  -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
+  -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
+  -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
+  /tmp/xcXahOepM/driver_tmp_9.o \
+  dist/default/production/pokus.X.production.o 
+
+Object code version is 3.11
+
+Machine type is 18F87J11
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+/tmp/xcXahOepM/driver_tmp_9.o
+                config                            1FFF8    1FFF8        6        0       4
+                init                                 F4       F4        4        C       0
+                reset_vec                             0        0        4        0       0
+dist/default/production/pokus.X.production.o
+                intcodelo                            18       18       DC        C       0
+                intcode                               8        8        6        4       0
+                config                            1FFF8    1FFF8        6        0       4
+                temp                                 4E       4E        1        1       1
+                smallconst                         1000     1000        2      800       0
+                intcode_body                       1A4A     1A4A       84      801       0
+                text6                              183A     183A      10C      801       0
+                text5                              1ACE     1ACE       6A      801       0
+                text4                              1946     1946      104      801       0
+                text3                              16B2     16B2      188      801       0
+                text2                              1B38     1B38       3A      801       0
+                text1                              1002     1002      370      801       0
+                text0                              1372     1372      340      801       0
+                cstackCOMRAM                         36       36       16        1       1
+                bssCOMRAM                             1        1       35        1       1
+                cinit                              1B72     1B72       16      801       0
+                nvCOMRAM                             4C       4C        2        1       1
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   CODE           
+                intcodelo                            18       18       DC         0
+                intcode                               8        8        6         0
+                init                                 F4       F4        4         0
+                reset_vec                             0        0        4         0
+                intcode_body                       1A4A     1A4A       84         0
+                text6                              183A     183A      10C         0
+                text5                              1ACE     1ACE       6A         0
+                text4                              1946     1946      104         0
+                text3                              16B2     16B2      188         0
+                text2                              1B38     1B38       3A         0
+                text1                              1002     1002      370         0
+                text0                              1372     1372      340         0
+                cinit                              1B72     1B72       16         0
+
+        CLASS   CONST          
+
+        CLASS   SMALLCONST     
+                smallconst                         1000     1000        2         0
+
+        CLASS   MEDIUMCONST    
+
+        CLASS   COMRAM         
+                temp                                 4E       4E        1         1
+                cstackCOMRAM                         36       36       16         1
+                bssCOMRAM                             1        1       35         1
+                nvCOMRAM                             4C       4C        2         1
+
+        CLASS   ABS1           
+
+        CLASS   BIGRAM         
+
+        CLASS   RAM            
+
+        CLASS   BANK0          
+
+        CLASS   BANK1          
+
+        CLASS   BANK2          
+
+        CLASS   BANK3          
+
+        CLASS   BANK4          
+
+        CLASS   BANK5          
+
+        CLASS   BANK6          
+
+        CLASS   BANK7          
+
+        CLASS   BANK8          
+
+        CLASS   BANK9          
+
+        CLASS   BANK10         
+
+        CLASS   BANK11         
+
+        CLASS   BANK12         
+
+        CLASS   BANK13         
+
+        CLASS   BANK14         
+
+        CLASS   BANK15         
+
+        CLASS   SFR            
+
+        CLASS   BIGSFR         
+
+        CLASS   CONFIG         
+                config                            1FFF8    1FFF8        6         4
+
+        CLASS   FARRAM         
+
+        CLASS   HEAP           
+
+        CLASS   STACK          
+
+        CLASS   IDLOC          
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
+
+                bssCOMRAM                      000001  00004E  00004F         1       1  COMRAM  
+                reset_vec                      000000  000004  000004         0       0  CODE    
+                text1                          001002  000B86  001B88       801       0  CODE    
+                intcode                        000008  000006  00000E         4       0  CODE    
+                intcodelo                      000018  0000E0  0000F8         C       0  CODE    
+                smallconst                     001000  000002  001002       800       0  SMALLCON
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            00060-000FF              A0
+        BANK1            00100-001FF             100
+        BANK10           00A00-00AFF             100
+        BANK11           00B00-00BFF             100
+        BANK12           00C00-00CFF             100
+        BANK13           00D00-00DFF             100
+        BANK14           00E00-00EFF             100
+        BANK15           00F00-00F3F              40
+        BANK2            00200-002FF             100
+        BANK3            00300-003FF             100
+        BANK4            00400-004FF             100
+        BANK5            00500-005FF             100
+        BANK6            00600-006FF             100
+        BANK7            00700-007FF             100
+        BANK8            00800-008FF             100
+        BANK9            00900-009FF             100
+        BIGRAM           0004F-00F3F             EF1
+        BIGSFR           00F5A-00FFF              A6
+        CODE             00004-00007               4
+                         0000E-00017               A
+                         000F8-00FFF             F08
+                         01B88-1FFF7           1E470
+        COMRAM           0004F-0005F              11
+        CONST            00004-00007               4
+                         0000E-00017               A
+                         000F8-00FFF             F08
+                         01B88-1FFF7           1E470
+        MEDIUMCONST      01B88-0FFFF            E478
+                         11000-1FFF7            EFF8
+        RAM              00060-00F3F             100
+        SFR              00F5A-00FFF               6
+        SMALLCONST       01B88-1FFF7             100
+
+                                  Symbol Table
+
+?___aldiv                         cstackCOMRAM  0003D
+?___lmul                          cstackCOMRAM  0003D
+_A                                bssCOMRAM     00020
+_ADCON0                           (abs)         00FC2
+_ADCON0bits                       (abs)         00FC2
+_ADCON1                           (abs)         00FC1
+_ADIE                             (abs)         07CEE
+_ADRESH                           (abs)         00FC4
+_ADRESL                           (abs)         00FC3
+_ADhotovo                         bssCOMRAM     0000D
+_ADprevod                         bssCOMRAM     00001
+_B                                bssCOMRAM     0001E
+_CCP1CON                          (abs)         00FBB
+_CCPR1H                           (abs)         00FBD
+_CCPR1L                           (abs)         00FBC
+_INTCON2                          (abs)         00FF1
+_INTCONbits                       (abs)         00FF2
+_IPR1bits                         (abs)         00F9F
+_LATH                             (abs)         00F90
+_OSCCONbits                       (abs)         00FD3
+_OSCTUNEbits                      (abs)         00F9B
+_PIE1                             (abs)         00F9D
+_PIE1bits                         (abs)         00F9D
+_PIR1bits                         (abs)         00F9E
+_PORTCbits                        (abs)         00F82
+_PORTDbits                        (abs)         00F83
+_PORTFbits                        (abs)         00F85
+_PORTH                            (abs)         00F87
+_PORTJbits                        (abs)         00F88
+_RCONbits                         (abs)         00FD0
+_T0CON                            (abs)         00FD5
+_T0CONbits                        (abs)         00FD5
+_T1CON                            (abs)         00FCD
+_TMR0H                            (abs)         00FD7
+_TMR0L                            (abs)         00FD6
+_TRISCbits                        (abs)         00F94
+_TRISD                            (abs)         00F95
+_TRISF                            (abs)         00F97
+_TRISFbits                        (abs)         00F97
+_TRISH                            (abs)         00F99
+_TRISJ                            (abs)         00F9A
+__HRAM                            (abs)         00000
+__H__absolute__                   __absolute__  00000
+__Habs1                           abs1          00000
+__Hbank0                          bank0         00000
+__Hbank1                          bank1         00000
+__Hbank10                         bank10        00000
+__Hbank11                         bank11        00000
+__Hbank12                         bank12        00000
+__Hbank13                         bank13        00000
+__Hbank14                         bank14        00000
+__Hbank15                         bank15        00000
+__Hbank2                          bank2         00000
+__Hbank3                          bank3         00000
+__Hbank4                          bank4         00000
+__Hbank5                          bank5         00000
+__Hbank6                          bank6         00000
+__Hbank7                          bank7         00000
+__Hbank8                          bank8         00000
+__Hbank9                          bank9         00000
+__Hbigbss                         bigbss        00000
+__Hbigdata                        bigdata       00000
+__Hbigram                         bigram        00000
+__Hbigsfr                         bigsfr        00000
+__Hbss                            bss           00000
+__HbssCOMRAM                      bssCOMRAM     00000
+__Hcinit                          cinit         00000
+__Hclrtext                        clrtext       00000
+__Hcomram                         comram        00000
+__Hconfig                         config        1FFFE
+__Hconst                          const         00000
+__HcstackCOMRAM                   cstackCOMRAM  00000
+__Hdata                           data          00000
+__Hfarbss                         farbss        00000
+__Hfardata                        fardata       00000
+__Hheap                           heap          00000
+__Hibigdata                       ibigdata      00000
+__Hidata                          idata         00000
+__Hidloc                          idloc         00000
+__Hifardata                       ifardata      00000
+__Hinit                           init          000F8
+__Hintcode                        intcode       0000E
+__Hintcode_body                   intcode_body  00000
+__Hintcodelo                      intcodelo     000F4
+__Hintentry                       intentry      00000
+__Hintret                         intret        00000
+__Hintsave_regs                   intsave_regs  00000
+__Hirdata                         irdata        00000
+__Hjflash_buffer                  jflash_buffer 1F800
+__Hmediumconst                    mediumconst   00000
+__HnvCOMRAM                       nvCOMRAM      00000
+__HnvFARRAM                       nvFARRAM      00000
+__Hnvbit                          nvbit         00000
+__Hnvrram                         nvrram        00000
+__Hparam                          rparam        00000
+__Hpowerup                        powerup       000F4
+__Hram                            ram           00000
+__Hramtop                         ramtop        01000
+__Hrbit                           rbit          00000
+__Hrbss                           rbss          00000
+__Hrdata                          rdata         00000
+__Hreset_vec                      reset_vec     00004
+__Hrparam                         rparam        00000
+__Hsfr                            sfr           00000
+__Hsmallconst                     smallconst    01002
+__Hspace_0                        (abs)         1F800
+__Hspace_1                        (abs)         0004F
+__Hspace_2                        (abs)         00000
+__Hspace_4                        (abs)         3FFF6
+__Hstack                          stack         00000
+__Hstruct                         struct        00000
+__Htemp                           temp          0004F
+__Htext                           text          00000
+__Htext0                          text0         00000
+__Htext1                          text1         00000
+__Htext2                          text2         00000
+__Htext3                          text3         00000
+__Htext4                          text4         00000
+__Htext5                          text5         00000
+__Htext6                          text6         00000
+__LRAM                            (abs)         00001
+__L__absolute__                   __absolute__  00000
+__Labs1                           abs1          00000
+__Lbank0                          bank0         00000
+__Lbank1                          bank1         00000
+__Lbank10                         bank10        00000
+__Lbank11                         bank11        00000
+__Lbank12                         bank12        00000
+__Lbank13                         bank13        00000
+__Lbank14                         bank14        00000
+__Lbank15                         bank15        00000
+__Lbank2                          bank2         00000
+__Lbank3                          bank3         00000
+__Lbank4                          bank4         00000
+__Lbank5                          bank5         00000
+__Lbank6                          bank6         00000
+__Lbank7                          bank7         00000
+__Lbank8                          bank8         00000
+__Lbank9                          bank9         00000
+__Lbigbss                         bigbss        00000
+__Lbigdata                        bigdata       00000
+__Lbigram                         bigram        00000
+__Lbigsfr                         bigsfr        00000
+__Lbss                            bss           00000
+__LbssCOMRAM                      bssCOMRAM     00000
+__Lcinit                          cinit         00000
+__Lclrtext                        clrtext       00000
+__Lcomram                         comram        00000
+__Lconfig                         config        00000
+__Lconst                          const         00000
+__LcstackCOMRAM                   cstackCOMRAM  00000
+__Ldata                           data          00000
+__Lfarbss                         farbss        00000
+__Lfardata                        fardata       00000
+__Lheap                           heap          00000
+__Libigdata                       ibigdata      00000
+__Lidata                          idata         00000
+__Lidloc                          idloc         00000
+__Lifardata                       ifardata      00000
+__Linit                           init          000F4
+__Lintcode                        intcode       00008
+__Lintcode_body                   intcode_body  00000
+__Lintcodelo                      intcodelo     00018
+__Lintentry                       intentry      00000
+__Lintret                         intret        00000
+__Lintsave_regs                   intsave_regs  00000
+__Lirdata                         irdata        00000
+__Ljflash_buffer                  jflash_buffer 1F800
+__Lmediumconst                    mediumconst   00000
+__LnvCOMRAM                       nvCOMRAM      00000
+__LnvFARRAM                       nvFARRAM      00000
+__Lnvbit                          nvbit         00000
+__Lnvrram                         nvrram        00000
+__Lparam                          rparam        00000
+__Lpowerup                        powerup       000F4
+__Lram                            ram           00000
+__Lramtop                         ramtop        01000
+__Lrbit                           rbit          00000
+__Lrbss                           rbss          00000
+__Lrdata                          rdata         00000
+__Lreset_vec                      reset_vec     00000
+__Lrparam                         rparam        00000
+__Lsfr                            sfr           00000
+__Lsmallconst                     smallconst    01000
+__Lspace_0                        (abs)         00000
+__Lspace_1                        (abs)         00000
+__Lspace_2                        (abs)         00000
+__Lspace_4                        (abs)         00000
+__Lstack                          stack         00000
+__Lstruct                         struct        00000
+__Ltemp                           temp          0004E
+__Ltext                           text          00000
+__Ltext0                          text0         00000
+__Ltext1                          text1         00000
+__Ltext2                          text2         00000
+__Ltext3                          text3         00000
+__Ltext4                          text4         00000
+__Ltext5                          text5         00000
+__Ltext6                          text6         00000
+__S0                              (abs)         01B88
+__S1                              (abs)         0004F
+__S4                              (abs)         00000
+___aldiv                          text6         0183A
+___aldiv@counter                  cstackCOMRAM  00045
+___aldiv@dividend                 cstackCOMRAM  0003D
+___aldiv@divisor                  cstackCOMRAM  00041
+___aldiv@quotient                 cstackCOMRAM  00047
+___aldiv@sign                     cstackCOMRAM  00046
+___extmem_base                    (abs)         20000
+___heap_hi                        (abs)         00000
+___heap_lo                        (abs)         00000
+___inthi_sp                       stack         00000
+___inthi_stack_hi                 stack         00000
+___inthi_stack_lo                 stack         00000
+___intlo_sp                       stack         00000
+___intlo_stack_hi                 stack         00000
+___intlo_stack_lo                 stack         00000
+___lmul                           text5         01ACE
+___lmul@multiplicand              cstackCOMRAM  00041
+___lmul@multiplier                cstackCOMRAM  0003D
+___lmul@product                   cstackCOMRAM  00045
+___param_bank                     (abs)         00000
+___rparam_used                    (abs)         00001
+___sp                             stack         00000
+___stack_hi                       stack         00000
+___stack_lo                       stack         00000
+__accesstop                       (abs)         00060
+__activetblptr                    (abs)         00003
+__end_of___aldiv                  text6         01946
+__end_of___lmul                   text5         01B38
+__end_of__initialization          cinit         01B7E
+__end_of_aretace                  text4         01A4A
+__end_of_filtr                    text3         0183A
+__end_of_high_isr                 intcode_body  01ACE
+__end_of_low_isr                  intcodelo     000F4
+__end_of_main                     text0         016B2
+__end_of_preambleInitialization   text2         01B72
+__end_of_smerOtaceniPocitadloHran text1         01372
+__initialization                  cinit         01B72
+__mediumconst                     mediumconst   00000
+__pbssCOMRAM                      bssCOMRAM     00001
+__pcinit                          cinit         01B72
+__pcstackCOMRAM                   cstackCOMRAM  00036
+__pintcode                        intcode       00008
+__pintcode_body                   intcode_body  01A4A
+__pintcodelo                      intcodelo     00018
+__pnvCOMRAM                       nvCOMRAM      0004C
+__psmallconst                     smallconst    01000
+__ptext0                          text0         01372
+__ptext1                          text1         01002
+__ptext2                          text2         01B38
+__ptext3                          text3         016B2
+__ptext4                          text4         01946
+__ptext5                          text5         01ACE
+__ptext6                          text6         0183A
+__ramtop                          ramtop        01000
+__smallconst                      smallconst    01000
+_aretace                          text4         01946
+_casove_preruseni                 bssCOMRAM     00011
+_citac_ms                         bssCOMRAM     0000F
+_filtr                            text3         016B2
+_filtrA                           bssCOMRAM     0001C
+_filtrB                           bssCOMRAM     0001A
+_filtrS3                          bssCOMRAM     0002C
+_filtrS4                          bssCOMRAM     00032
+_high_isr                         intcode       00008
+_low_isr                          intcodelo     00018
+_main                             text0         01372
+_mezera                           bssCOMRAM     00005
+_new_puls                         bssCOMRAM     00007
+_pocet                            bssCOMRAM     00012
+_preambleInitialization           text2         01B38
+_puls                             bssCOMRAM     0000B
+_puls_back                        bssCOMRAM     00009
+_smerOtaceniPocitadloHran         text1         01002
+_stav_aretaceS3                   bssCOMRAM     00024
+_stav_aretaceS4                   bssCOMRAM     00028
+_stav_filtru_A                    bssCOMRAM     00016
+_stav_filtru_B                    bssCOMRAM     00014
+_stav_koderu                      bssCOMRAM     00018
+_stav_tlacitkaS3                  bssCOMRAM     0002A
+_stav_tlacitkaS4                  bssCOMRAM     00030
+_sum                              nvCOMRAM      0004C
+_vstupS3                          bssCOMRAM     0002E
+_vstupS4                          bssCOMRAM     00034
+_zaaretovane_tlacitkoS3           bssCOMRAM     00022
+_zaaretovane_tlacitkoS4           bssCOMRAM     00026
+aretace@stav                      cstackCOMRAM  0003E
+aretace@vstup                     cstackCOMRAM  0003D
+aretace@vystup                    cstackCOMRAM  0003F
+btemp                             temp          0004E
+end_of_initialization             cinit         01B7E
+filtr@stav                        cstackCOMRAM  0003E
+filtr@vstup                       cstackCOMRAM  0003D
+filtr@vystup                      cstackCOMRAM  0003F
+int$flags                         temp          0004E
+int_func                          intcode_body  01A4A
+intlevel0                         text          00000
+intlevel1                         text          00000
+intlevel2                         text          00000
+intlevel3                         text          00000
+isa$std                           (abs)         00001
+isa$xinst                         (abs)         00000
+smerOtaceniPocitadloHran@A        cstackCOMRAM  0003D
+smerOtaceniPocitadloHran@B        cstackCOMRAM  0003E
+smerOtaceniPocitadloHran@pocet    cstackCOMRAM  00040
+smerOtaceniPocitadloHran@stav     cstackCOMRAM  0003F
+stackhi                           (abs)         00000
+stacklo                           (abs)         00000
+start                             init          000F4
+start_initialization              cinit         01B72
+ttemp5                            temp          0004F
+ttemp6                            temp          00052
+ttemp7                            temp          00056
+wtemp8                            temp          0004F
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+/opt/microchip/xc8/v2.45/pic/sources/c99/common/aldiv.c
+		___aldiv       		CODE           	183A	0000	268
+
+/opt/microchip/xc8/v2.45/pic/sources/c99/common/aldiv.c estimated size: 268
+
+source/aretace.c
+		_aretace       		CODE           	1946	0000	260
+
+source/aretace.c estimated size: 260
+
+source/main.c
+		_main          		CODE           	1372	0000	832
+		_high_isr      		CODE           	0008	0000	138
+		_low_isr       		CODE           	0018	0000	220
+
+source/main.c estimated size: 1190
+
+source/preambleInitialization.c
+		_preambleInitialization		CODE           	1B38	0000	58
+
+source/preambleInitialization.c estimated size: 58
+
+source/smerOtaceniPocitadloHran.c
+		_smerOtaceniPocitadloHran		CODE           	1002	0000	880
+
+source/smerOtaceniPocitadloHran.c estimated size: 880
+
+source/filtr.c
+		_filtr         		CODE           	16B2	0000	392
+
+source/filtr.c estimated size: 392
+
+shared
+		__initialization		CODE           	1B72	0000	12
+
+shared estimated size: 12
+
+/opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+		___lmul        		CODE           	1ACE	0000	106
+
+/opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c estimated size: 106
+
