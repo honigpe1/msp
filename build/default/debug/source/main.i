@@ -8718,38 +8718,56 @@ void preambleInitialization(void);
 
 # 1 "source/./../header/filtr.h" 1
 # 21 "source/./../header/filtr.h"
+# 1 "source/./../header/./../header/strukturaZpracovani.h" 1
+# 21 "source/./../header/./../header/strukturaZpracovani.h"
+typedef struct{
+    int vstup;
+    int filtrovane;
+    int stav_filtru;
+    int stav_aretace;
+    int zaaretovane;
+}zpracovani;
+
+typedef struct{
+    int A;
+    int B;
+    int stav_koderu;
+    int pocet;
+}kvadraturni;
+# 22 "source/./../header/filtr.h" 2
 enum {fs0, fs1, fs2, fs3, fs4};
 
 
 
-void filtr(int *vstup, int *stav, int *vystup);
+void filtr(zpracovani *struktura);
 # 28 "source/main.c" 2
 # 1 "source/./../header/aretace.h" 1
-# 21 "source/./../header/aretace.h"
+# 22 "source/./../header/aretace.h"
 enum {as0, as1, as2, as3};
 
 
 
-
-void aretace(int *vstup, int *stav, int *vystup);
+void aretace(zpracovani *struktura);
 # 29 "source/main.c" 2
 # 1 "source/./../header/smerOtaceniPocitadloHran.h" 1
-# 21 "source/./../header/smerOtaceniPocitadloHran.h"
+# 22 "source/./../header/smerOtaceniPocitadloHran.h"
 enum {ks0,ks1,ks2,ks3};
 
-void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet);
+void smerOtaceniPocitadloHran(kvadraturni *koder);
 # 30 "source/main.c" 2
-# 42 "source/main.c"
-int vstupS4, filtrS4, stav_tlacitkaS4;
-int vstupS3, filtrS3, stav_tlacitkaS3;
-int stav_aretaceS4, zaaretovane_tlacitkoS4;
-int stav_aretaceS3, zaaretovane_tlacitkoS3;
-int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet;
+# 43 "source/main.c"
+zpracovani S4;
+zpracovani S3;
+zpracovani stopa_A;
+zpracovani stopa_B;
+
+kvadraturni koder;
+# 58 "source/main.c"
 _Bool casove_preruseni;
 int citac_ms, ADhotovo;
 long ADprevod;
 unsigned int sum, puls, puls_back, new_puls, mezera;
-# 64 "source/main.c"
+# 70 "source/main.c"
 void main(void)
 {
 
@@ -8786,23 +8804,26 @@ void main(void)
   while (1)
   {
       if(casove_preruseni == 1){
-          vstupS4 = PORTJbits.RJ7;
-          filtr(&vstupS4, &stav_tlacitkaS4, &filtrS4);
-          aretace(&filtrS4, &stav_aretaceS4, &zaaretovane_tlacitkoS4);
-          PORTDbits.RD7 = zaaretovane_tlacitkoS4;
+          S4.vstup = PORTJbits.RJ7;
+          filtr(&S4);
+          aretace(&S4);
+          PORTDbits.RD7 = S4.filtrovane;
 
-          A = PORTJbits.RJ0;
-          filtr(&A, &stav_filtru_A, &filtrA);
-          B = PORTJbits.RJ1;
-          filtr(&B, &stav_filtru_B, &filtrB);
-          PORTDbits.RD6 = filtrA;
-          PORTDbits.RD5 = filtrB;
+          stopa_A.vstup = PORTJbits.RJ0;
+          filtr(&stopa_A);
+          stopa_B.vstup = PORTJbits.RJ1;
+          filtr(&stopa_B);
+          PORTDbits.RD6 = stopa_A.filtrovane;
+          PORTDbits.RD5 = stopa_B.filtrovane;
 
-          smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet);
-          if (pocet == 0){
+          koder.A = stopa_A.filtrovane;
+          koder.B = stopa_B.filtrovane;
+
+          smerOtaceniPocitadloHran(&koder);
+          if (koder.pocet == 0){
               PORTFbits.RF2 = 1;
           }
-          else if (pocet == 255){
+          else if (koder.pocet == 255){
               PORTFbits.RF1 = 1;
           }
           else{
@@ -8810,10 +8831,11 @@ void main(void)
               PORTFbits.RF1 = 0;
           }
 
-          vstupS3 = PORTJbits.RJ6;
-          filtr(&vstupS3, &stav_tlacitkaS3, &filtrS3);
-          aretace(&filtrS3, &stav_aretaceS3, &zaaretovane_tlacitkoS3);
-          if (zaaretovane_tlacitkoS3 == 1){
+
+          S3.vstup = PORTJbits.RJ6;
+          filtr(&S3);
+          aretace(&S3);
+          if (S3.zaaretovane == 1){
               PORTDbits.RD4 = 0;
           }
           else{
@@ -8838,19 +8860,19 @@ void main(void)
           ADhotovo = 0;
       }
 
-      if (zaaretovane_tlacitkoS3 == 0){
-          if (zaaretovane_tlacitkoS4 == 0){
-            PORTH = pocet;
+      if (S3.zaaretovane == 0){
+          if (S4.zaaretovane == 0){
+            PORTH = koder.pocet;
           }
-          else if (zaaretovane_tlacitkoS4 == 1){
+          else if (S4.zaaretovane == 1){
             PORTH = ADprevod;
           }
       }
-      else if (zaaretovane_tlacitkoS3 == 1){
+      else if (S3.zaaretovane == 1){
           PORTH = 0;
       }
 
-      if (zaaretovane_tlacitkoS3 == 1){
+      if (S3.zaaretovane == 0){
           puls_back = (unsigned int) 10*LATH;
           if (puls_back > 2500){
               puls_back = 2500;
@@ -8860,7 +8882,6 @@ void main(void)
           puls_back = 0;
       }
       new_puls = 1;
-
 
   }
 }

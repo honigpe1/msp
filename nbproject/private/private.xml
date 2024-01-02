@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/source/smerOtaceniPocitadloHran.c</file>
-            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/source/main.c</file>
-            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/source/preambleInitialization.c</file>
-            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/source/aretace.c</file>
+            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/msp/source/smerOtaceniPocitadloHran.c</file>
+            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/msp/header/filtr.h</file>
+            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/msp/source/main.c</file>
+            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/msp/header/strukturaZpracovani.h</file>
+            <file>file:/home/hukki/Documents/MIS/MSP/pokus.X/msp/header/smerOtaceniPocitadloHran.h</file>
         </group>
     </open-files>
 </project-private>

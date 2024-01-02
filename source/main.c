@@ -1,6 +1,6 @@
 /*
  * Soubor:      main.c
- * Autor:       VLOZTE_AUTORA
+ * Autor:       Petr Honig
  * Spolecnost:  CVUT-FEL-K13114
  *
  * Kompilator:  XC8-v2.36
@@ -27,6 +27,7 @@
 #include "./../header/filtr.h"
 #include "./../header/aretace.h"
 #include "./../header/smerOtaceniPocitadloHran.h"
+#include "./../header/strukturaZpracovani.h"
 
 // #include "XXXXXX.h"
 
@@ -39,20 +40,17 @@
 //----------------------------------------------------------------------------
 /* ZDE ZACINA BLOK PRO DEKLARACI VLASTNICH GLOBALNICH PROMENNYCH */
 
-int vstupS4, filtrS4, stav_tlacitkaS4;
-int vstupS3, filtrS3, stav_tlacitkaS3;
-int stav_aretaceS4, zaaretovane_tlacitkoS4;
-int stav_aretaceS3, zaaretovane_tlacitkoS3;
-int A, B, filtrA, filtrB, stav_koderu, stav_filtru_A, stav_filtru_B, pocet;
+zpracovani S4;
+zpracovani S3;
+zpracovani stopa_A;
+zpracovani stopa_B;
+
+kvadraturni koder;
+
 bool casove_preruseni;
 int citac_ms, ADhotovo;
 long ADprevod;
 unsigned int sum, puls, puls_back, new_puls, mezera;
-// Priklad pro deklaraci promenne typu uint8_t, se jmenem a
-// uint8_t x;
-
-// Priklad pro deklaraci promenne typu uint8_t se jmenem XXX na adrese
-// 0xA00 uint8_t XXX __at(0xA00);
 
 /* ZDE KONCI BLOK PRO DEKLARACI VLASTNICH GLOBALNICH PROMENNYCH */
 //----------------------------------------------------------------------------
@@ -97,23 +95,26 @@ void main(void)
   while (1)
   {
       if(casove_preruseni == 1){ //filtr a aretace tlacitka
-          vstupS4 = PORTJbits.RJ7;
-          filtr(&vstupS4, &stav_tlacitkaS4, &filtrS4); //vyfiltrovani tlacitka S4
-          aretace(&filtrS4, &stav_aretaceS4, &zaaretovane_tlacitkoS4);  //aretace tlacitka S4
-          PORTDbits.RD7 = zaaretovane_tlacitkoS4; //zobrazeni vysledku aretace S4 na diodu 
+          S4.vstup = PORTJbits.RJ7;
+          filtr(&S4); //vyfiltrovani tlacitka S4
+          aretace(&S4);  //aretace tlacitka S4
+          PORTDbits.RD7 = S4.filtrovane; //zobrazeni vysledku aretace S4 na diodu 
           
-          A = PORTJbits.RJ0; //nacteni a filtrace proudu A
-          filtr(&A, &stav_filtru_A, &filtrA);          
-          B = PORTJbits.RJ1;  //nacteni a filtrace proudu B
-          filtr(&B, &stav_filtru_B, &filtrB);          
-          PORTDbits.RD6 = filtrA;  //indikace na LED
-          PORTDbits.RD5 = filtrB;  //indikace na LED
+          stopa_A.vstup = PORTJbits.RJ0; //nacteni a filtrace proudu A
+          filtr(&stopa_A);          
+          stopa_B.vstup = PORTJbits.RJ1;  //nacteni a filtrace proudu B
+          filtr(&stopa_B);          
+          PORTDbits.RD6 = stopa_A.filtrovane;  //indikace na LED
+          PORTDbits.RD5 = stopa_B.filtrovane;  //indikace na LED
           
-          smerOtaceniPocitadloHran(&filtrA, &filtrB, &stav_koderu, &pocet); //zjisteni smeru a pocet otocek
-          if (pocet == 0){ //zobŕazeni minima
+          koder.A = stopa_A.filtrovane;
+          koder.B = stopa_B.filtrovane;
+          
+          smerOtaceniPocitadloHran(&koder); //zjisteni smeru a pocet otocek
+          if (koder.pocet == 0){ //zobrazeni minima
               PORTFbits.RF2 = 1;
           }
-          else if (pocet == 255){ //zobrazeni maxima
+          else if (koder.pocet == 255){ //zobrazeni maxima
               PORTFbits.RF1 = 1;
           }
           else{ //vypnuti indikace
@@ -121,10 +122,11 @@ void main(void)
               PORTFbits.RF1 = 0;
           }
           
-          vstupS3 = PORTJbits.RJ6;
-          filtr(&vstupS3, &stav_tlacitkaS3, &filtrS3); //vyfiltrovani tlacitka S3
-          aretace(&filtrS3, &stav_aretaceS3, &zaaretovane_tlacitkoS3);  //aretace tlacitka S3
-          if (zaaretovane_tlacitkoS3 == 1){
+          
+          S3.vstup = PORTJbits.RJ6;
+          filtr(&S3); //vyfiltrovani tlacitka S3
+          aretace(&S3);  //aretace tlacitka S3
+          if (S3.zaaretovane == 1){
               PORTDbits.RD4 = 0;
           }
           else{
@@ -149,19 +151,19 @@ void main(void)
           ADhotovo = 0; //vynulovani indikace
       }
       
-      if (zaaretovane_tlacitkoS3 == 0){
-          if (zaaretovane_tlacitkoS4 == 0){ //prepnuti mezi koderem a AD prevodnikem
-            PORTH = pocet;  // koder
+      if (S3.zaaretovane == 0){
+          if (S4.zaaretovane == 0){ //prepnuti mezi koderem a AD prevodnikem
+            PORTH = koder.pocet;  // koder
           }
-          else if (zaaretovane_tlacitkoS4 == 1){
+          else if (S4.zaaretovane == 1){
             PORTH = ADprevod; //AD prevodnik
           }
       }
-      else if (zaaretovane_tlacitkoS3 == 1){ //vybrana PWM
+      else if (S3.zaaretovane == 1){ //vybrana PWM
           PORTH = 0;
       }
       
-      if (zaaretovane_tlacitkoS3 == 0){
+      if (S3.zaaretovane == 0){
           puls_back = (unsigned int) 10*LATH;
           if (puls_back > 2500){
               puls_back = 2500;
@@ -172,7 +174,6 @@ void main(void)
       }
       new_puls = 1;
       
-      // Piste svuj kod pro program na pozadi
   }
 }
 

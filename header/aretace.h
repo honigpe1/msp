@@ -1,6 +1,6 @@
 /*
  * Soubor:      aretace.h
- * Autor:       VLOZTE_AUTORA
+ * Autor:       Petr Honig
  * Spolecnost:  CVUT-FEL-K13114
  *
  * Kompilator:  XC8-v2.36
@@ -18,11 +18,11 @@
 #error "Invalid compiler selection"
 #endif
 
-enum {as0, as1, as2, as3};
-
+#include "./../header/strukturaZpracovani.h" // nahrani nove struktury
+enum {as0, as1, as2, as3}; // ocislovani stavu
 
 
 // Deklarace ukazkove funkce
-void aretace(int *vstup, int *stav, int *vystup);
+void aretace(zpracovani *struktura);
 
 #endif /* ARETACE_H */

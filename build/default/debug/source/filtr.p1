@@ -1,8 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"22 source/filtr.c
-[; ;source/filtr.c: 22:                 *stav = fs1;
-[c E5045 0 1 2 3 4 .. ]
-[n E5045 . fs0 fs1 fs2 fs3 fs4  ]
+"21 source/./../header/./../header/strukturaZpracovani.h
+[; ;source/./../header/./../header/strukturaZpracovani.h: 21: typedef struct{
+[s S572 `i 1 `i 1 `i 1 `i 1 `i 1 ]
+[n S572 . vstup filtrovane stav_filtru stav_aretace zaaretovane ]
+"19 source/filtr.c
+[; ;source/filtr.c: 19:                 struktura->stav_filtru = fs1;
+[c E5058 0 1 2 3 4 .. ]
+[n E5058 . fs0 fs1 fs2 fs3 fs4  ]
 "54 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 54: __asm("PMSTAT equ 0F5Ah");
 [; <" PMSTAT equ 0F5Ah ;# ">
@@ -696,210 +700,208 @@ Version 4.0 HI-TECH Software Intermediate Code
 "14858
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14858: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"18 source/filtr.c
-[; ;source/filtr.c: 18: void filtr(int *vstup, int *stav, int *vystup){
-[v _filtr `(v ~T0 @X0 1 ef3`*i`*i`*i ]
+"15 source/filtr.c
+[; ;source/filtr.c: 15: void filtr(zpracovani *struktura){
+[v _filtr `(v ~T0 @X0 1 ef1`*S572 ]
 {
 [e :U _filtr ]
-[v _vstup `*i ~T0 @X0 1 r1 ]
-[v _stav `*i ~T0 @X0 1 r2 ]
-[v _vystup `*i ~T0 @X0 1 r3 ]
+[v _struktura `*S572 ~T0 @X0 1 r1 ]
 [f ]
+"16
+[; ;source/filtr.c: 16:     switch (struktura->stav_filtru){
+[e $U 576  ]
+{
+"17
+[; ;source/filtr.c: 17:         case fs0:{
+[e :U 577 ]
+{
+"18
+[; ;source/filtr.c: 18:             if (struktura->vstup == 1){
+[e $ ! == . *U _struktura 0 -> 1 `i 578  ]
+{
 "19
-[; ;source/filtr.c: 19:     switch (*stav){
-[e $U 574  ]
-{
+[; ;source/filtr.c: 19:                 struktura->stav_filtru = fs1;
+[e = . *U _struktura 2 -> . `E5058 1 `i ]
 "20
-[; ;source/filtr.c: 20:         case fs0:{
-[e :U 575 ]
-{
+[; ;source/filtr.c: 20:             }
+}
+[e $U 579  ]
 "21
-[; ;source/filtr.c: 21:             if (*vstup == 1){
-[e $ ! == *U _vstup -> 1 `i 576  ]
+[; ;source/filtr.c: 21:             else{
+[e :U 578 ]
 {
 "22
-[; ;source/filtr.c: 22:                 *stav = fs1;
-[e = *U _stav -> . `E5045 1 `i ]
+[; ;source/filtr.c: 22:                 struktura->stav_filtru = fs3;
+[e = . *U _struktura 2 -> . `E5058 3 `i ]
 "23
 [; ;source/filtr.c: 23:             }
 }
-[e $U 577  ]
+[e :U 579 ]
 "24
-[; ;source/filtr.c: 24:             else{
-[e :U 576 ]
-{
+[; ;source/filtr.c: 24:             struktura->filtrovane = 0;
+[e = . *U _struktura 1 -> 0 `i ]
 "25
-[; ;source/filtr.c: 25:                 *stav = fs3;
-[e = *U _stav -> . `E5045 3 `i ]
+[; ;source/filtr.c: 25:             break;
+[e $U 575  ]
 "26
-[; ;source/filtr.c: 26:             }
+[; ;source/filtr.c: 26:         }
 }
-[e :U 577 ]
-"27
-[; ;source/filtr.c: 27:             *vystup = 0;
-[e = *U _vystup -> 0 `i ]
 "28
-[; ;source/filtr.c: 28:             break;
-[e $U 573  ]
-"29
-[; ;source/filtr.c: 29:         }
-}
-"31
-[; ;source/filtr.c: 31:         case fs1:{
-[e :U 578 ]
+[; ;source/filtr.c: 28:         case fs1:{
+[e :U 580 ]
 {
+"29
+[; ;source/filtr.c: 29:             if (struktura->vstup == 1){
+[e $ ! == . *U _struktura 0 -> 1 `i 581  ]
+{
+"30
+[; ;source/filtr.c: 30:                 struktura->stav_filtru = fs2;
+[e = . *U _struktura 2 -> . `E5058 2 `i ]
+"31
+[; ;source/filtr.c: 31:             }
+}
+[e $U 582  ]
 "32
-[; ;source/filtr.c: 32:             if (*vstup == 1){
-[e $ ! == *U _vstup -> 1 `i 579  ]
+[; ;source/filtr.c: 32:             else{
+[e :U 581 ]
 {
 "33
-[; ;source/filtr.c: 33:                 *stav = fs2;
-[e = *U _stav -> . `E5045 2 `i ]
+[; ;source/filtr.c: 33:                 struktura->stav_filtru = fs3;
+[e = . *U _struktura 2 -> . `E5058 3 `i ]
 "34
 [; ;source/filtr.c: 34:             }
 }
-[e $U 580  ]
-"35
-[; ;source/filtr.c: 35:             else{
-[e :U 579 ]
-{
-"36
-[; ;source/filtr.c: 36:                 *stav = fs3;
-[e = *U _stav -> . `E5045 3 `i ]
-"37
-[; ;source/filtr.c: 37:             }
-}
-[e :U 580 ]
-"38
-[; ;source/filtr.c: 38:             *vystup = 0;
-[e = *U _vystup -> 0 `i ]
-"39
-[; ;source/filtr.c: 39:             break;
-[e $U 573  ]
-"40
-[; ;source/filtr.c: 40:         }
-}
-"42
-[; ;source/filtr.c: 42:         case fs2:{
-[e :U 581 ]
-{
-"43
-[; ;source/filtr.c: 43:             if (*vstup == 1){
-[e $ ! == *U _vstup -> 1 `i 582  ]
-{
-"44
-[; ;source/filtr.c: 44:                 *stav = fs2;
-[e = *U _stav -> . `E5045 2 `i ]
-"45
-[; ;source/filtr.c: 45:                 *vystup = 1;
-[e = *U _vystup -> 1 `i ]
-"46
-[; ;source/filtr.c: 46:             }
-}
-[e $U 583  ]
-"47
-[; ;source/filtr.c: 47:             else{
 [e :U 582 ]
-{
-"48
-[; ;source/filtr.c: 48:                 *stav = fs3;
-[e = *U _stav -> . `E5045 3 `i ]
-"49
-[; ;source/filtr.c: 49:                 *vystup = 0;
-[e = *U _vystup -> 0 `i ]
-"50
-[; ;source/filtr.c: 50:             }
+"35
+[; ;source/filtr.c: 35:             struktura->filtrovane = 0;
+[e = . *U _struktura 1 -> 0 `i ]
+"36
+[; ;source/filtr.c: 36:             break;
+[e $U 575  ]
+"37
+[; ;source/filtr.c: 37:         }
 }
+"39
+[; ;source/filtr.c: 39:         case fs2:{
 [e :U 583 ]
-"51
-[; ;source/filtr.c: 51:             break;
-[e $U 573  ]
-"52
-[; ;source/filtr.c: 52:         }
+{
+"40
+[; ;source/filtr.c: 40:             if (struktura->vstup == 1){
+[e $ ! == . *U _struktura 0 -> 1 `i 584  ]
+{
+"41
+[; ;source/filtr.c: 41:                 struktura->stav_filtru = fs2;
+[e = . *U _struktura 2 -> . `E5058 2 `i ]
+"42
+[; ;source/filtr.c: 42:                 struktura->filtrovane = 1;
+[e = . *U _struktura 1 -> 1 `i ]
+"43
+[; ;source/filtr.c: 43:             }
 }
-"54
-[; ;source/filtr.c: 54:         case fs3:{
+[e $U 585  ]
+"44
+[; ;source/filtr.c: 44:             else{
 [e :U 584 ]
 {
+"45
+[; ;source/filtr.c: 45:                 struktura->stav_filtru = fs3;
+[e = . *U _struktura 2 -> . `E5058 3 `i ]
+"46
+[; ;source/filtr.c: 46:                 struktura->filtrovane = 0;
+[e = . *U _struktura 1 -> 0 `i ]
+"47
+[; ;source/filtr.c: 47:             }
+}
+[e :U 585 ]
+"48
+[; ;source/filtr.c: 48:             break;
+[e $U 575  ]
+"49
+[; ;source/filtr.c: 49:         }
+}
+"51
+[; ;source/filtr.c: 51:         case fs3:{
+[e :U 586 ]
+{
+"52
+[; ;source/filtr.c: 52:             if (struktura->vstup == 1){
+[e $ ! == . *U _struktura 0 -> 1 `i 587  ]
+{
+"53
+[; ;source/filtr.c: 53:                 struktura->stav_filtru = fs1;
+[e = . *U _struktura 2 -> . `E5058 1 `i ]
+"54
+[; ;source/filtr.c: 54:             }
+}
+[e $U 588  ]
 "55
-[; ;source/filtr.c: 55:             if (*vstup == 1){
-[e $ ! == *U _vstup -> 1 `i 585  ]
+[; ;source/filtr.c: 55:             else{
+[e :U 587 ]
 {
 "56
-[; ;source/filtr.c: 56:                 *stav = fs1;
-[e = *U _stav -> . `E5045 1 `i ]
+[; ;source/filtr.c: 56:                 struktura->stav_filtru = fs4;
+[e = . *U _struktura 2 -> . `E5058 4 `i ]
 "57
 [; ;source/filtr.c: 57:             }
 }
-[e $U 586  ]
+[e :U 588 ]
 "58
-[; ;source/filtr.c: 58:             else{
-[e :U 585 ]
-{
+[; ;source/filtr.c: 58:             struktura->filtrovane = 0;
+[e = . *U _struktura 1 -> 0 `i ]
 "59
-[; ;source/filtr.c: 59:                 *stav = fs4;
-[e = *U _stav -> . `E5045 4 `i ]
+[; ;source/filtr.c: 59:             break;
+[e $U 575  ]
 "60
-[; ;source/filtr.c: 60:             }
+[; ;source/filtr.c: 60:         }
 }
-[e :U 586 ]
-"61
-[; ;source/filtr.c: 61:             *vystup = 0;
-[e = *U _vystup -> 0 `i ]
 "62
-[; ;source/filtr.c: 62:             break;
-[e $U 573  ]
-"63
-[; ;source/filtr.c: 63:         }
-}
-"65
-[; ;source/filtr.c: 65:         case fs4:{
-[e :U 587 ]
+[; ;source/filtr.c: 62:         case fs4:{
+[e :U 589 ]
 {
+"63
+[; ;source/filtr.c: 63:             if (struktura->vstup == 1){
+[e $ ! == . *U _struktura 0 -> 1 `i 590  ]
+{
+"64
+[; ;source/filtr.c: 64:                 struktura->stav_filtru = fs1;
+[e = . *U _struktura 2 -> . `E5058 1 `i ]
+"65
+[; ;source/filtr.c: 65:             }
+}
+[e $U 591  ]
 "66
-[; ;source/filtr.c: 66:             if (*vstup == 1){
-[e $ ! == *U _vstup -> 1 `i 588  ]
+[; ;source/filtr.c: 66:             else{
+[e :U 590 ]
 {
 "67
-[; ;source/filtr.c: 67:                 *stav = fs1;
-[e = *U _stav -> . `E5045 1 `i ]
+[; ;source/filtr.c: 67:                 struktura->stav_filtru = fs4;
+[e = . *U _struktura 2 -> . `E5058 4 `i ]
 "68
-[; ;source/filtr.c: 68:             }
-}
-[e $U 589  ]
+[; ;source/filtr.c: 68:                 struktura->filtrovane = 0;
+[e = . *U _struktura 1 -> 0 `i ]
 "69
-[; ;source/filtr.c: 69:             else{
-[e :U 588 ]
-{
+[; ;source/filtr.c: 69:             }
+}
+[e :U 591 ]
 "70
-[; ;source/filtr.c: 70:                 *stav = fs4;
-[e = *U _stav -> . `E5045 4 `i ]
+[; ;source/filtr.c: 70:             break;
+[e $U 575  ]
 "71
-[; ;source/filtr.c: 71:                 *vystup = 0;
-[e = *U _vystup -> 0 `i ]
+[; ;source/filtr.c: 71:         }
+}
 "72
-[; ;source/filtr.c: 72:             }
+[; ;source/filtr.c: 72:     }
 }
-[e :U 589 ]
+[e $U 575  ]
+[e :U 576 ]
+[e [\ . *U _struktura 2 , $ . `E5058 0 577
+ , $ . `E5058 1 580
+ , $ . `E5058 2 583
+ , $ . `E5058 3 586
+ , $ . `E5058 4 589
+ 575 ]
+[e :U 575 ]
 "73
-[; ;source/filtr.c: 73:             break;
-[e $U 573  ]
-"74
-[; ;source/filtr.c: 74:         }
-}
-"75
-[; ;source/filtr.c: 75:     }
-}
-[e $U 573  ]
-[e :U 574 ]
-[e [\ *U _stav , $ . `E5045 0 575
- , $ . `E5045 1 578
- , $ . `E5045 2 581
- , $ . `E5045 3 584
- , $ . `E5045 4 587
- 573 ]
-[e :U 573 ]
-"76
-[; ;source/filtr.c: 76: }
-[e :UE 572 ]
+[; ;source/filtr.c: 73: }
+[e :UE 574 ]
 }

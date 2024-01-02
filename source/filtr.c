@@ -1,6 +1,6 @@
 /*
- * Soubor:      example.c
- * Autor:       VLOZTE_AUTORA
+ * Soubor:      filtr.c
+ * Autor:       Petr Honig
  * Spolecnost:  CVUT-FEL-K13114
  *
  * Kompilator:  XC8-v2.36
@@ -12,63 +12,60 @@
 #include "./../header/filtr.h"
 
 
-
-
-
-void filtr(int *vstup, int *stav, int *vystup){
-    switch (*stav){
+void filtr(zpracovani *struktura){
+    switch (struktura->stav_filtru){
         case fs0:{
-            if (*vstup == 1){
-                *stav = fs1;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs1;
             }
             else{
-                *stav = fs3;
+                struktura->stav_filtru = fs3;
             }
-            *vystup = 0;           
+            struktura->filtrovane = 0;           
             break;
         }   
         
         case fs1:{
-            if (*vstup == 1){
-                *stav = fs2;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs2;
             }
             else{
-                *stav = fs3;
+                struktura->stav_filtru = fs3;
             }
-            *vystup = 0;
+            struktura->filtrovane = 0;
             break;
         }    
         
         case fs2:{
-            if (*vstup == 1){
-                *stav = fs2;
-                *vystup = 1;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs2;
+                struktura->filtrovane = 1;
             }
             else{
-                *stav = fs3;
-                *vystup = 0;                
+                struktura->stav_filtru = fs3;
+                struktura->filtrovane = 0;                
             }
             break;
         }   
         
         case fs3:{
-            if (*vstup == 1){
-                *stav = fs1;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs1;
             }
             else{
-                *stav = fs4;
+                struktura->stav_filtru = fs4;
             }
-            *vystup = 0;            
+            struktura->filtrovane = 0;            
             break;
         }
         
         case fs4:{
-            if (*vstup == 1){
-                *stav = fs1;                
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs1;                
             }
             else{
-                *stav = fs4;
-                *vystup = 0;
+                struktura->stav_filtru = fs4;
+                struktura->filtrovane = 0;
             }
             break;
         }

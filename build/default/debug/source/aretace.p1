@@ -1,8 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"21 source/./../header/./../header/strukturaZpracovani.h
+[; ;source/./../header/./../header/strukturaZpracovani.h: 21: typedef struct{
+[s S572 `i 1 `i 1 `i 1 `i 1 `i 1 ]
+[n S572 . vstup filtrovane stav_filtru stav_aretace zaaretovane ]
 "18 source/aretace.c
-[; ;source/aretace.c: 18:                 *stav = as1;
-[c E5045 0 1 2 3 .. ]
-[n E5045 . as0 as1 as2 as3  ]
+[; ;source/aretace.c: 18:                 struktura->stav_aretace = as1;
+[c E5058 0 1 2 3 .. ]
+[n E5058 . as0 as1 as2 as3  ]
 "54 /opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 54: __asm("PMSTAT equ 0F5Ah");
 [; <" PMSTAT equ 0F5Ah ;# ">
@@ -697,120 +701,118 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;/opt/microchip/mplabx/v6.10/packs/Microchip/PIC18F-J_DFP/1.6.157/xc8/pic/include/proc/pic18f87j11.h: 14858: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "14 source/aretace.c
-[; ;source/aretace.c: 14: void aretace(int *vstup, int *stav, int *vystup) {
-[v _aretace `(v ~T0 @X0 1 ef3`*i`*i`*i ]
+[; ;source/aretace.c: 14: void aretace(zpracovani *struktura) {
+[v _aretace `(v ~T0 @X0 1 ef1`*S572 ]
 {
 [e :U _aretace ]
-[v _vstup `*i ~T0 @X0 1 r1 ]
-[v _stav `*i ~T0 @X0 1 r2 ]
-[v _vystup `*i ~T0 @X0 1 r3 ]
+[v _struktura `*S572 ~T0 @X0 1 r1 ]
 [f ]
 "15
-[; ;source/aretace.c: 15:     switch (*stav){
-[e $U 574  ]
+[; ;source/aretace.c: 15:     switch (struktura->stav_aretace){
+[e $U 576  ]
 {
 "16
 [; ;source/aretace.c: 16:         case as0:{
-[e :U 575 ]
+[e :U 577 ]
 {
 "17
-[; ;source/aretace.c: 17:             if (*vstup == 1){
-[e $ ! == *U _vstup -> 1 `i 576  ]
+[; ;source/aretace.c: 17:             if (struktura->filtrovane == 1){
+[e $ ! == . *U _struktura 1 -> 1 `i 578  ]
 {
 "18
-[; ;source/aretace.c: 18:                 *stav = as1;
-[e = *U _stav -> . `E5045 1 `i ]
+[; ;source/aretace.c: 18:                 struktura->stav_aretace = as1;
+[e = . *U _struktura 3 -> . `E5058 1 `i ]
 "19
-[; ;source/aretace.c: 19:                 *vystup = 1;
-[e = *U _vystup -> 1 `i ]
+[; ;source/aretace.c: 19:                 struktura->zaaretovane = 1;
+[e = . *U _struktura 4 -> 1 `i ]
 "20
 [; ;source/aretace.c: 20:             }
 }
-[e :U 576 ]
+[e :U 578 ]
 "21
 [; ;source/aretace.c: 21:             break;
-[e $U 573  ]
+[e $U 575  ]
 "22
 [; ;source/aretace.c: 22:         }
 }
 "24
 [; ;source/aretace.c: 24:         case as1:{
-[e :U 577 ]
+[e :U 579 ]
 {
 "25
-[; ;source/aretace.c: 25:             if (*vstup == 0){
-[e $ ! == *U _vstup -> 0 `i 578  ]
+[; ;source/aretace.c: 25:             if (struktura->filtrovane == 0){
+[e $ ! == . *U _struktura 1 -> 0 `i 580  ]
 {
 "26
-[; ;source/aretace.c: 26:                 *stav = as2;
-[e = *U _stav -> . `E5045 2 `i ]
+[; ;source/aretace.c: 26:                 struktura->stav_aretace = as2;
+[e = . *U _struktura 3 -> . `E5058 2 `i ]
 "27
 [; ;source/aretace.c: 27:             }
 }
-[e :U 578 ]
+[e :U 580 ]
 "29
 [; ;source/aretace.c: 29:             break;
-[e $U 573  ]
+[e $U 575  ]
 "30
 [; ;source/aretace.c: 30:         }
 }
 "32
 [; ;source/aretace.c: 32:         case as2:{
-[e :U 579 ]
+[e :U 581 ]
 {
 "33
-[; ;source/aretace.c: 33:             if (*vstup == 1){
-[e $ ! == *U _vstup -> 1 `i 580  ]
+[; ;source/aretace.c: 33:             if (struktura->filtrovane == 1){
+[e $ ! == . *U _struktura 1 -> 1 `i 582  ]
 {
 "34
-[; ;source/aretace.c: 34:                 *stav = as3;
-[e = *U _stav -> . `E5045 3 `i ]
+[; ;source/aretace.c: 34:                 struktura->stav_aretace = as3;
+[e = . *U _struktura 3 -> . `E5058 3 `i ]
 "35
-[; ;source/aretace.c: 35:                 *vystup = 0;
-[e = *U _vystup -> 0 `i ]
+[; ;source/aretace.c: 35:                 struktura->zaaretovane = 0;
+[e = . *U _struktura 4 -> 0 `i ]
 "36
 [; ;source/aretace.c: 36:             }
 }
-[e :U 580 ]
+[e :U 582 ]
 "37
 [; ;source/aretace.c: 37:             break;
-[e $U 573  ]
+[e $U 575  ]
 "38
 [; ;source/aretace.c: 38:         }
 }
 "40
 [; ;source/aretace.c: 40:         case as3:{
-[e :U 581 ]
+[e :U 583 ]
 {
 "41
-[; ;source/aretace.c: 41:             if (*vstup == 0){
-[e $ ! == *U _vstup -> 0 `i 582  ]
+[; ;source/aretace.c: 41:             if (struktura->filtrovane == 0){
+[e $ ! == . *U _struktura 1 -> 0 `i 584  ]
 {
 "42
-[; ;source/aretace.c: 42:                 *stav = as0;
-[e = *U _stav -> . `E5045 0 `i ]
+[; ;source/aretace.c: 42:                 struktura->stav_aretace = as0;
+[e = . *U _struktura 3 -> . `E5058 0 `i ]
 "43
 [; ;source/aretace.c: 43:             }
 }
-[e :U 582 ]
+[e :U 584 ]
 "45
 [; ;source/aretace.c: 45:             break;
-[e $U 573  ]
+[e $U 575  ]
 "46
 [; ;source/aretace.c: 46:         }
 }
 "47
 [; ;source/aretace.c: 47:     }
 }
-[e $U 573  ]
-[e :U 574 ]
-[e [\ *U _stav , $ . `E5045 0 575
- , $ . `E5045 1 577
- , $ . `E5045 2 579
- , $ . `E5045 3 581
- 573 ]
-[e :U 573 ]
+[e $U 575  ]
+[e :U 576 ]
+[e [\ . *U _struktura 3 , $ . `E5058 0 577
+ , $ . `E5058 1 579
+ , $ . `E5058 2 581
+ , $ . `E5058 3 583
+ 575 ]
+[e :U 575 ]
 "48
 [; ;source/aretace.c: 48: }
-[e :UE 572 ]
+[e :UE 574 ]
 }

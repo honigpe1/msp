@@ -1,6 +1,6 @@
 /*
  * Soubor:      filtr.h
- * Autor:       VLOZTE_AUTORA
+ * Autor:       Petr Honig
  * Spolecnost:  CVUT-FEL-K13114
  *
  * Kompilator:  XC8-v2.36
@@ -18,10 +18,11 @@
 #error "Invalid compiler selection"
 #endif
 
-enum {fs0, fs1, fs2, fs3, fs4};
+#include "./../header/strukturaZpracovani.h" // nahrani nove struktury
+enum {fs0, fs1, fs2, fs3, fs4}; // ocislovani stavu
 
 
-// Deklarace ukazkove funkce
-void filtr(int *vstup, int *stav, int *vystup);
+// Deklarace funkce
+void filtr(zpracovani *struktura);
 
 #endif /* _FILTR_H */

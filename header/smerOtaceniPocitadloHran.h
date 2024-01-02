@@ -18,8 +18,9 @@
 #error "Invalid compiler selection"
 #endif
 
-enum {ks0,ks1,ks2,ks3};
+#include "./../header/strukturaZpracovani.h" // nahrani nove struktury
+enum {ks0,ks1,ks2,ks3}; //ocislovani stavu
 
-void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet);
+void smerOtaceniPocitadloHran(kvadraturni *koder);
 
 #endif /* _SMEROTACENIPOCITADLOHRAN_H */

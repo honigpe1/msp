@@ -11,69 +11,69 @@
 /* Hlavickove soubory*/
 #include "./../header/smerOtaceniPocitadloHran.h"
 
-void smerOtaceniPocitadloHran(int *A, int *B, int *stav, int *pocet){
-    switch (*stav){
+void smerOtaceniPocitadloHran(kvadraturni *koder){
+    switch (koder->stav_koderu){
         case ks0:{
-            if (*A == 1 && *B==0){
-                if (*pocet == 255){
-                    *pocet=255;
+            if (koder->A == 1 && koder->B==0){
+                if (koder->pocet == 255){
+                    koder->pocet=255;
                 }
                 else{
-                    *pocet = *pocet +1;
+                    koder->pocet = koder->pocet +1;
                 }
-                *stav = ks1;
+                koder->stav_koderu = ks1;
             }
-            else if (*A == 0 && *B==1){
-                if (*pocet == 0){
-                    *pocet=0;
+            else if (koder->A == 0 && koder->B==1){
+                if (koder->pocet == 0){
+                    koder->pocet=0;
                 }
                 else{
-                    *pocet = *pocet - 1;
+                    koder->pocet = koder->pocet - 1;
                 }
-                *stav = ks3;
+                koder->stav_koderu = ks3;
             }        
             break;
         }   
         
         case ks1:{
-            if (*A == 1 && *B==1){
-                *stav = ks2;
+            if (koder->A == 1 && koder->B==1){
+                koder->stav_koderu = ks2;
             }
-            else if (*A == 0 && *B==0){
-               *stav = ks0;
+            else if (koder->A == 0 && koder->B==0){
+               koder->stav_koderu = ks0;
             }
             break;
         }
         
         case ks2:{
-            if (*A == 0 && *B==1){
-                *stav = ks3;
-                if (*pocet == 255){
-                    *pocet=255;
+            if (koder->A == 0 && koder->B==1){
+                koder->stav_koderu = ks3;
+                if (koder->pocet == 255){
+                    koder->pocet=255;
                 }
                 else{
-                    *pocet = *pocet +1;
+                    koder->pocet = koder->pocet +1;
                 }
 
             }
-            else if (*A == 1 && *B==0){
-                *stav = ks1;
-                if (*pocet == 0){
-                    *pocet=0;
+            else if (koder->A == 1 && koder->B==0){
+                koder->stav_koderu = ks1;
+                if (koder->pocet == 0){
+                    koder->pocet=0;
                 }
                 else{
-                    *pocet = *pocet - 1;
+                    koder->pocet = koder->pocet - 1;
                 }
             }         
             break;
         }   
         
         case ks3:{
-            if (*A == 0 && *B==0){
-                *stav = ks0;
+            if (koder->A == 0 && koder->B==0){
+                koder->stav_koderu = ks0;
             }
-            else if (*A == 1 && *B==1){
-               *stav = ks2;
+            else if (koder->A == 1 && koder->B==1){
+               koder->stav_koderu = ks2;
             }
             break;
         }

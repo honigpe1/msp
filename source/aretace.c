@@ -11,35 +11,35 @@
 /* Hlavickove soubory*/
 #include "./../header/aretace.h"
 
-void aretace(int *vstup, int *stav, int *vystup) {
-    switch (*stav){
+void aretace(zpracovani *struktura) {
+    switch (struktura->stav_aretace){
         case as0:{
-            if (*vstup == 1){
-                *stav = as1;
-                *vystup = 1;
+            if (struktura->filtrovane == 1){
+                struktura->stav_aretace = as1;
+                struktura->zaaretovane = 1;
             }           
             break;
         }   
         
         case as1:{
-            if (*vstup == 0){
-                *stav = as2;
+            if (struktura->filtrovane == 0){
+                struktura->stav_aretace = as2;
             }
             
             break;
         }    
         
         case as2:{
-            if (*vstup == 1){
-                *stav = as3;
-                *vystup = 0;
+            if (struktura->filtrovane == 1){
+                struktura->stav_aretace = as3;
+                struktura->zaaretovane = 0;
             }
             break;
         }   
         
         case as3:{
-            if (*vstup == 0){
-                *stav = as0;
+            if (struktura->filtrovane == 0){
+                struktura->stav_aretace = as0;
             }
                         
             break;

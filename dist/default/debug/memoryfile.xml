@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug/pokus.X.debug.hex">
+  <executable name="dist/default/debug/msp.debug.hex">
     <memory name="program">
       <units>bytes</units>
       <length>131064</length>
-      <used>3188</used>
-      <free>127876</free>
+      <used>3466</used>
+      <free>127598</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>3904</length>
-      <used>78</used>
-      <free>3826</free>
+      <used>94</used>
+      <free>3810</free>
     </memory>
   </executable>
 </project>

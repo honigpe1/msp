@@ -8659,71 +8659,85 @@ unsigned char __t3rd16on(void);
 
 
 
+# 1 "source/./../header/./../header/strukturaZpracovani.h" 1
+# 21 "source/./../header/./../header/strukturaZpracovani.h"
+typedef struct{
+    int vstup;
+    int filtrovane;
+    int stav_filtru;
+    int stav_aretace;
+    int zaaretovane;
+}zpracovani;
+
+typedef struct{
+    int A;
+    int B;
+    int stav_koderu;
+    int pocet;
+}kvadraturni;
+# 22 "source/./../header/filtr.h" 2
 enum {fs0, fs1, fs2, fs3, fs4};
 
 
 
-void filtr(int *vstup, int *stav, int *vystup);
+void filtr(zpracovani *struktura);
 # 13 "source/filtr.c" 2
 
 
-
-
-
-void filtr(int *vstup, int *stav, int *vystup){
-    switch (*stav){
+void filtr(zpracovani *struktura){
+    switch (struktura->stav_filtru){
         case fs0:{
-            if (*vstup == 1){
-                *stav = fs1;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs1;
             }
             else{
-                *stav = fs3;
+                struktura->stav_filtru = fs3;
             }
-            *vystup = 0;
+            struktura->filtrovane = 0;
             break;
         }
 
         case fs1:{
-            if (*vstup == 1){
-                *stav = fs2;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs2;
             }
             else{
-                *stav = fs3;
+                struktura->stav_filtru = fs3;
             }
-            *vystup = 0;
+            struktura->filtrovane = 0;
             break;
         }
 
         case fs2:{
-            if (*vstup == 1){
-                *stav = fs2;
-                *vystup = 1;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs2;
+                struktura->filtrovane = 1;
             }
             else{
-                *stav = fs3;
-                *vystup = 0;
+                struktura->stav_filtru = fs3;
+                struktura->filtrovane = 0;
             }
             break;
         }
 
         case fs3:{
-            if (*vstup == 1){
-                *stav = fs1;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs1;
             }
             else{
-                *stav = fs4;
+                struktura->stav_filtru = fs4;
             }
-            *vystup = 0;
+            struktura->filtrovane = 0;
             break;
         }
 
         case fs4:{
-            if (*vstup == 1){
-                *stav = fs1;
+            if (struktura->vstup == 1){
+                struktura->stav_filtru = fs1;
             }
             else{
-                *stav = fs4;
-                *vystup = 0;
+                struktura->stav_filtru = fs4;
+                struktura->filtrovane = 0;
             }
             break;
         }
