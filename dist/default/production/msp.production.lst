@@ -1,0 +1,3438 @@
+
+
+Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
+                                                                                               Tue Jan  9 14:20:00 2024
+
+Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
+     1                           	processor	18F87J11
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     8                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,lowdata,noexec
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text5,global,reloc=2,class=CODE,delta=1,group=1
+    16                           	psect	text6,global,reloc=2,class=CODE,delta=1,group=1
+    17                           	psect	intcodelo,global,reloc=2,class=CODE,delta=1
+    18                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    19                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    20                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+    21                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    22                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    23                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    24                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    25   000000                     
+    26                           ; Generated 23/03/2023 GMT
+    27                           ; 
+    28                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    29                           ; All rights reserved.
+    30                           ; 
+    31                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    32                           ; 
+    33                           ; Redistribution and use in source and binary forms, with or without modification, are
+    34                           ; permitted provided that the following conditions are met:
+    35                           ; 
+    36                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    37                           ;        conditions and the following disclaimer.
+    38                           ; 
+    39                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    40                           ;        of conditions and the following disclaimer in the documentation and/or other
+    41                           ;        materials provided with the distribution. Publication is not required when
+    42                           ;        this file is used in an embedded application.
+    43                           ; 
+    44                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    45                           ;        software without specific prior written permission.
+    46                           ; 
+    47                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    48                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    49                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    50                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    51                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    52                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    53                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    54                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    55                           ; 
+    56                           ; 
+    57                           ; Code-generator required, PIC18F87J11 Definitions
+    58                           ; 
+    59                           ; SFR Addresses
+    60   000000                     _ADRESL	set	4035
+    61   000000                     _ADRESH	set	4036
+    62   000000                     _TMR0L	set	4054
+    63   000000                     _TMR0H	set	4055
+    64                           
+    65                           	psect	nvCOMRAM
+    66   000056                     __pnvCOMRAM:
+    67                           	callstack 0
+    68   000056                     _sum:
+    69                           	callstack 0
+    70   000056                     	ds	2
+    71   000000                     _PIE1bits	set	3997
+    72   000000                     _ADCON0	set	4034
+    73   000000                     _TRISFbits	set	3991
+    74   000000                     _T0CONbits	set	4053
+    75   000000                     _ADIE	set	31982
+    76   000000                     _PORTCbits	set	3970
+    77   000000                     _PORTDbits	set	3971
+    78   000000                     _PORTJbits	set	3976
+    79   000000                     _CCPR1L	set	4028
+    80   000000                     _CCPR1H	set	4029
+    81   000000                     _T0CON	set	4053
+    82   000000                     _INTCON2	set	4081
+    83   000000                     _INTCONbits	set	4082
+    84   000000                     _ADCON1	set	4033
+    85   000000                     _ADCON0bits	set	4034
+    86   000000                     _LATH	set	3984
+    87   000000                     _PORTFbits	set	3973
+    88   000000                     _PORTH	set	3975
+    89   000000                     _TRISCbits	set	3988
+    90   000000                     _TRISD	set	3989
+    91   000000                     _OSCTUNEbits	set	3995
+    92   000000                     _PIR1bits	set	3998
+    93   000000                     _IPR1bits	set	3999
+    94   000000                     _CCP1CON	set	4027
+    95   000000                     _T1CON	set	4045
+    96   000000                     _RCONbits	set	4048
+    97   000000                     _OSCCONbits	set	4051
+    98   000000                     _PIE1	set	3997
+    99   000000                     _TRISF	set	3991
+   100   000000                     _TRISH	set	3993
+   101   000000                     _TRISJ	set	3994
+   102                           
+   103                           ; #config settings
+   104                           
+   105                           	psect	cinit
+   106   001D08                     __pcinit:
+   107                           	callstack 0
+   108   001D08                     start_initialization:
+   109                           	callstack 0
+   110   001D08                     __initialization:
+   111                           	callstack 0
+   112                           
+   113                           ; Clear objects allocated to COMRAM (65 bytes)
+   114   001D08  EE00  F001         	lfsr	0,__pbssCOMRAM
+   115   001D0C  0E41               	movlw	65
+   116   001D0E                     clear_0:
+   117   001D0E  6AEE               	clrf	postinc0,c
+   118   001D10  06E8               	decf	wreg,f,c
+   119   001D12  E1FD               	bnz	clear_0
+   120   001D14                     end_of_initialization:
+   121                           	callstack 0
+   122   001D14                     __end_of__initialization:
+   123                           	callstack 0
+   124   001D14  9058               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   125   001D16  9258               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   126   001D18  0100               	movlb	0
+   127   001D1A  EF07  F00A         	goto	_main	;jump to C main() function
+   128                           
+   129                           	psect	bssCOMRAM
+   130   000001                     __pbssCOMRAM:
+   131                           	callstack 0
+   132   000001                     _ADprevod:
+   133                           	callstack 0
+   134   000001                     	ds	4
+   135   000005                     _mezera:
+   136                           	callstack 0
+   137   000005                     	ds	2
+   138   000007                     _new_puls:
+   139                           	callstack 0
+   140   000007                     	ds	2
+   141   000009                     _puls_back:
+   142                           	callstack 0
+   143   000009                     	ds	2
+   144   00000B                     _puls:
+   145                           	callstack 0
+   146   00000B                     	ds	2
+   147   00000D                     _ADhotovo:
+   148                           	callstack 0
+   149   00000D                     	ds	2
+   150   00000F                     _citac_ms:
+   151                           	callstack 0
+   152   00000F                     	ds	2
+   153   000011                     _casove_preruseni:
+   154                           	callstack 0
+   155   000011                     	ds	1
+   156   000012                     _stopa_B:
+   157                           	callstack 0
+   158   000012                     	ds	10
+   159   00001C                     _stopa_A:
+   160                           	callstack 0
+   161   00001C                     	ds	10
+   162   000026                     _S3:
+   163                           	callstack 0
+   164   000026                     	ds	10
+   165   000030                     _S4:
+   166                           	callstack 0
+   167   000030                     	ds	10
+   168   00003A                     _koder:
+   169                           	callstack 0
+   170   00003A                     	ds	8
+   171                           
+   172                           	psect	cstackBANK0
+   173   000060                     __pcstackBANK0:
+   174                           	callstack 0
+   175   000060                     ___aldiv@counter:
+   176                           	callstack 0
+   177                           
+   178                           ; 1 bytes @ 0x0
+   179   000060                     	ds	1
+   180   000061                     ___aldiv@sign:
+   181                           	callstack 0
+   182                           
+   183                           ; 1 bytes @ 0x1
+   184   000061                     	ds	1
+   185   000062                     ___aldiv@quotient:
+   186                           	callstack 0
+   187                           
+   188                           ; 4 bytes @ 0x2
+   189   000062                     	ds	4
+   190                           
+   191                           	psect	cstackCOMRAM
+   192   000042                     __pcstackCOMRAM:
+   193                           	callstack 0
+   194   000042                     ??_low_isr:
+   195                           
+   196                           ; 1 bytes @ 0x0
+   197   000042                     	ds	7
+   198   000049                     ?___lmul:
+   199                           	callstack 0
+   200   000049                     ?___aldiv:
+   201                           	callstack 0
+   202   000049                     filtr@struktura:
+   203                           	callstack 0
+   204   000049                     aretace@struktura:
+   205                           	callstack 0
+   206   000049                     smerOtaceniPocitadloHran@koder:
+   207                           	callstack 0
+   208   000049                     ___lmul@multiplier:
+   209                           	callstack 0
+   210   000049                     ___aldiv@dividend:
+   211                           	callstack 0
+   212                           
+   213                           ; 4 bytes @ 0x7
+   214   000049                     	ds	1
+   215   00004A                     ??_filtr:
+   216   00004A                     ??_aretace:
+   217   00004A                     ??_smerOtaceniPocitadloHran:
+   218                           
+   219                           ; 1 bytes @ 0x8
+   220   00004A                     	ds	3
+   221   00004D                     ___lmul@multiplicand:
+   222                           	callstack 0
+   223   00004D                     ___aldiv@divisor:
+   224                           	callstack 0
+   225                           
+   226                           ; 4 bytes @ 0xB
+   227   00004D                     	ds	4
+   228   000051                     ___lmul@product:
+   229                           	callstack 0
+   230                           
+   231                           ; 4 bytes @ 0xF
+   232   000051                     	ds	4
+   233   000055                     ??_main:
+   234                           
+   235                           ; 1 bytes @ 0x13
+   236   000055                     	ds	1
+   237                           
+   238 ;;
+   239 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   240 ;;
+   241 ;; *************** function _main *****************
+   242 ;; Defined at:
+   243 ;;		line 62 in file "source/main.c"
+   244 ;; Parameters:    Size  Location     Type
+   245 ;;		None
+   246 ;; Auto vars:     Size  Location     Type
+   247 ;;		None
+   248 ;; Return value:  Size  Location     Type
+   249 ;;                  1    wreg      void 
+   250 ;; Registers used:
+   251 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   252 ;; Tracked objects:
+   253 ;;		On entry : 0/0
+   254 ;;		On exit  : 0/0
+   255 ;;		Unchanged: 0/0
+   256 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   257 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   258 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   259 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   260 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   261 ;;Total ram usage:        1 bytes
+   262 ;; Hardware stack levels required when called: 3
+   263 ;; This function calls:
+   264 ;;		___aldiv
+   265 ;;		___lmul
+   266 ;;		_aretace
+   267 ;;		_filtr
+   268 ;;		_preambleInitialization
+   269 ;;		_smerOtaceniPocitadloHran
+   270 ;; This function is called by:
+   271 ;;		Startup code after reset
+   272 ;; This function uses a non-reentrant model
+   273 ;;
+   274                           
+   275                           	psect	text0
+   276   00140E                     __ptext0:
+   277                           	callstack 0
+   278   00140E                     _main:
+   279                           	callstack 28
+   280   00140E                     
+   281                           ;source/main.c: 65:   preambleInitialization();
+   282   00140E  EC67  F00E         	call	_preambleInitialization	;wreg free
+   283   001412                     
+   284                           ;source/main.c: 70:   T0CON = 0;
+   285   001412  0E00               	movlw	0
+   286   001414  6ED5               	movwf	213,c	;volatile
+   287   001416                     
+   288                           ;source/main.c: 71:   T0CONbits.PSA = 1;
+   289   001416  86D5               	bsf	213,3,c	;volatile
+   290   001418                     
+   291                           ;source/main.c: 72:   TMR0H = 0xD8;
+   292   001418  0ED8               	movlw	216
+   293   00141A  6ED7               	movwf	215,c	;volatile
+   294   00141C                     
+   295                           ;source/main.c: 73:   TMR0L = 0xEF;
+   296   00141C  0EEF               	movlw	239
+   297   00141E  6ED6               	movwf	214,c	;volatile
+   298   001420                     
+   299                           ;source/main.c: 76:   T0CONbits.TMR0ON = 1;
+   300   001420  8ED5               	bsf	213,7,c	;volatile
+   301   001422                     
+   302                           ;source/main.c: 80:   INTCON2 = 0;
+   303   001422  0E00               	movlw	0
+   304   001424  6EF1               	movwf	241,c	;volatile
+   305   001426                     
+   306                           ;source/main.c: 81:   INTCONbits.TMR0IE = 1;
+   307   001426  8AF2               	bsf	242,5,c	;volatile
+   308   001428                     
+   309                           ;source/main.c: 83:   T0CONbits.TMR0ON = 1;
+   310   001428  8ED5               	bsf	213,7,c	;volatile
+   311   00142A                     
+   312                           ;source/main.c: 85:   INTCONbits.GIEL = 1;
+   313   00142A  8CF2               	bsf	242,6,c	;volatile
+   314   00142C                     
+   315                           ;source/main.c: 86:   INTCONbits.GIEH = 1;
+   316   00142C  8EF2               	bsf	242,7,c	;volatile
+   317   00142E                     
+   318                           ;source/main.c: 89:   sum = 50000;
+   319   00142E  0EC3               	movlw	195
+   320   001430  6E57               	movwf	(_sum+1)^0,c
+   321   001432  0E50               	movlw	80
+   322   001434  6E56               	movwf	_sum^0,c
+   323   001436                     
+   324                           ;source/main.c: 90:   CCPR1H = (sum>>8);
+   325   001436  5057               	movf	(_sum+1)^0,w,c
+   326   001438  6EBD               	movwf	189,c	;volatile
+   327   00143A                     
+   328                           ;source/main.c: 91:   CCPR1L = (sum&0x00FF);
+   329   00143A  C056  FFBC         	movff	_sum,4028	;volatile
+   330   00143E                     l1721:
+   331                           
+   332                           ;source/main.c: 96:   {;source/main.c: 97:       if(casove_preruseni == 1){
+   333   00143E  0411               	decf	_casove_preruseni^0,w,c
+   334   001440  A4D8               	btfss	status,2,c
+   335   001442  EF25  F00A         	goto	u1401
+   336   001446  EF27  F00A         	goto	u1400
+   337   00144A                     u1401:
+   338   00144A  EFF7  F00A         	goto	l1779
+   339   00144E                     u1400:
+   340   00144E                     
+   341                           ;source/main.c: 98:           S4.vstup = PORTJbits.RJ7;
+   342   00144E  BE88               	btfsc	136,7,c	;volatile
+   343   001450  EF2C  F00A         	goto	u1411
+   344   001454  EF30  F00A         	goto	u1410
+   345   001458                     u1411:
+   346   001458  6A55               	clrf	??_main^0,c
+   347   00145A  2A55               	incf	??_main^0,f,c
+   348   00145C  EF31  F00A         	goto	u1418
+   349   001460                     u1410:
+   350   001460  6A55               	clrf	??_main^0,c
+   351   001462                     u1418:
+   352   001462  5055               	movf	??_main^0,w,c
+   353   001464  6E30               	movwf	_S4^0,c
+   354   001466  6A31               	clrf	(_S4+1)^0,c
+   355   001468                     
+   356                           ;source/main.c: 99:           filtr(&S4);
+   357   001468  0E30               	movlw	low _S4
+   358   00146A  6E49               	movwf	filtr@struktura^0,c
+   359   00146C  ECD1  F00B         	call	_filtr	;wreg free
+   360   001470                     
+   361                           ;source/main.c: 100:           aretace(&S4);
+   362   001470  0E30               	movlw	low _S4
+   363   001472  6E49               	movwf	aretace@struktura^0,c
+   364   001474  ECD1  F00C         	call	_aretace	;wreg free
+   365   001478                     
+   366                           ;source/main.c: 101:           PORTDbits.RD7 = S4.zaaretovane;
+   367   001478  B038               	btfsc	(_S4+8)^0,0,c
+   368   00147A  D002               	bra	u1425
+   369   00147C  9E83               	bcf	131,7,c	;volatile
+   370   00147E  D001               	bra	u1426
+   371   001480                     u1425:
+   372   001480  8E83               	bsf	131,7,c	;volatile
+   373   001482                     u1426:
+   374                           
+   375                           ;source/main.c: 103:           stopa_A.vstup = PORTJbits.RJ0;
+   376   001482  B088               	btfsc	136,0,c	;volatile
+   377   001484  EF46  F00A         	goto	u1431
+   378   001488  EF4A  F00A         	goto	u1430
+   379   00148C                     u1431:
+   380   00148C  6A55               	clrf	??_main^0,c
+   381   00148E  2A55               	incf	??_main^0,f,c
+   382   001490  EF4B  F00A         	goto	u1438
+   383   001494                     u1430:
+   384   001494  6A55               	clrf	??_main^0,c
+   385   001496                     u1438:
+   386   001496  5055               	movf	??_main^0,w,c
+   387   001498  6E1C               	movwf	_stopa_A^0,c
+   388   00149A  6A1D               	clrf	(_stopa_A+1)^0,c
+   389   00149C                     
+   390                           ;source/main.c: 104:           filtr(&stopa_A);
+   391   00149C  0E1C               	movlw	low _stopa_A
+   392   00149E  6E49               	movwf	filtr@struktura^0,c
+   393   0014A0  ECD1  F00B         	call	_filtr	;wreg free
+   394   0014A4                     
+   395                           ;source/main.c: 105:           stopa_B.vstup = PORTJbits.RJ1;
+   396   0014A4  B288               	btfsc	136,1,c	;volatile
+   397   0014A6  EF57  F00A         	goto	u1441
+   398   0014AA  EF5B  F00A         	goto	u1440
+   399   0014AE                     u1441:
+   400   0014AE  6A55               	clrf	??_main^0,c
+   401   0014B0  2A55               	incf	??_main^0,f,c
+   402   0014B2  EF5C  F00A         	goto	u1448
+   403   0014B6                     u1440:
+   404   0014B6  6A55               	clrf	??_main^0,c
+   405   0014B8                     u1448:
+   406   0014B8  5055               	movf	??_main^0,w,c
+   407   0014BA  6E12               	movwf	_stopa_B^0,c
+   408   0014BC  6A13               	clrf	(_stopa_B+1)^0,c
+   409                           
+   410                           ;source/main.c: 106:           filtr(&stopa_B);
+   411   0014BE  0E12               	movlw	low _stopa_B
+   412   0014C0  6E49               	movwf	filtr@struktura^0,c
+   413   0014C2  ECD1  F00B         	call	_filtr	;wreg free
+   414   0014C6                     
+   415                           ;source/main.c: 107:           PORTDbits.RD6 = stopa_A.filtrovane;
+   416   0014C6  B01E               	btfsc	(_stopa_A+2)^0,0,c
+   417   0014C8  D002               	bra	u1455
+   418   0014CA  9C83               	bcf	131,6,c	;volatile
+   419   0014CC  D001               	bra	u1456
+   420   0014CE                     u1455:
+   421   0014CE  8C83               	bsf	131,6,c	;volatile
+   422   0014D0                     u1456:
+   423   0014D0                     
+   424                           ;source/main.c: 108:           PORTDbits.RD5 = stopa_B.filtrovane;
+   425   0014D0  B014               	btfsc	(_stopa_B+2)^0,0,c
+   426   0014D2  D002               	bra	u1465
+   427   0014D4  9A83               	bcf	131,5,c	;volatile
+   428   0014D6  D001               	bra	u1466
+   429   0014D8                     u1465:
+   430   0014D8  8A83               	bsf	131,5,c	;volatile
+   431   0014DA                     u1466:
+   432   0014DA                     
+   433                           ;source/main.c: 110:           koder.A = stopa_A.filtrovane;
+   434   0014DA  C01E  F03A         	movff	_stopa_A+2,_koder
+   435   0014DE  C01F  F03B         	movff	_stopa_A+3,_koder+1
+   436   0014E2                     
+   437                           ;source/main.c: 111:           koder.B = stopa_B.filtrovane;
+   438   0014E2  C014  F03C         	movff	_stopa_B+2,_koder+2
+   439   0014E6  C015  F03D         	movff	_stopa_B+3,_koder+3
+   440                           
+   441                           ;source/main.c: 113:           smerOtaceniPocitadloHran(&koder);
+   442   0014EA  0E3A               	movlw	low _koder
+   443   0014EC  6E49               	movwf	smerOtaceniPocitadloHran@koder^0,c
+   444   0014EE  EC01  F008         	call	_smerOtaceniPocitadloHran	;wreg free
+   445   0014F2                     
+   446                           ;source/main.c: 115:           if (koder.pocet == 0 && S4.zaaretovane == 0){
+   447   0014F2  5040               	movf	(_koder+6)^0,w,c
+   448   0014F4  1041               	iorwf	(_koder+7)^0,w,c
+   449   0014F6  A4D8               	btfss	status,2,c
+   450   0014F8  EF80  F00A         	goto	u1471
+   451   0014FC  EF82  F00A         	goto	u1470
+   452   001500                     u1471:
+   453   001500  EF8E  F00A         	goto	l1749
+   454   001504                     u1470:
+   455   001504  5038               	movf	(_S4+8)^0,w,c
+   456   001506  1039               	iorwf	(_S4+9)^0,w,c
+   457   001508  A4D8               	btfss	status,2,c
+   458   00150A  EF89  F00A         	goto	u1481
+   459   00150E  EF8B  F00A         	goto	u1480
+   460   001512                     u1481:
+   461   001512  EF8E  F00A         	goto	l1749
+   462   001516                     u1480:
+   463   001516                     
+   464                           ;source/main.c: 116:               PORTFbits.RF2 = 1;
+   465   001516  8485               	bsf	133,2,c	;volatile
+   466                           
+   467                           ;source/main.c: 117:           }
+   468   001518  EFD3  F00A         	goto	l1767
+   469   00151C                     l1749:
+   470   00151C  2840               	incf	(_koder+6)^0,w,c
+   471   00151E  1041               	iorwf	(_koder+7)^0,w,c
+   472   001520  A4D8               	btfss	status,2,c
+   473   001522  EF95  F00A         	goto	u1491
+   474   001526  EF97  F00A         	goto	u1490
+   475   00152A                     u1491:
+   476   00152A  EFA3  F00A         	goto	l1755
+   477   00152E                     u1490:
+   478   00152E  5038               	movf	(_S4+8)^0,w,c
+   479   001530  1039               	iorwf	(_S4+9)^0,w,c
+   480   001532  A4D8               	btfss	status,2,c
+   481   001534  EF9E  F00A         	goto	u1501
+   482   001538  EFA0  F00A         	goto	u1500
+   483   00153C                     u1501:
+   484   00153C  EFA3  F00A         	goto	l1755
+   485   001540                     u1500:
+   486   001540                     
+   487                           ;source/main.c: 119:               PORTFbits.RF1 = 1;
+   488   001540  8285               	bsf	133,1,c	;volatile
+   489                           
+   490                           ;source/main.c: 120:           }
+   491   001542  EFD3  F00A         	goto	l1767
+   492   001546                     l1755:
+   493   001546  5001               	movf	_ADprevod^0,w,c
+   494   001548  1002               	iorwf	(_ADprevod+1)^0,w,c
+   495   00154A  1003               	iorwf	(_ADprevod+2)^0,w,c
+   496   00154C  1004               	iorwf	(_ADprevod+3)^0,w,c
+   497   00154E  A4D8               	btfss	status,2,c
+   498   001550  EFAC  F00A         	goto	u1511
+   499   001554  EFAE  F00A         	goto	u1510
+   500   001558                     u1511:
+   501   001558  EFBA  F00A         	goto	l1761
+   502   00155C                     u1510:
+   503   00155C  0438               	decf	(_S4+8)^0,w,c
+   504   00155E  1039               	iorwf	(_S4+9)^0,w,c
+   505   001560  A4D8               	btfss	status,2,c
+   506   001562  EFB5  F00A         	goto	u1521
+   507   001566  EFB7  F00A         	goto	u1520
+   508   00156A                     u1521:
+   509   00156A  EFBA  F00A         	goto	l1761
+   510   00156E                     u1520:
+   511   00156E                     
+   512                           ;source/main.c: 122:               PORTFbits.RF2 = 1;
+   513   00156E  8485               	bsf	133,2,c	;volatile
+   514                           
+   515                           ;source/main.c: 123:           }
+   516   001570  EFD3  F00A         	goto	l1767
+   517   001574                     l1761:
+   518   001574  2801               	incf	_ADprevod^0,w,c
+   519   001576  1002               	iorwf	(_ADprevod+1)^0,w,c
+   520   001578  1003               	iorwf	(_ADprevod+2)^0,w,c
+   521   00157A  1004               	iorwf	(_ADprevod+3)^0,w,c
+   522   00157C  A4D8               	btfss	status,2,c
+   523   00157E  EFC3  F00A         	goto	u1531
+   524   001582  EFC5  F00A         	goto	u1530
+   525   001586                     u1531:
+   526   001586  EFD1  F00A         	goto	l90
+   527   00158A                     u1530:
+   528   00158A  0438               	decf	(_S4+8)^0,w,c
+   529   00158C  1039               	iorwf	(_S4+9)^0,w,c
+   530   00158E  A4D8               	btfss	status,2,c
+   531   001590  EFCC  F00A         	goto	u1541
+   532   001594  EFCE  F00A         	goto	u1540
+   533   001598                     u1541:
+   534   001598  EFD1  F00A         	goto	l90
+   535   00159C                     u1540:
+   536   00159C                     
+   537                           ;source/main.c: 125:               PORTFbits.RF1 = 1;
+   538   00159C  8285               	bsf	133,1,c	;volatile
+   539                           
+   540                           ;source/main.c: 126:           }
+   541   00159E  EFD3  F00A         	goto	l1767
+   542   0015A2                     l90:
+   543                           
+   544                           ;source/main.c: 129:               PORTFbits.RF2 = 0;
+   545   0015A2  9485               	bcf	133,2,c	;volatile
+   546                           
+   547                           ;source/main.c: 130:               PORTFbits.RF1 = 0;
+   548   0015A4  9285               	bcf	133,1,c	;volatile
+   549   0015A6                     l1767:
+   550                           
+   551                           ;source/main.c: 134:           S3.vstup = PORTJbits.RJ6;
+   552   0015A6  BC88               	btfsc	136,6,c	;volatile
+   553   0015A8  EFD8  F00A         	goto	u1551
+   554   0015AC  EFDC  F00A         	goto	u1550
+   555   0015B0                     u1551:
+   556   0015B0  6A55               	clrf	??_main^0,c
+   557   0015B2  2A55               	incf	??_main^0,f,c
+   558   0015B4  EFDD  F00A         	goto	u1558
+   559   0015B8                     u1550:
+   560   0015B8  6A55               	clrf	??_main^0,c
+   561   0015BA                     u1558:
+   562   0015BA  5055               	movf	??_main^0,w,c
+   563   0015BC  6E26               	movwf	_S3^0,c
+   564   0015BE  6A27               	clrf	(_S3+1)^0,c
+   565   0015C0                     
+   566                           ;source/main.c: 135:           filtr(&S3);
+   567   0015C0  0E26               	movlw	low _S3
+   568   0015C2  6E49               	movwf	filtr@struktura^0,c
+   569   0015C4  ECD1  F00B         	call	_filtr	;wreg free
+   570   0015C8                     
+   571                           ;source/main.c: 136:           aretace(&S3);
+   572   0015C8  0E26               	movlw	low _S3
+   573   0015CA  6E49               	movwf	aretace@struktura^0,c
+   574   0015CC  ECD1  F00C         	call	_aretace	;wreg free
+   575   0015D0                     
+   576                           ;source/main.c: 137:           if (S3.zaaretovane == 1){
+   577   0015D0  042E               	decf	(_S3+8)^0,w,c
+   578   0015D2  102F               	iorwf	(_S3+9)^0,w,c
+   579   0015D4  A4D8               	btfss	status,2,c
+   580   0015D6  EFEF  F00A         	goto	u1561
+   581   0015DA  EFF1  F00A         	goto	u1560
+   582   0015DE                     u1561:
+   583   0015DE  EFF4  F00A         	goto	l92
+   584   0015E2                     u1560:
+   585   0015E2                     
+   586                           ;source/main.c: 138:               PORTDbits.RD4 = 0;
+   587   0015E2  9883               	bcf	131,4,c	;volatile
+   588                           
+   589                           ;source/main.c: 139:           }
+   590   0015E4  EFF5  F00A         	goto	l1777
+   591   0015E8                     l92:
+   592                           
+   593                           ;source/main.c: 141:               PORTDbits.RD4 = 1;
+   594   0015E8  8883               	bsf	131,4,c	;volatile
+   595   0015EA                     l1777:
+   596                           
+   597                           ;source/main.c: 145:           casove_preruseni = 0;
+   598   0015EA  0E00               	movlw	0
+   599   0015EC  6E11               	movwf	_casove_preruseni^0,c
+   600   0015EE                     l1779:
+   601                           
+   602                           ;source/main.c: 148:       if(ADhotovo == 1){
+   603   0015EE  040D               	decf	_ADhotovo^0,w,c
+   604   0015F0  100E               	iorwf	(_ADhotovo+1)^0,w,c
+   605   0015F2  A4D8               	btfss	status,2,c
+   606   0015F4  EFFE  F00A         	goto	u1571
+   607   0015F8  EF00  F00B         	goto	u1570
+   608   0015FC                     u1571:
+   609   0015FC  EF77  F00B         	goto	l94
+   610   001600                     u1570:
+   611   001600                     
+   612                           ;source/main.c: 149:           if(ADprevod > 1000){
+   613   001600  BE04               	btfsc	(_ADprevod+3)^0,7,c
+   614   001602  EF0F  F00B         	goto	u1581
+   615   001606  5004               	movf	(_ADprevod+3)^0,w,c
+   616   001608  1003               	iorwf	(_ADprevod+2)^0,w,c
+   617   00160A  E10B               	bnz	u1580
+   618   00160C  0EE9               	movlw	233
+   619   00160E  5C01               	subwf	_ADprevod^0,w,c
+   620   001610  0E03               	movlw	3
+   621   001612  5802               	subwfb	(_ADprevod+1)^0,w,c
+   622   001614  A0D8               	btfss	status,0,c
+   623   001616  EF0F  F00B         	goto	u1581
+   624   00161A  EF11  F00B         	goto	u1580
+   625   00161E                     u1581:
+   626   00161E  EF1B  F00B         	goto	l1785
+   627   001622                     u1580:
+   628   001622                     
+   629                           ;source/main.c: 150:               ADprevod = 1000;
+   630   001622  0EE8               	movlw	232
+   631   001624  6E01               	movwf	_ADprevod^0,c
+   632   001626  0E03               	movlw	3
+   633   001628  6E02               	movwf	(_ADprevod+1)^0,c
+   634   00162A  0E00               	movlw	0
+   635   00162C  6E03               	movwf	(_ADprevod+2)^0,c
+   636   00162E  0E00               	movlw	0
+   637   001630  6E04               	movwf	(_ADprevod+3)^0,c
+   638                           
+   639                           ;source/main.c: 151:           }
+   640   001632  EF33  F00B         	goto	l1789
+   641   001636                     l1785:
+   642   001636  BE04               	btfsc	(_ADprevod+3)^0,7,c
+   643   001638  EF2B  F00B         	goto	u1590
+   644   00163C  5004               	movf	(_ADprevod+3)^0,w,c
+   645   00163E  1003               	iorwf	(_ADprevod+2)^0,w,c
+   646   001640  1002               	iorwf	(_ADprevod+1)^0,w,c
+   647   001642  E107               	bnz	u1591
+   648   001644  0E32               	movlw	50
+   649   001646  5C01               	subwf	_ADprevod^0,w,c
+   650   001648  B0D8               	btfsc	status,0,c
+   651   00164A  EF29  F00B         	goto	u1591
+   652   00164E  EF2B  F00B         	goto	u1590
+   653   001652                     u1591:
+   654   001652  EF33  F00B         	goto	l1789
+   655   001656                     u1590:
+   656   001656                     
+   657                           ;source/main.c: 153:               ADprevod = 50;
+   658   001656  0E32               	movlw	50
+   659   001658  6E01               	movwf	_ADprevod^0,c
+   660   00165A  0E00               	movlw	0
+   661   00165C  6E02               	movwf	(_ADprevod+1)^0,c
+   662   00165E  0E00               	movlw	0
+   663   001660  6E03               	movwf	(_ADprevod+2)^0,c
+   664   001662  0E00               	movlw	0
+   665   001664  6E04               	movwf	(_ADprevod+3)^0,c
+   666   001666                     l1789:
+   667                           
+   668                           ;source/main.c: 155:           ADprevod = ADprevod - 50;
+   669   001666  0ECE               	movlw	206
+   670   001668  2401               	addwf	_ADprevod^0,w,c
+   671   00166A  6E01               	movwf	_ADprevod^0,c
+   672   00166C  0EFF               	movlw	255
+   673   00166E  2002               	addwfc	(_ADprevod+1)^0,w,c
+   674   001670  6E02               	movwf	(_ADprevod+1)^0,c
+   675   001672  0EFF               	movlw	255
+   676   001674  2003               	addwfc	(_ADprevod+2)^0,w,c
+   677   001676  6E03               	movwf	(_ADprevod+2)^0,c
+   678   001678  0EFF               	movlw	255
+   679   00167A  2004               	addwfc	(_ADprevod+3)^0,w,c
+   680   00167C  6E04               	movwf	(_ADprevod+3)^0,c
+   681   00167E                     
+   682                           ;source/main.c: 156:           ADprevod = ADprevod * 255;
+   683   00167E  C001  F049         	movff	_ADprevod,___lmul@multiplier
+   684   001682  C002  F04A         	movff	_ADprevod+1,___lmul@multiplier+1
+   685   001686  C003  F04B         	movff	_ADprevod+2,___lmul@multiplier+2
+   686   00168A  C004  F04C         	movff	_ADprevod+3,___lmul@multiplier+3
+   687   00168E  0EFF               	movlw	255
+   688   001690  6E4D               	movwf	___lmul@multiplicand^0,c
+   689   001692  0E00               	movlw	0
+   690   001694  6E4E               	movwf	(___lmul@multiplicand+1)^0,c
+   691   001696  0E00               	movlw	0
+   692   001698  6E4F               	movwf	(___lmul@multiplicand+2)^0,c
+   693   00169A  0E00               	movlw	0
+   694   00169C  6E50               	movwf	(___lmul@multiplicand+3)^0,c
+   695   00169E  EC32  F00E         	call	___lmul	;wreg free
+   696   0016A2  C049  F001         	movff	?___lmul,_ADprevod
+   697   0016A6  C04A  F002         	movff	?___lmul+1,_ADprevod+1
+   698   0016AA  C04B  F003         	movff	?___lmul+2,_ADprevod+2
+   699   0016AE  C04C  F004         	movff	?___lmul+3,_ADprevod+3
+   700   0016B2                     
+   701                           ;source/main.c: 157:           ADprevod = ADprevod / 950;
+   702   0016B2  C001  F049         	movff	_ADprevod,___aldiv@dividend
+   703   0016B6  C002  F04A         	movff	_ADprevod+1,___aldiv@dividend+1
+   704   0016BA  C003  F04B         	movff	_ADprevod+2,___aldiv@dividend+2
+   705   0016BE  C004  F04C         	movff	_ADprevod+3,___aldiv@dividend+3
+   706   0016C2  0EB6               	movlw	182
+   707   0016C4  6E4D               	movwf	___aldiv@divisor^0,c
+   708   0016C6  0E03               	movlw	3
+   709   0016C8  6E4E               	movwf	(___aldiv@divisor+1)^0,c
+   710   0016CA  0E00               	movlw	0
+   711   0016CC  6E4F               	movwf	(___aldiv@divisor+2)^0,c
+   712   0016CE  0E00               	movlw	0
+   713   0016D0  6E50               	movwf	(___aldiv@divisor+3)^0,c
+   714   0016D2  EC69  F00D         	call	___aldiv	;wreg free
+   715   0016D6  C049  F001         	movff	?___aldiv,_ADprevod
+   716   0016DA  C04A  F002         	movff	?___aldiv+1,_ADprevod+1
+   717   0016DE  C04B  F003         	movff	?___aldiv+2,_ADprevod+2
+   718   0016E2  C04C  F004         	movff	?___aldiv+3,_ADprevod+3
+   719   0016E6                     
+   720                           ;source/main.c: 159:           ADhotovo = 0;
+   721   0016E6  0E00               	movlw	0
+   722   0016E8  6E0E               	movwf	(_ADhotovo+1)^0,c
+   723   0016EA  0E00               	movlw	0
+   724   0016EC  6E0D               	movwf	_ADhotovo^0,c
+   725   0016EE                     l94:
+   726                           
+   727                           ;source/main.c: 162:       if (S3.zaaretovane == 0){
+   728   0016EE  502E               	movf	(_S3+8)^0,w,c
+   729   0016F0  102F               	iorwf	(_S3+9)^0,w,c
+   730   0016F2  A4D8               	btfss	status,2,c
+   731   0016F4  EF7E  F00B         	goto	u1601
+   732   0016F8  EF80  F00B         	goto	u1600
+   733   0016FC                     u1601:
+   734   0016FC  EF9A  F00B         	goto	l1805
+   735   001700                     u1600:
+   736   001700                     
+   737                           ;source/main.c: 163:           if (S4.zaaretovane == 0){
+   738   001700  5038               	movf	(_S4+8)^0,w,c
+   739   001702  1039               	iorwf	(_S4+9)^0,w,c
+   740   001704  A4D8               	btfss	status,2,c
+   741   001706  EF87  F00B         	goto	u1611
+   742   00170A  EF89  F00B         	goto	u1610
+   743   00170E                     u1611:
+   744   00170E  EF8D  F00B         	goto	l1801
+   745   001712                     u1610:
+   746   001712                     
+   747                           ;source/main.c: 164:             PORTH = koder.pocet;
+   748   001712  C040  FF87         	movff	_koder+6,3975	;volatile
+   749                           
+   750                           ;source/main.c: 165:           }
+   751   001716  EFA5  F00B         	goto	l1809
+   752   00171A                     l1801:
+   753   00171A  0438               	decf	(_S4+8)^0,w,c
+   754   00171C  1039               	iorwf	(_S4+9)^0,w,c
+   755   00171E  A4D8               	btfss	status,2,c
+   756   001720  EF94  F00B         	goto	u1621
+   757   001724  EF96  F00B         	goto	u1620
+   758   001728                     u1621:
+   759   001728  EFA5  F00B         	goto	l1809
+   760   00172C                     u1620:
+   761   00172C                     
+   762                           ;source/main.c: 167:             PORTH = ADprevod;
+   763   00172C  C001  FF87         	movff	_ADprevod,3975	;volatile
+   764   001730  EFA5  F00B         	goto	l1809
+   765   001734                     l1805:
+   766   001734  042E               	decf	(_S3+8)^0,w,c
+   767   001736  102F               	iorwf	(_S3+9)^0,w,c
+   768   001738  A4D8               	btfss	status,2,c
+   769   00173A  EFA1  F00B         	goto	u1631
+   770   00173E  EFA3  F00B         	goto	u1630
+   771   001742                     u1631:
+   772   001742  EFA5  F00B         	goto	l1809
+   773   001746                     u1630:
+   774   001746                     
+   775                           ;source/main.c: 171:           PORTH = 0;
+   776   001746  0E00               	movlw	0
+   777   001748  6E87               	movwf	135,c	;volatile
+   778   00174A                     l1809:
+   779                           
+   780                           ;source/main.c: 174:       if (S3.zaaretovane == 0){
+   781   00174A  502E               	movf	(_S3+8)^0,w,c
+   782   00174C  102F               	iorwf	(_S3+9)^0,w,c
+   783   00174E  A4D8               	btfss	status,2,c
+   784   001750  EFAC  F00B         	goto	u1641
+   785   001754  EFAE  F00B         	goto	u1640
+   786   001758                     u1641:
+   787   001758  EFC5  F00B         	goto	l1817
+   788   00175C                     u1640:
+   789   00175C                     
+   790                           ;source/main.c: 175:           puls_back = (unsigned int) 10*LATH;
+   791   00175C  5090               	movf	144,w,c	;volatile
+   792   00175E  0D0A               	mullw	10
+   793   001760  CFF3 F009          	movff	prodl,_puls_back
+   794   001764  CFF4 F00A          	movff	prodh,_puls_back+1
+   795   001768                     
+   796                           ;source/main.c: 176:           if (puls_back > 2500){
+   797   001768  0EC5               	movlw	197
+   798   00176A  5C09               	subwf	_puls_back^0,w,c
+   799   00176C  0E09               	movlw	9
+   800   00176E  580A               	subwfb	(_puls_back+1)^0,w,c
+   801   001770  A0D8               	btfss	status,0,c
+   802   001772  EFBD  F00B         	goto	u1651
+   803   001776  EFBF  F00B         	goto	u1650
+   804   00177A                     u1651:
+   805   00177A  EFC9  F00B         	goto	l106
+   806   00177E                     u1650:
+   807   00177E                     
+   808                           ;source/main.c: 177:               puls_back = 2500;
+   809   00177E  0E09               	movlw	9
+   810   001780  6E0A               	movwf	(_puls_back+1)^0,c
+   811   001782  0EC4               	movlw	196
+   812   001784  6E09               	movwf	_puls_back^0,c
+   813   001786  EFC9  F00B         	goto	l106
+   814   00178A                     l1817:
+   815                           
+   816                           ;source/main.c: 181:           puls_back = 0;
+   817   00178A  0E00               	movlw	0
+   818   00178C  6E0A               	movwf	(_puls_back+1)^0,c
+   819   00178E  0E00               	movlw	0
+   820   001790  6E09               	movwf	_puls_back^0,c
+   821   001792                     l106:
+   822                           
+   823                           ;source/main.c: 183:       new_puls = 1;
+   824   001792  0E00               	movlw	0
+   825   001794  6E08               	movwf	(_new_puls+1)^0,c
+   826   001796  0E01               	movlw	1
+   827   001798  6E07               	movwf	_new_puls^0,c
+   828   00179A  EF1F  F00A         	goto	l1721
+   829   00179E  EF7A  F000         	goto	start
+   830   0017A2                     __end_of_main:
+   831                           	callstack 0
+   832                           
+   833 ;; *************** function _smerOtaceniPocitadloHran *****************
+   834 ;; Defined at:
+   835 ;;		line 14 in file "source/smerOtaceniPocitadloHran.c"
+   836 ;; Parameters:    Size  Location     Type
+   837 ;;  koder           1    7[COMRAM] PTR struct .
+   838 ;;		 -> koder(8), 
+   839 ;; Auto vars:     Size  Location     Type
+   840 ;;		None
+   841 ;; Return value:  Size  Location     Type
+   842 ;;                  1    wreg      void 
+   843 ;; Registers used:
+   844 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+   845 ;; Tracked objects:
+   846 ;;		On entry : 0/0
+   847 ;;		On exit  : 0/0
+   848 ;;		Unchanged: 0/0
+   849 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   850 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   851 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   852 ;;      Temps:          4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   853 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   854 ;;Total ram usage:        5 bytes
+   855 ;; Hardware stack levels used: 1
+   856 ;; Hardware stack levels required when called: 2
+   857 ;; This function calls:
+   858 ;;		Nothing
+   859 ;; This function is called by:
+   860 ;;		_main
+   861 ;; This function uses a non-reentrant model
+   862 ;;
+   863                           
+   864                           	psect	text1
+   865   001002                     __ptext1:
+   866                           	callstack 0
+   867   001002                     _smerOtaceniPocitadloHran:
+   868                           	callstack 28
+   869   001002                     
+   870                           ;source/smerOtaceniPocitadloHran.c: 15:     switch (koder->stav_koderu){
+   871   001002  EFE3  F009         	goto	l1451
+   872   001006                     l1385:
+   873                           
+   874                           ;source/smerOtaceniPocitadloHran.c: 17:             if (koder->A == 1 && koder->B==0){
+   875   001006  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   876   001008  6ED9               	movwf	fsr2l,c
+   877   00100A  6ADA               	clrf	fsr2h,c
+   878   00100C  04DE               	decf	postinc2,w,c
+   879   00100E  10DE               	iorwf	postinc2,w,c
+   880   001010  A4D8               	btfss	status,2,c
+   881   001012  EF0D  F008         	goto	u801
+   882   001016  EF0F  F008         	goto	u800
+   883   00101A                     u801:
+   884   00101A  EF57  F008         	goto	l1395
+   885   00101E                     u800:
+   886   00101E  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   887   001020  6ED9               	movwf	fsr2l,c
+   888   001022  6ADA               	clrf	fsr2h,c
+   889   001024  0E02               	movlw	2
+   890   001026  26D9               	addwf	fsr2l,f,c
+   891   001028  50DE               	movf	postinc2,w,c
+   892   00102A  10DE               	iorwf	postinc2,w,c
+   893   00102C  A4D8               	btfss	status,2,c
+   894   00102E  EF1B  F008         	goto	u811
+   895   001032  EF1D  F008         	goto	u810
+   896   001036                     u811:
+   897   001036  EF57  F008         	goto	l1395
+   898   00103A                     u810:
+   899   00103A                     
+   900                           ;source/smerOtaceniPocitadloHran.c: 18:                 if (koder->pocet == 255){
+   901   00103A  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   902   00103C  6ED9               	movwf	fsr2l,c
+   903   00103E  6ADA               	clrf	fsr2h,c
+   904   001040  0E06               	movlw	6
+   905   001042  26D9               	addwf	fsr2l,f,c
+   906   001044  28DE               	incf	postinc2,w,c
+   907   001046  10DE               	iorwf	postinc2,w,c
+   908   001048  A4D8               	btfss	status,2,c
+   909   00104A  EF29  F008         	goto	u821
+   910   00104E  EF2B  F008         	goto	u820
+   911   001052                     u821:
+   912   001052  EF36  F008         	goto	l1393
+   913   001056                     u820:
+   914   001056                     
+   915                           ;source/smerOtaceniPocitadloHran.c: 19:                     koder->pocet=255;
+   916   001056  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   917   001058  6ED9               	movwf	fsr2l,c
+   918   00105A  6ADA               	clrf	fsr2h,c
+   919   00105C  0E06               	movlw	6
+   920   00105E  26D9               	addwf	fsr2l,f,c
+   921   001060  0EFF               	movlw	255
+   922   001062  6EDE               	movwf	postinc2,c
+   923   001064  0E00               	movlw	0
+   924   001066  6EDD               	movwf	postdec2,c
+   925                           
+   926                           ;source/smerOtaceniPocitadloHran.c: 20:                 }
+   927   001068  EF4C  F008         	goto	l213
+   928   00106C                     l1393:
+   929                           
+   930                           ;source/smerOtaceniPocitadloHran.c: 22:                     koder->pocet = koder->pocet 
+      +                          +1;
+   931   00106C  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   932   00106E  6ED9               	movwf	fsr2l,c
+   933   001070  6ADA               	clrf	fsr2h,c
+   934   001072  0E06               	movlw	6
+   935   001074  26D9               	addwf	fsr2l,f,c
+   936   001076  CFDE F04A          	movff	postinc2,??_smerOtaceniPocitadloHran
+   937   00107A  CFDD F04B          	movff	postdec2,??_smerOtaceniPocitadloHran+1
+   938   00107E  0E01               	movlw	1
+   939   001080  264A               	addwf	??_smerOtaceniPocitadloHran^0,f,c
+   940   001082  0E00               	movlw	0
+   941   001084  224B               	addwfc	(??_smerOtaceniPocitadloHran+1)^0,f,c
+   942   001086  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   943   001088  6ED9               	movwf	fsr2l,c
+   944   00108A  6ADA               	clrf	fsr2h,c
+   945   00108C  0E06               	movlw	6
+   946   00108E  26D9               	addwf	fsr2l,f,c
+   947   001090  C04A  FFDE         	movff	??_smerOtaceniPocitadloHran,postinc2
+   948   001094  C04B  FFDD         	movff	??_smerOtaceniPocitadloHran+1,postdec2
+   949   001098                     l213:
+   950                           
+   951                           ;source/smerOtaceniPocitadloHran.c: 24:                 koder->stav_koderu = ks1;
+   952   001098  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   953   00109A  6ED9               	movwf	fsr2l,c
+   954   00109C  6ADA               	clrf	fsr2h,c
+   955   00109E  0E04               	movlw	4
+   956   0010A0  26D9               	addwf	fsr2l,f,c
+   957   0010A2  0E01               	movlw	1
+   958   0010A4  6EDE               	movwf	postinc2,c
+   959   0010A6  0E00               	movlw	0
+   960   0010A8  6EDD               	movwf	postdec2,c
+   961                           
+   962                           ;source/smerOtaceniPocitadloHran.c: 25:             }
+   963   0010AA  EF06  F00A         	goto	l235
+   964   0010AE                     l1395:
+   965   0010AE  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   966   0010B0  6ED9               	movwf	fsr2l,c
+   967   0010B2  6ADA               	clrf	fsr2h,c
+   968   0010B4  50DE               	movf	postinc2,w,c
+   969   0010B6  10DE               	iorwf	postinc2,w,c
+   970   0010B8  A4D8               	btfss	status,2,c
+   971   0010BA  EF61  F008         	goto	u831
+   972   0010BE  EF63  F008         	goto	u830
+   973   0010C2                     u831:
+   974   0010C2  EF06  F00A         	goto	l235
+   975   0010C6                     u830:
+   976   0010C6  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   977   0010C8  6ED9               	movwf	fsr2l,c
+   978   0010CA  6ADA               	clrf	fsr2h,c
+   979   0010CC  0E02               	movlw	2
+   980   0010CE  26D9               	addwf	fsr2l,f,c
+   981   0010D0  04DE               	decf	postinc2,w,c
+   982   0010D2  10DE               	iorwf	postinc2,w,c
+   983   0010D4  A4D8               	btfss	status,2,c
+   984   0010D6  EF6F  F008         	goto	u841
+   985   0010DA  EF71  F008         	goto	u840
+   986   0010DE                     u841:
+   987   0010DE  EF06  F00A         	goto	l235
+   988   0010E2                     u840:
+   989   0010E2                     
+   990                           ;source/smerOtaceniPocitadloHran.c: 27:                 if (koder->pocet == 0){
+   991   0010E2  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+   992   0010E4  6ED9               	movwf	fsr2l,c
+   993   0010E6  6ADA               	clrf	fsr2h,c
+   994   0010E8  0E06               	movlw	6
+   995   0010EA  26D9               	addwf	fsr2l,f,c
+   996   0010EC  50DE               	movf	postinc2,w,c
+   997   0010EE  10DE               	iorwf	postinc2,w,c
+   998   0010F0  A4D8               	btfss	status,2,c
+   999   0010F2  EF7D  F008         	goto	u851
+  1000   0010F6  EF7F  F008         	goto	u850
+  1001   0010FA                     u851:
+  1002   0010FA  EF88  F008         	goto	l1403
+  1003   0010FE                     u850:
+  1004   0010FE                     
+  1005                           ;source/smerOtaceniPocitadloHran.c: 28:                     koder->pocet=0;
+  1006   0010FE  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1007   001100  6ED9               	movwf	fsr2l,c
+  1008   001102  6ADA               	clrf	fsr2h,c
+  1009   001104  0E06               	movlw	6
+  1010   001106  26D9               	addwf	fsr2l,f,c
+  1011   001108  6ADE               	clrf	postinc2,c
+  1012   00110A  6ADD               	clrf	postdec2,c
+  1013                           
+  1014                           ;source/smerOtaceniPocitadloHran.c: 29:                 }
+  1015   00110C  EFA0  F008         	goto	l217
+  1016   001110                     l1403:
+  1017                           
+  1018                           ;source/smerOtaceniPocitadloHran.c: 31:                     koder->pocet = koder->pocet 
+      +                          - 1;
+  1019   001110  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1020   001112  6ED9               	movwf	fsr2l,c
+  1021   001114  6ADA               	clrf	fsr2h,c
+  1022   001116  0E06               	movlw	6
+  1023   001118  26D9               	addwf	fsr2l,f,c
+  1024   00111A  CFDE F04A          	movff	postinc2,??_smerOtaceniPocitadloHran
+  1025   00111E  CFDD F04B          	movff	postdec2,??_smerOtaceniPocitadloHran+1
+  1026   001122  0EFF               	movlw	255
+  1027   001124  244A               	addwf	??_smerOtaceniPocitadloHran^0,w,c
+  1028   001126  6E4C               	movwf	(??_smerOtaceniPocitadloHran+2)^0,c
+  1029   001128  0EFF               	movlw	255
+  1030   00112A  204B               	addwfc	(??_smerOtaceniPocitadloHran+1)^0,w,c
+  1031   00112C  6E4D               	movwf	(??_smerOtaceniPocitadloHran+3)^0,c
+  1032   00112E  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1033   001130  6ED9               	movwf	fsr2l,c
+  1034   001132  6ADA               	clrf	fsr2h,c
+  1035   001134  0E06               	movlw	6
+  1036   001136  26D9               	addwf	fsr2l,f,c
+  1037   001138  C04C  FFDE         	movff	??_smerOtaceniPocitadloHran+2,postinc2
+  1038   00113C  C04D  FFDD         	movff	??_smerOtaceniPocitadloHran+3,postdec2
+  1039   001140                     l217:
+  1040                           
+  1041                           ;source/smerOtaceniPocitadloHran.c: 33:                 koder->stav_koderu = ks3;
+  1042   001140  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1043   001142  6ED9               	movwf	fsr2l,c
+  1044   001144  6ADA               	clrf	fsr2h,c
+  1045   001146  0E04               	movlw	4
+  1046   001148  26D9               	addwf	fsr2l,f,c
+  1047   00114A  0E03               	movlw	3
+  1048   00114C  6EDE               	movwf	postinc2,c
+  1049   00114E  0E00               	movlw	0
+  1050   001150  6EDD               	movwf	postdec2,c
+  1051   001152  EF06  F00A         	goto	l235
+  1052   001156                     l1405:
+  1053                           
+  1054                           ;source/smerOtaceniPocitadloHran.c: 39:             if (koder->A == 1 && koder->B==1){
+  1055   001156  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1056   001158  6ED9               	movwf	fsr2l,c
+  1057   00115A  6ADA               	clrf	fsr2h,c
+  1058   00115C  04DE               	decf	postinc2,w,c
+  1059   00115E  10DE               	iorwf	postinc2,w,c
+  1060   001160  A4D8               	btfss	status,2,c
+  1061   001162  EFB5  F008         	goto	u861
+  1062   001166  EFB7  F008         	goto	u860
+  1063   00116A                     u861:
+  1064   00116A  EFD0  F008         	goto	l1411
+  1065   00116E                     u860:
+  1066   00116E  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1067   001170  6ED9               	movwf	fsr2l,c
+  1068   001172  6ADA               	clrf	fsr2h,c
+  1069   001174  0E02               	movlw	2
+  1070   001176  26D9               	addwf	fsr2l,f,c
+  1071   001178  04DE               	decf	postinc2,w,c
+  1072   00117A  10DE               	iorwf	postinc2,w,c
+  1073   00117C  A4D8               	btfss	status,2,c
+  1074   00117E  EFC3  F008         	goto	u871
+  1075   001182  EFC5  F008         	goto	u870
+  1076   001186                     u871:
+  1077   001186  EFD0  F008         	goto	l1411
+  1078   00118A                     u870:
+  1079   00118A                     
+  1080                           ;source/smerOtaceniPocitadloHran.c: 40:                 koder->stav_koderu = ks2;
+  1081   00118A  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1082   00118C  6ED9               	movwf	fsr2l,c
+  1083   00118E  6ADA               	clrf	fsr2h,c
+  1084   001190  0E04               	movlw	4
+  1085   001192  26D9               	addwf	fsr2l,f,c
+  1086   001194  0E02               	movlw	2
+  1087   001196  6EDE               	movwf	postinc2,c
+  1088   001198  0E00               	movlw	0
+  1089   00119A  6EDD               	movwf	postdec2,c
+  1090                           
+  1091                           ;source/smerOtaceniPocitadloHran.c: 41:             }
+  1092   00119C  EF06  F00A         	goto	l235
+  1093   0011A0                     l1411:
+  1094   0011A0  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1095   0011A2  6ED9               	movwf	fsr2l,c
+  1096   0011A4  6ADA               	clrf	fsr2h,c
+  1097   0011A6  50DE               	movf	postinc2,w,c
+  1098   0011A8  10DE               	iorwf	postinc2,w,c
+  1099   0011AA  A4D8               	btfss	status,2,c
+  1100   0011AC  EFDA  F008         	goto	u881
+  1101   0011B0  EFDC  F008         	goto	u880
+  1102   0011B4                     u881:
+  1103   0011B4  EF06  F00A         	goto	l235
+  1104   0011B8                     u880:
+  1105   0011B8  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1106   0011BA  6ED9               	movwf	fsr2l,c
+  1107   0011BC  6ADA               	clrf	fsr2h,c
+  1108   0011BE  0E02               	movlw	2
+  1109   0011C0  26D9               	addwf	fsr2l,f,c
+  1110   0011C2  50DE               	movf	postinc2,w,c
+  1111   0011C4  10DE               	iorwf	postinc2,w,c
+  1112   0011C6  A4D8               	btfss	status,2,c
+  1113   0011C8  EFE8  F008         	goto	u891
+  1114   0011CC  EFEA  F008         	goto	u890
+  1115   0011D0                     u891:
+  1116   0011D0  EF06  F00A         	goto	l235
+  1117   0011D4                     u890:
+  1118   0011D4                     
+  1119                           ;source/smerOtaceniPocitadloHran.c: 43:                koder->stav_koderu = ks0;
+  1120   0011D4  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1121   0011D6  6ED9               	movwf	fsr2l,c
+  1122   0011D8  6ADA               	clrf	fsr2h,c
+  1123   0011DA  0E04               	movlw	4
+  1124   0011DC  26D9               	addwf	fsr2l,f,c
+  1125   0011DE  6ADE               	clrf	postinc2,c
+  1126   0011E0  6ADD               	clrf	postdec2,c
+  1127   0011E2  EF06  F00A         	goto	l235
+  1128   0011E6                     l1417:
+  1129                           
+  1130                           ;source/smerOtaceniPocitadloHran.c: 49:             if (koder->A == 0 && koder->B==1){
+  1131   0011E6  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1132   0011E8  6ED9               	movwf	fsr2l,c
+  1133   0011EA  6ADA               	clrf	fsr2h,c
+  1134   0011EC  50DE               	movf	postinc2,w,c
+  1135   0011EE  10DE               	iorwf	postinc2,w,c
+  1136   0011F0  A4D8               	btfss	status,2,c
+  1137   0011F2  EFFD  F008         	goto	u901
+  1138   0011F6  EFFF  F008         	goto	u900
+  1139   0011FA                     u901:
+  1140   0011FA  EF47  F009         	goto	l1427
+  1141   0011FE                     u900:
+  1142   0011FE  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1143   001200  6ED9               	movwf	fsr2l,c
+  1144   001202  6ADA               	clrf	fsr2h,c
+  1145   001204  0E02               	movlw	2
+  1146   001206  26D9               	addwf	fsr2l,f,c
+  1147   001208  04DE               	decf	postinc2,w,c
+  1148   00120A  10DE               	iorwf	postinc2,w,c
+  1149   00120C  A4D8               	btfss	status,2,c
+  1150   00120E  EF0B  F009         	goto	u911
+  1151   001212  EF0D  F009         	goto	u910
+  1152   001216                     u911:
+  1153   001216  EF47  F009         	goto	l1427
+  1154   00121A                     u910:
+  1155   00121A                     
+  1156                           ;source/smerOtaceniPocitadloHran.c: 50:                 koder->stav_koderu = ks3;
+  1157   00121A  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1158   00121C  6ED9               	movwf	fsr2l,c
+  1159   00121E  6ADA               	clrf	fsr2h,c
+  1160   001220  0E04               	movlw	4
+  1161   001222  26D9               	addwf	fsr2l,f,c
+  1162   001224  0E03               	movlw	3
+  1163   001226  6EDE               	movwf	postinc2,c
+  1164   001228  0E00               	movlw	0
+  1165   00122A  6EDD               	movwf	postdec2,c
+  1166                           
+  1167                           ;source/smerOtaceniPocitadloHran.c: 51:                 if (koder->pocet == 255){
+  1168   00122C  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1169   00122E  6ED9               	movwf	fsr2l,c
+  1170   001230  6ADA               	clrf	fsr2h,c
+  1171   001232  0E06               	movlw	6
+  1172   001234  26D9               	addwf	fsr2l,f,c
+  1173   001236  28DE               	incf	postinc2,w,c
+  1174   001238  10DE               	iorwf	postinc2,w,c
+  1175   00123A  A4D8               	btfss	status,2,c
+  1176   00123C  EF22  F009         	goto	u921
+  1177   001240  EF24  F009         	goto	u920
+  1178   001244                     u921:
+  1179   001244  EF2F  F009         	goto	l1425
+  1180   001248                     u920:
+  1181   001248                     
+  1182                           ;source/smerOtaceniPocitadloHran.c: 52:                     koder->pocet=255;
+  1183   001248  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1184   00124A  6ED9               	movwf	fsr2l,c
+  1185   00124C  6ADA               	clrf	fsr2h,c
+  1186   00124E  0E06               	movlw	6
+  1187   001250  26D9               	addwf	fsr2l,f,c
+  1188   001252  0EFF               	movlw	255
+  1189   001254  6EDE               	movwf	postinc2,c
+  1190   001256  0E00               	movlw	0
+  1191   001258  6EDD               	movwf	postdec2,c
+  1192                           
+  1193                           ;source/smerOtaceniPocitadloHran.c: 53:                 }
+  1194   00125A  EF06  F00A         	goto	l235
+  1195   00125E                     l1425:
+  1196                           
+  1197                           ;source/smerOtaceniPocitadloHran.c: 55:                     koder->pocet = koder->pocet 
+      +                          +1;
+  1198   00125E  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1199   001260  6ED9               	movwf	fsr2l,c
+  1200   001262  6ADA               	clrf	fsr2h,c
+  1201   001264  0E06               	movlw	6
+  1202   001266  26D9               	addwf	fsr2l,f,c
+  1203   001268  CFDE F04A          	movff	postinc2,??_smerOtaceniPocitadloHran
+  1204   00126C  CFDD F04B          	movff	postdec2,??_smerOtaceniPocitadloHran+1
+  1205   001270  0E01               	movlw	1
+  1206   001272  264A               	addwf	??_smerOtaceniPocitadloHran^0,f,c
+  1207   001274  0E00               	movlw	0
+  1208   001276  224B               	addwfc	(??_smerOtaceniPocitadloHran+1)^0,f,c
+  1209   001278  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1210   00127A  6ED9               	movwf	fsr2l,c
+  1211   00127C  6ADA               	clrf	fsr2h,c
+  1212   00127E  0E06               	movlw	6
+  1213   001280  26D9               	addwf	fsr2l,f,c
+  1214   001282  C04A  FFDE         	movff	??_smerOtaceniPocitadloHran,postinc2
+  1215   001286  C04B  FFDD         	movff	??_smerOtaceniPocitadloHran+1,postdec2
+  1216   00128A  EF06  F00A         	goto	l235
+  1217   00128E                     l1427:
+  1218   00128E  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1219   001290  6ED9               	movwf	fsr2l,c
+  1220   001292  6ADA               	clrf	fsr2h,c
+  1221   001294  04DE               	decf	postinc2,w,c
+  1222   001296  10DE               	iorwf	postinc2,w,c
+  1223   001298  A4D8               	btfss	status,2,c
+  1224   00129A  EF51  F009         	goto	u931
+  1225   00129E  EF53  F009         	goto	u930
+  1226   0012A2                     u931:
+  1227   0012A2  EF06  F00A         	goto	l235
+  1228   0012A6                     u930:
+  1229   0012A6  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1230   0012A8  6ED9               	movwf	fsr2l,c
+  1231   0012AA  6ADA               	clrf	fsr2h,c
+  1232   0012AC  0E02               	movlw	2
+  1233   0012AE  26D9               	addwf	fsr2l,f,c
+  1234   0012B0  50DE               	movf	postinc2,w,c
+  1235   0012B2  10DE               	iorwf	postinc2,w,c
+  1236   0012B4  A4D8               	btfss	status,2,c
+  1237   0012B6  EF5F  F009         	goto	u941
+  1238   0012BA  EF61  F009         	goto	u940
+  1239   0012BE                     u941:
+  1240   0012BE  EF06  F00A         	goto	l235
+  1241   0012C2                     u940:
+  1242   0012C2                     
+  1243                           ;source/smerOtaceniPocitadloHran.c: 60:                 koder->stav_koderu = ks1;
+  1244   0012C2  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1245   0012C4  6ED9               	movwf	fsr2l,c
+  1246   0012C6  6ADA               	clrf	fsr2h,c
+  1247   0012C8  0E04               	movlw	4
+  1248   0012CA  26D9               	addwf	fsr2l,f,c
+  1249   0012CC  0E01               	movlw	1
+  1250   0012CE  6EDE               	movwf	postinc2,c
+  1251   0012D0  0E00               	movlw	0
+  1252   0012D2  6EDD               	movwf	postdec2,c
+  1253                           
+  1254                           ;source/smerOtaceniPocitadloHran.c: 61:                 if (koder->pocet == 0){
+  1255   0012D4  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1256   0012D6  6ED9               	movwf	fsr2l,c
+  1257   0012D8  6ADA               	clrf	fsr2h,c
+  1258   0012DA  0E06               	movlw	6
+  1259   0012DC  26D9               	addwf	fsr2l,f,c
+  1260   0012DE  50DE               	movf	postinc2,w,c
+  1261   0012E0  10DE               	iorwf	postinc2,w,c
+  1262   0012E2  A4D8               	btfss	status,2,c
+  1263   0012E4  EF76  F009         	goto	u951
+  1264   0012E8  EF78  F009         	goto	u950
+  1265   0012EC                     u951:
+  1266   0012EC  EF81  F009         	goto	l1435
+  1267   0012F0                     u950:
+  1268   0012F0                     
+  1269                           ;source/smerOtaceniPocitadloHran.c: 62:                     koder->pocet=0;
+  1270   0012F0  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1271   0012F2  6ED9               	movwf	fsr2l,c
+  1272   0012F4  6ADA               	clrf	fsr2h,c
+  1273   0012F6  0E06               	movlw	6
+  1274   0012F8  26D9               	addwf	fsr2l,f,c
+  1275   0012FA  6ADE               	clrf	postinc2,c
+  1276   0012FC  6ADD               	clrf	postdec2,c
+  1277                           
+  1278                           ;source/smerOtaceniPocitadloHran.c: 63:                 }
+  1279   0012FE  EF06  F00A         	goto	l235
+  1280   001302                     l1435:
+  1281                           
+  1282                           ;source/smerOtaceniPocitadloHran.c: 65:                     koder->pocet = koder->pocet 
+      +                          - 1;
+  1283   001302  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1284   001304  6ED9               	movwf	fsr2l,c
+  1285   001306  6ADA               	clrf	fsr2h,c
+  1286   001308  0E06               	movlw	6
+  1287   00130A  26D9               	addwf	fsr2l,f,c
+  1288   00130C  CFDE F04A          	movff	postinc2,??_smerOtaceniPocitadloHran
+  1289   001310  CFDD F04B          	movff	postdec2,??_smerOtaceniPocitadloHran+1
+  1290   001314  0EFF               	movlw	255
+  1291   001316  244A               	addwf	??_smerOtaceniPocitadloHran^0,w,c
+  1292   001318  6E4C               	movwf	(??_smerOtaceniPocitadloHran+2)^0,c
+  1293   00131A  0EFF               	movlw	255
+  1294   00131C  204B               	addwfc	(??_smerOtaceniPocitadloHran+1)^0,w,c
+  1295   00131E  6E4D               	movwf	(??_smerOtaceniPocitadloHran+3)^0,c
+  1296   001320  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1297   001322  6ED9               	movwf	fsr2l,c
+  1298   001324  6ADA               	clrf	fsr2h,c
+  1299   001326  0E06               	movlw	6
+  1300   001328  26D9               	addwf	fsr2l,f,c
+  1301   00132A  C04C  FFDE         	movff	??_smerOtaceniPocitadloHran+2,postinc2
+  1302   00132E  C04D  FFDD         	movff	??_smerOtaceniPocitadloHran+3,postdec2
+  1303   001332  EF06  F00A         	goto	l235
+  1304   001336                     l1437:
+  1305                           
+  1306                           ;source/smerOtaceniPocitadloHran.c: 72:             if (koder->A == 0 && koder->B==0){
+  1307   001336  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1308   001338  6ED9               	movwf	fsr2l,c
+  1309   00133A  6ADA               	clrf	fsr2h,c
+  1310   00133C  50DE               	movf	postinc2,w,c
+  1311   00133E  10DE               	iorwf	postinc2,w,c
+  1312   001340  A4D8               	btfss	status,2,c
+  1313   001342  EFA5  F009         	goto	u961
+  1314   001346  EFA7  F009         	goto	u960
+  1315   00134A                     u961:
+  1316   00134A  EFBE  F009         	goto	l1443
+  1317   00134E                     u960:
+  1318   00134E  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1319   001350  6ED9               	movwf	fsr2l,c
+  1320   001352  6ADA               	clrf	fsr2h,c
+  1321   001354  0E02               	movlw	2
+  1322   001356  26D9               	addwf	fsr2l,f,c
+  1323   001358  50DE               	movf	postinc2,w,c
+  1324   00135A  10DE               	iorwf	postinc2,w,c
+  1325   00135C  A4D8               	btfss	status,2,c
+  1326   00135E  EFB3  F009         	goto	u971
+  1327   001362  EFB5  F009         	goto	u970
+  1328   001366                     u971:
+  1329   001366  EFBE  F009         	goto	l1443
+  1330   00136A                     u970:
+  1331   00136A                     
+  1332                           ;source/smerOtaceniPocitadloHran.c: 73:                 koder->stav_koderu = ks0;
+  1333   00136A  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1334   00136C  6ED9               	movwf	fsr2l,c
+  1335   00136E  6ADA               	clrf	fsr2h,c
+  1336   001370  0E04               	movlw	4
+  1337   001372  26D9               	addwf	fsr2l,f,c
+  1338   001374  6ADE               	clrf	postinc2,c
+  1339   001376  6ADD               	clrf	postdec2,c
+  1340                           
+  1341                           ;source/smerOtaceniPocitadloHran.c: 74:             }
+  1342   001378  EF06  F00A         	goto	l235
+  1343   00137C                     l1443:
+  1344   00137C  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1345   00137E  6ED9               	movwf	fsr2l,c
+  1346   001380  6ADA               	clrf	fsr2h,c
+  1347   001382  04DE               	decf	postinc2,w,c
+  1348   001384  10DE               	iorwf	postinc2,w,c
+  1349   001386  A4D8               	btfss	status,2,c
+  1350   001388  EFC8  F009         	goto	u981
+  1351   00138C  EFCA  F009         	goto	u980
+  1352   001390                     u981:
+  1353   001390  EF06  F00A         	goto	l235
+  1354   001394                     u980:
+  1355   001394  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1356   001396  6ED9               	movwf	fsr2l,c
+  1357   001398  6ADA               	clrf	fsr2h,c
+  1358   00139A  0E02               	movlw	2
+  1359   00139C  26D9               	addwf	fsr2l,f,c
+  1360   00139E  04DE               	decf	postinc2,w,c
+  1361   0013A0  10DE               	iorwf	postinc2,w,c
+  1362   0013A2  A4D8               	btfss	status,2,c
+  1363   0013A4  EFD6  F009         	goto	u991
+  1364   0013A8  EFD8  F009         	goto	u990
+  1365   0013AC                     u991:
+  1366   0013AC  EF06  F00A         	goto	l235
+  1367   0013B0                     u990:
+  1368   0013B0                     
+  1369                           ;source/smerOtaceniPocitadloHran.c: 76:                koder->stav_koderu = ks2;
+  1370   0013B0  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1371   0013B2  6ED9               	movwf	fsr2l,c
+  1372   0013B4  6ADA               	clrf	fsr2h,c
+  1373   0013B6  0E04               	movlw	4
+  1374   0013B8  26D9               	addwf	fsr2l,f,c
+  1375   0013BA  0E02               	movlw	2
+  1376   0013BC  6EDE               	movwf	postinc2,c
+  1377   0013BE  0E00               	movlw	0
+  1378   0013C0  6EDD               	movwf	postdec2,c
+  1379   0013C2  EF06  F00A         	goto	l235
+  1380   0013C6                     l1451:
+  1381   0013C6  5049               	movf	smerOtaceniPocitadloHran@koder^0,w,c
+  1382   0013C8  6ED9               	movwf	fsr2l,c
+  1383   0013CA  6ADA               	clrf	fsr2h,c
+  1384   0013CC  0E04               	movlw	4
+  1385   0013CE  26D9               	addwf	fsr2l,f,c
+  1386   0013D0  CFDE F04A          	movff	postinc2,??_smerOtaceniPocitadloHran
+  1387   0013D4  CFDD F04B          	movff	postdec2,??_smerOtaceniPocitadloHran+1
+  1388                           
+  1389                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1390                           ; Switch size 1, requested type "simple"
+  1391                           ; Number of cases is 1, Range of values is 0 to 0
+  1392                           ; switch strategies available:
+  1393                           ; Name         Instructions Cycles
+  1394                           ; simple_byte            4     3 (average)
+  1395                           ;	Chosen strategy is simple_byte
+  1396   0013D8  504B               	movf	(??_smerOtaceniPocitadloHran+1)^0,w,c
+  1397   0013DA  0A00               	xorlw	0	; case 0
+  1398   0013DC  B4D8               	btfsc	status,2,c
+  1399   0013DE  EFF3  F009         	goto	l1879
+  1400   0013E2  EF06  F00A         	goto	l235
+  1401   0013E6                     l1879:
+  1402                           
+  1403                           ; Switch size 1, requested type "simple"
+  1404                           ; Number of cases is 4, Range of values is 0 to 3
+  1405                           ; switch strategies available:
+  1406                           ; Name         Instructions Cycles
+  1407                           ; simple_byte           13     7 (average)
+  1408                           ;	Chosen strategy is simple_byte
+  1409   0013E6  504A               	movf	??_smerOtaceniPocitadloHran^0,w,c
+  1410   0013E8  0A00               	xorlw	0	; case 0
+  1411   0013EA  B4D8               	btfsc	status,2,c
+  1412   0013EC  EF03  F008         	goto	l1385
+  1413   0013F0  0A01               	xorlw	1	; case 1
+  1414   0013F2  B4D8               	btfsc	status,2,c
+  1415   0013F4  EFAB  F008         	goto	l1405
+  1416   0013F8  0A03               	xorlw	3	; case 2
+  1417   0013FA  B4D8               	btfsc	status,2,c
+  1418   0013FC  EFF3  F008         	goto	l1417
+  1419   001400  0A01               	xorlw	1	; case 3
+  1420   001402  B4D8               	btfsc	status,2,c
+  1421   001404  EF9B  F009         	goto	l1437
+  1422   001408  EF06  F00A         	goto	l235
+  1423   00140C                     l235:
+  1424   00140C  0012               	return		;funcret
+  1425   00140E                     __end_of_smerOtaceniPocitadloHran:
+  1426                           	callstack 0
+  1427                           
+  1428 ;; *************** function _preambleInitialization *****************
+  1429 ;; Defined at:
+  1430 ;;		line 16 in file "source/preambleInitialization.c"
+  1431 ;; Parameters:    Size  Location     Type
+  1432 ;;		None
+  1433 ;; Auto vars:     Size  Location     Type
+  1434 ;;		None
+  1435 ;; Return value:  Size  Location     Type
+  1436 ;;                  1    wreg      void 
+  1437 ;; Registers used:
+  1438 ;;		wreg, status,2
+  1439 ;; Tracked objects:
+  1440 ;;		On entry : 0/0
+  1441 ;;		On exit  : 0/0
+  1442 ;;		Unchanged: 0/0
+  1443 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1444 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1445 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1446 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1447 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1448 ;;Total ram usage:        0 bytes
+  1449 ;; Hardware stack levels used: 1
+  1450 ;; Hardware stack levels required when called: 2
+  1451 ;; This function calls:
+  1452 ;;		Nothing
+  1453 ;; This function is called by:
+  1454 ;;		_main
+  1455 ;; This function uses a non-reentrant model
+  1456 ;;
+  1457                           
+  1458                           	psect	text2
+  1459   001CCE                     __ptext2:
+  1460                           	callstack 0
+  1461   001CCE                     _preambleInitialization:
+  1462                           	callstack 28
+  1463   001CCE                     
+  1464                           ;source/preambleInitialization.c: 26:     OSCCONbits.SCS = 0;
+  1465   001CCE  0EFC               	movlw	-4
+  1466   001CD0  16D3               	andwf	211,f,c	;volatile
+  1467   001CD2                     
+  1468                           ;source/preambleInitialization.c: 28:     OSCTUNEbits.PLLEN = 1;
+  1469   001CD2  8C9B               	bsf	155,6,c	;volatile
+  1470   001CD4                     
+  1471                           ;source/preambleInitialization.c: 31:     RCONbits.IPEN = 1;
+  1472   001CD4  8ED0               	bsf	208,7,c	;volatile
+  1473                           
+  1474                           ;source/preambleInitialization.c: 34:     TRISD = 0x00;
+  1475   001CD6  0E00               	movlw	0
+  1476   001CD8  6E95               	movwf	149,c	;volatile
+  1477   001CDA                     
+  1478                           ;source/preambleInitialization.c: 35:     TRISJ = 0xFF;
+  1479   001CDA  689A               	setf	154,c	;volatile
+  1480                           
+  1481                           ;source/preambleInitialization.c: 36:     TRISH = 0x00;
+  1482   001CDC  0E00               	movlw	0
+  1483   001CDE  6E99               	movwf	153,c	;volatile
+  1484                           
+  1485                           ;source/preambleInitialization.c: 37:     TRISF = 0x00;
+  1486   001CE0  0E00               	movlw	0
+  1487   001CE2  6E97               	movwf	151,c	;volatile
+  1488   001CE4                     
+  1489                           ;source/preambleInitialization.c: 40:     TRISFbits.RF3 = 1;
+  1490   001CE4  8697               	bsf	151,3,c	;volatile
+  1491                           
+  1492                           ;source/preambleInitialization.c: 41:     ADCON0 = 11100001;
+  1493   001CE6  0E61               	movlw	97
+  1494   001CE8  6EC2               	movwf	194,c	;volatile
+  1495                           
+  1496                           ;source/preambleInitialization.c: 42:     ADCON1 = 10000010;
+  1497   001CEA  0E8A               	movlw	138
+  1498   001CEC  6EC1               	movwf	193,c	;volatile
+  1499                           
+  1500                           ;source/preambleInitialization.c: 43:     PIE1 = ADIE;
+  1501   001CEE  0E00               	movlw	0
+  1502   001CF0  BC9D               	btfsc	3997,6,c	;volatile
+  1503   001CF2  0E01               	movlw	1
+  1504   001CF4  6E9D               	movwf	157,c	;volatile
+  1505   001CF6                     
+  1506                           ;source/preambleInitialization.c: 44:     IPR1bits.ADIP = 0;
+  1507   001CF6  9C9F               	bcf	159,6,c	;volatile
+  1508   001CF8                     
+  1509                           ;source/preambleInitialization.c: 47:     TRISCbits.RC2 = 0;
+  1510   001CF8  9494               	bcf	148,2,c	;volatile
+  1511                           
+  1512                           ;source/preambleInitialization.c: 48:  T1CON = 0b10100001;
+  1513   001CFA  0EA1               	movlw	161
+  1514   001CFC  6ECD               	movwf	205,c	;volatile
+  1515                           
+  1516                           ;source/preambleInitialization.c: 49:  CCP1CON = 0b00001000;
+  1517   001CFE  0E08               	movlw	8
+  1518   001D00  6EBB               	movwf	187,c	;volatile
+  1519   001D02                     
+  1520                           ;source/preambleInitialization.c: 50:  PIE1bits.CCP1IE = 1;
+  1521   001D02  849D               	bsf	157,2,c	;volatile
+  1522   001D04                     
+  1523                           ;source/preambleInitialization.c: 51:  IPR1bits.CCP1IP = 1;
+  1524   001D04  849F               	bsf	159,2,c	;volatile
+  1525   001D06  0012               	return		;funcret
+  1526   001D08                     __end_of_preambleInitialization:
+  1527                           	callstack 0
+  1528                           
+  1529 ;; *************** function _filtr *****************
+  1530 ;; Defined at:
+  1531 ;;		line 15 in file "source/filtr.c"
+  1532 ;; Parameters:    Size  Location     Type
+  1533 ;;  struktura       1    7[COMRAM] PTR struct .
+  1534 ;;		 -> S3(10), stopa_B(10), stopa_A(10), S4(10), 
+  1535 ;; Auto vars:     Size  Location     Type
+  1536 ;;		None
+  1537 ;; Return value:  Size  Location     Type
+  1538 ;;                  1    wreg      void 
+  1539 ;; Registers used:
+  1540 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+  1541 ;; Tracked objects:
+  1542 ;;		On entry : 0/0
+  1543 ;;		On exit  : 0/0
+  1544 ;;		Unchanged: 0/0
+  1545 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1546 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1547 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1548 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1549 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1550 ;;Total ram usage:        3 bytes
+  1551 ;; Hardware stack levels used: 1
+  1552 ;; Hardware stack levels required when called: 2
+  1553 ;; This function calls:
+  1554 ;;		Nothing
+  1555 ;; This function is called by:
+  1556 ;;		_main
+  1557 ;; This function uses a non-reentrant model
+  1558 ;;
+  1559                           
+  1560                           	psect	text3
+  1561   0017A2                     __ptext3:
+  1562                           	callstack 0
+  1563   0017A2                     _filtr:
+  1564                           	callstack 28
+  1565   0017A2                     
+  1566                           ;source/filtr.c: 16:     switch (struktura->stav_filtru){
+  1567   0017A2  EFA9  F00C         	goto	l1351
+  1568   0017A6                     l1319:
+  1569                           
+  1570                           ;source/filtr.c: 18:             if (struktura->vstup == 1){
+  1571   0017A6  5049               	movf	filtr@struktura^0,w,c
+  1572   0017A8  6ED9               	movwf	fsr2l,c
+  1573   0017AA  6ADA               	clrf	fsr2h,c
+  1574   0017AC  04DE               	decf	postinc2,w,c
+  1575   0017AE  10DE               	iorwf	postinc2,w,c
+  1576   0017B0  A4D8               	btfss	status,2,c
+  1577   0017B2  EFDD  F00B         	goto	u711
+  1578   0017B6  EFDF  F00B         	goto	u710
+  1579   0017BA                     u711:
+  1580   0017BA  EFEA  F00B         	goto	l1323
+  1581   0017BE                     u710:
+  1582   0017BE                     
+  1583                           ;source/filtr.c: 19:                 struktura->stav_filtru = fs1;
+  1584   0017BE  5049               	movf	filtr@struktura^0,w,c
+  1585   0017C0  6ED9               	movwf	fsr2l,c
+  1586   0017C2  6ADA               	clrf	fsr2h,c
+  1587   0017C4  0E04               	movlw	4
+  1588   0017C6  26D9               	addwf	fsr2l,f,c
+  1589   0017C8  0E01               	movlw	1
+  1590   0017CA  6EDE               	movwf	postinc2,c
+  1591   0017CC  0E00               	movlw	0
+  1592   0017CE  6EDD               	movwf	postdec2,c
+  1593                           
+  1594                           ;source/filtr.c: 20:             }
+  1595   0017D0  EFF3  F00B         	goto	l179
+  1596   0017D4                     l1323:
+  1597                           
+  1598                           ;source/filtr.c: 22:                 struktura->stav_filtru = fs3;
+  1599   0017D4  5049               	movf	filtr@struktura^0,w,c
+  1600   0017D6  6ED9               	movwf	fsr2l,c
+  1601   0017D8  6ADA               	clrf	fsr2h,c
+  1602   0017DA  0E04               	movlw	4
+  1603   0017DC  26D9               	addwf	fsr2l,f,c
+  1604   0017DE  0E03               	movlw	3
+  1605   0017E0  6EDE               	movwf	postinc2,c
+  1606   0017E2  0E00               	movlw	0
+  1607   0017E4  6EDD               	movwf	postdec2,c
+  1608   0017E6                     l179:
+  1609                           
+  1610                           ;source/filtr.c: 24:             struktura->filtrovane = 0;
+  1611   0017E6  5049               	movf	filtr@struktura^0,w,c
+  1612   0017E8  6ED9               	movwf	fsr2l,c
+  1613   0017EA  6ADA               	clrf	fsr2h,c
+  1614   0017EC  0E02               	movlw	2
+  1615   0017EE  26D9               	addwf	fsr2l,f,c
+  1616   0017F0  6ADE               	clrf	postinc2,c
+  1617   0017F2  6ADD               	clrf	postdec2,c
+  1618                           
+  1619                           ;source/filtr.c: 25:             break;
+  1620   0017F4  EFD0  F00C         	goto	l193
+  1621   0017F8                     l1325:
+  1622                           
+  1623                           ;source/filtr.c: 29:             if (struktura->vstup == 1){
+  1624   0017F8  5049               	movf	filtr@struktura^0,w,c
+  1625   0017FA  6ED9               	movwf	fsr2l,c
+  1626   0017FC  6ADA               	clrf	fsr2h,c
+  1627   0017FE  04DE               	decf	postinc2,w,c
+  1628   001800  10DE               	iorwf	postinc2,w,c
+  1629   001802  A4D8               	btfss	status,2,c
+  1630   001804  EF06  F00C         	goto	u721
+  1631   001808  EF08  F00C         	goto	u720
+  1632   00180C                     u721:
+  1633   00180C  EF13  F00C         	goto	l1329
+  1634   001810                     u720:
+  1635   001810                     
+  1636                           ;source/filtr.c: 30:                 struktura->stav_filtru = fs2;
+  1637   001810  5049               	movf	filtr@struktura^0,w,c
+  1638   001812  6ED9               	movwf	fsr2l,c
+  1639   001814  6ADA               	clrf	fsr2h,c
+  1640   001816  0E04               	movlw	4
+  1641   001818  26D9               	addwf	fsr2l,f,c
+  1642   00181A  0E02               	movlw	2
+  1643   00181C  6EDE               	movwf	postinc2,c
+  1644   00181E  0E00               	movlw	0
+  1645   001820  6EDD               	movwf	postdec2,c
+  1646                           
+  1647                           ;source/filtr.c: 31:             }
+  1648   001822  EF1C  F00C         	goto	l183
+  1649   001826                     l1329:
+  1650                           
+  1651                           ;source/filtr.c: 33:                 struktura->stav_filtru = fs3;
+  1652   001826  5049               	movf	filtr@struktura^0,w,c
+  1653   001828  6ED9               	movwf	fsr2l,c
+  1654   00182A  6ADA               	clrf	fsr2h,c
+  1655   00182C  0E04               	movlw	4
+  1656   00182E  26D9               	addwf	fsr2l,f,c
+  1657   001830  0E03               	movlw	3
+  1658   001832  6EDE               	movwf	postinc2,c
+  1659   001834  0E00               	movlw	0
+  1660   001836  6EDD               	movwf	postdec2,c
+  1661   001838                     l183:
+  1662                           
+  1663                           ;source/filtr.c: 35:             struktura->filtrovane = 0;
+  1664   001838  5049               	movf	filtr@struktura^0,w,c
+  1665   00183A  6ED9               	movwf	fsr2l,c
+  1666   00183C  6ADA               	clrf	fsr2h,c
+  1667   00183E  0E02               	movlw	2
+  1668   001840  26D9               	addwf	fsr2l,f,c
+  1669   001842  6ADE               	clrf	postinc2,c
+  1670   001844  6ADD               	clrf	postdec2,c
+  1671                           
+  1672                           ;source/filtr.c: 36:             break;
+  1673   001846  EFD0  F00C         	goto	l193
+  1674   00184A                     l1331:
+  1675                           
+  1676                           ;source/filtr.c: 40:             if (struktura->vstup == 1){
+  1677   00184A  5049               	movf	filtr@struktura^0,w,c
+  1678   00184C  6ED9               	movwf	fsr2l,c
+  1679   00184E  6ADA               	clrf	fsr2h,c
+  1680   001850  04DE               	decf	postinc2,w,c
+  1681   001852  10DE               	iorwf	postinc2,w,c
+  1682   001854  A4D8               	btfss	status,2,c
+  1683   001856  EF2F  F00C         	goto	u731
+  1684   00185A  EF31  F00C         	goto	u730
+  1685   00185E                     u731:
+  1686   00185E  EF45  F00C         	goto	l1335
+  1687   001862                     u730:
+  1688   001862                     
+  1689                           ;source/filtr.c: 41:                 struktura->stav_filtru = fs2;
+  1690   001862  5049               	movf	filtr@struktura^0,w,c
+  1691   001864  6ED9               	movwf	fsr2l,c
+  1692   001866  6ADA               	clrf	fsr2h,c
+  1693   001868  0E04               	movlw	4
+  1694   00186A  26D9               	addwf	fsr2l,f,c
+  1695   00186C  0E02               	movlw	2
+  1696   00186E  6EDE               	movwf	postinc2,c
+  1697   001870  0E00               	movlw	0
+  1698   001872  6EDD               	movwf	postdec2,c
+  1699                           
+  1700                           ;source/filtr.c: 42:                 struktura->filtrovane = 1;
+  1701   001874  5049               	movf	filtr@struktura^0,w,c
+  1702   001876  6ED9               	movwf	fsr2l,c
+  1703   001878  6ADA               	clrf	fsr2h,c
+  1704   00187A  0E02               	movlw	2
+  1705   00187C  26D9               	addwf	fsr2l,f,c
+  1706   00187E  0E01               	movlw	1
+  1707   001880  6EDE               	movwf	postinc2,c
+  1708   001882  0E00               	movlw	0
+  1709   001884  6EDD               	movwf	postdec2,c
+  1710                           
+  1711                           ;source/filtr.c: 43:             }
+  1712   001886  EFD0  F00C         	goto	l193
+  1713   00188A                     l1335:
+  1714                           
+  1715                           ;source/filtr.c: 45:                 struktura->stav_filtru = fs3;
+  1716   00188A  5049               	movf	filtr@struktura^0,w,c
+  1717   00188C  6ED9               	movwf	fsr2l,c
+  1718   00188E  6ADA               	clrf	fsr2h,c
+  1719   001890  0E04               	movlw	4
+  1720   001892  26D9               	addwf	fsr2l,f,c
+  1721   001894  0E03               	movlw	3
+  1722   001896  6EDE               	movwf	postinc2,c
+  1723   001898  0E00               	movlw	0
+  1724   00189A  6EDD               	movwf	postdec2,c
+  1725                           
+  1726                           ;source/filtr.c: 46:                 struktura->filtrovane = 0;
+  1727   00189C  5049               	movf	filtr@struktura^0,w,c
+  1728   00189E  6ED9               	movwf	fsr2l,c
+  1729   0018A0  6ADA               	clrf	fsr2h,c
+  1730   0018A2  0E02               	movlw	2
+  1731   0018A4  26D9               	addwf	fsr2l,f,c
+  1732   0018A6  6ADE               	clrf	postinc2,c
+  1733   0018A8  6ADD               	clrf	postdec2,c
+  1734   0018AA  EFD0  F00C         	goto	l193
+  1735   0018AE                     l1337:
+  1736                           
+  1737                           ;source/filtr.c: 52:             if (struktura->vstup == 1){
+  1738   0018AE  5049               	movf	filtr@struktura^0,w,c
+  1739   0018B0  6ED9               	movwf	fsr2l,c
+  1740   0018B2  6ADA               	clrf	fsr2h,c
+  1741   0018B4  04DE               	decf	postinc2,w,c
+  1742   0018B6  10DE               	iorwf	postinc2,w,c
+  1743   0018B8  A4D8               	btfss	status,2,c
+  1744   0018BA  EF61  F00C         	goto	u741
+  1745   0018BE  EF63  F00C         	goto	u740
+  1746   0018C2                     u741:
+  1747   0018C2  EF6E  F00C         	goto	l1341
+  1748   0018C6                     u740:
+  1749   0018C6                     
+  1750                           ;source/filtr.c: 53:                 struktura->stav_filtru = fs1;
+  1751   0018C6  5049               	movf	filtr@struktura^0,w,c
+  1752   0018C8  6ED9               	movwf	fsr2l,c
+  1753   0018CA  6ADA               	clrf	fsr2h,c
+  1754   0018CC  0E04               	movlw	4
+  1755   0018CE  26D9               	addwf	fsr2l,f,c
+  1756   0018D0  0E01               	movlw	1
+  1757   0018D2  6EDE               	movwf	postinc2,c
+  1758   0018D4  0E00               	movlw	0
+  1759   0018D6  6EDD               	movwf	postdec2,c
+  1760                           
+  1761                           ;source/filtr.c: 54:             }
+  1762   0018D8  EF77  F00C         	goto	l189
+  1763   0018DC                     l1341:
+  1764                           
+  1765                           ;source/filtr.c: 56:                 struktura->stav_filtru = fs4;
+  1766   0018DC  5049               	movf	filtr@struktura^0,w,c
+  1767   0018DE  6ED9               	movwf	fsr2l,c
+  1768   0018E0  6ADA               	clrf	fsr2h,c
+  1769   0018E2  0E04               	movlw	4
+  1770   0018E4  26D9               	addwf	fsr2l,f,c
+  1771   0018E6  0E04               	movlw	4
+  1772   0018E8  6EDE               	movwf	postinc2,c
+  1773   0018EA  0E00               	movlw	0
+  1774   0018EC  6EDD               	movwf	postdec2,c
+  1775   0018EE                     l189:
+  1776                           
+  1777                           ;source/filtr.c: 58:             struktura->filtrovane = 0;
+  1778   0018EE  5049               	movf	filtr@struktura^0,w,c
+  1779   0018F0  6ED9               	movwf	fsr2l,c
+  1780   0018F2  6ADA               	clrf	fsr2h,c
+  1781   0018F4  0E02               	movlw	2
+  1782   0018F6  26D9               	addwf	fsr2l,f,c
+  1783   0018F8  6ADE               	clrf	postinc2,c
+  1784   0018FA  6ADD               	clrf	postdec2,c
+  1785                           
+  1786                           ;source/filtr.c: 59:             break;
+  1787   0018FC  EFD0  F00C         	goto	l193
+  1788   001900                     l1343:
+  1789                           
+  1790                           ;source/filtr.c: 63:             if (struktura->vstup == 1){
+  1791   001900  5049               	movf	filtr@struktura^0,w,c
+  1792   001902  6ED9               	movwf	fsr2l,c
+  1793   001904  6ADA               	clrf	fsr2h,c
+  1794   001906  04DE               	decf	postinc2,w,c
+  1795   001908  10DE               	iorwf	postinc2,w,c
+  1796   00190A  A4D8               	btfss	status,2,c
+  1797   00190C  EF8A  F00C         	goto	u751
+  1798   001910  EF8C  F00C         	goto	u750
+  1799   001914                     u751:
+  1800   001914  EF97  F00C         	goto	l1347
+  1801   001918                     u750:
+  1802   001918                     
+  1803                           ;source/filtr.c: 64:                 struktura->stav_filtru = fs1;
+  1804   001918  5049               	movf	filtr@struktura^0,w,c
+  1805   00191A  6ED9               	movwf	fsr2l,c
+  1806   00191C  6ADA               	clrf	fsr2h,c
+  1807   00191E  0E04               	movlw	4
+  1808   001920  26D9               	addwf	fsr2l,f,c
+  1809   001922  0E01               	movlw	1
+  1810   001924  6EDE               	movwf	postinc2,c
+  1811   001926  0E00               	movlw	0
+  1812   001928  6EDD               	movwf	postdec2,c
+  1813                           
+  1814                           ;source/filtr.c: 65:             }
+  1815   00192A  EFD0  F00C         	goto	l193
+  1816   00192E                     l1347:
+  1817                           
+  1818                           ;source/filtr.c: 67:                 struktura->stav_filtru = fs4;
+  1819   00192E  5049               	movf	filtr@struktura^0,w,c
+  1820   001930  6ED9               	movwf	fsr2l,c
+  1821   001932  6ADA               	clrf	fsr2h,c
+  1822   001934  0E04               	movlw	4
+  1823   001936  26D9               	addwf	fsr2l,f,c
+  1824   001938  0E04               	movlw	4
+  1825   00193A  6EDE               	movwf	postinc2,c
+  1826   00193C  0E00               	movlw	0
+  1827   00193E  6EDD               	movwf	postdec2,c
+  1828                           
+  1829                           ;source/filtr.c: 68:                 struktura->filtrovane = 0;
+  1830   001940  5049               	movf	filtr@struktura^0,w,c
+  1831   001942  6ED9               	movwf	fsr2l,c
+  1832   001944  6ADA               	clrf	fsr2h,c
+  1833   001946  0E02               	movlw	2
+  1834   001948  26D9               	addwf	fsr2l,f,c
+  1835   00194A  6ADE               	clrf	postinc2,c
+  1836   00194C  6ADD               	clrf	postdec2,c
+  1837   00194E  EFD0  F00C         	goto	l193
+  1838   001952                     l1351:
+  1839   001952  5049               	movf	filtr@struktura^0,w,c
+  1840   001954  6ED9               	movwf	fsr2l,c
+  1841   001956  6ADA               	clrf	fsr2h,c
+  1842   001958  0E04               	movlw	4
+  1843   00195A  26D9               	addwf	fsr2l,f,c
+  1844   00195C  CFDE F04A          	movff	postinc2,??_filtr
+  1845   001960  CFDD F04B          	movff	postdec2,??_filtr+1
+  1846                           
+  1847                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  1848                           ; Switch size 1, requested type "simple"
+  1849                           ; Number of cases is 1, Range of values is 0 to 0
+  1850                           ; switch strategies available:
+  1851                           ; Name         Instructions Cycles
+  1852                           ; simple_byte            4     3 (average)
+  1853                           ;	Chosen strategy is simple_byte
+  1854   001964  504B               	movf	(??_filtr+1)^0,w,c
+  1855   001966  0A00               	xorlw	0	; case 0
+  1856   001968  B4D8               	btfsc	status,2,c
+  1857   00196A  EFB9  F00C         	goto	l1881
+  1858   00196E  EFD0  F00C         	goto	l193
+  1859   001972                     l1881:
+  1860                           
+  1861                           ; Switch size 1, requested type "simple"
+  1862                           ; Number of cases is 5, Range of values is 0 to 4
+  1863                           ; switch strategies available:
+  1864                           ; Name         Instructions Cycles
+  1865                           ; simple_byte           16     9 (average)
+  1866                           ;	Chosen strategy is simple_byte
+  1867   001972  504A               	movf	??_filtr^0,w,c
+  1868   001974  0A00               	xorlw	0	; case 0
+  1869   001976  B4D8               	btfsc	status,2,c
+  1870   001978  EFD3  F00B         	goto	l1319
+  1871   00197C  0A01               	xorlw	1	; case 1
+  1872   00197E  B4D8               	btfsc	status,2,c
+  1873   001980  EFFC  F00B         	goto	l1325
+  1874   001984  0A03               	xorlw	3	; case 2
+  1875   001986  B4D8               	btfsc	status,2,c
+  1876   001988  EF25  F00C         	goto	l1331
+  1877   00198C  0A01               	xorlw	1	; case 3
+  1878   00198E  B4D8               	btfsc	status,2,c
+  1879   001990  EF57  F00C         	goto	l1337
+  1880   001994  0A07               	xorlw	7	; case 4
+  1881   001996  B4D8               	btfsc	status,2,c
+  1882   001998  EF80  F00C         	goto	l1343
+  1883   00199C  EFD0  F00C         	goto	l193
+  1884   0019A0                     l193:
+  1885   0019A0  0012               	return		;funcret
+  1886   0019A2                     __end_of_filtr:
+  1887                           	callstack 0
+  1888                           
+  1889 ;; *************** function _aretace *****************
+  1890 ;; Defined at:
+  1891 ;;		line 14 in file "source/aretace.c"
+  1892 ;; Parameters:    Size  Location     Type
+  1893 ;;  struktura       1    7[COMRAM] PTR struct .
+  1894 ;;		 -> S3(10), S4(10), 
+  1895 ;; Auto vars:     Size  Location     Type
+  1896 ;;		None
+  1897 ;; Return value:  Size  Location     Type
+  1898 ;;                  1    wreg      void 
+  1899 ;; Registers used:
+  1900 ;;		wreg, fsr2l, fsr2h, status,2, status,0
+  1901 ;; Tracked objects:
+  1902 ;;		On entry : 0/0
+  1903 ;;		On exit  : 0/0
+  1904 ;;		Unchanged: 0/0
+  1905 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1906 ;;      Params:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1907 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1908 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1909 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1910 ;;Total ram usage:        3 bytes
+  1911 ;; Hardware stack levels used: 1
+  1912 ;; Hardware stack levels required when called: 2
+  1913 ;; This function calls:
+  1914 ;;		Nothing
+  1915 ;; This function is called by:
+  1916 ;;		_main
+  1917 ;; This function uses a non-reentrant model
+  1918 ;;
+  1919                           
+  1920                           	psect	text4
+  1921   0019A2                     __ptext4:
+  1922                           	callstack 0
+  1923   0019A2                     _aretace:
+  1924                           	callstack 28
+  1925   0019A2                     
+  1926                           ;source/aretace.c: 15:     switch (struktura->stav_aretace){
+  1927   0019A2  EF45  F00D         	goto	l1377
+  1928   0019A6                     l1359:
+  1929                           
+  1930                           ;source/aretace.c: 17:             if (struktura->filtrovane == 1){
+  1931   0019A6  5049               	movf	aretace@struktura^0,w,c
+  1932   0019A8  6ED9               	movwf	fsr2l,c
+  1933   0019AA  6ADA               	clrf	fsr2h,c
+  1934   0019AC  0E02               	movlw	2
+  1935   0019AE  26D9               	addwf	fsr2l,f,c
+  1936   0019B0  04DE               	decf	postinc2,w,c
+  1937   0019B2  10DE               	iorwf	postinc2,w,c
+  1938   0019B4  A4D8               	btfss	status,2,c
+  1939   0019B6  EFDF  F00C         	goto	u761
+  1940   0019BA  EFE1  F00C         	goto	u760
+  1941   0019BE                     u761:
+  1942   0019BE  EF68  F00D         	goto	l206
+  1943   0019C2                     u760:
+  1944   0019C2                     
+  1945                           ;source/aretace.c: 18:                 struktura->stav_aretace = as1;
+  1946   0019C2  5049               	movf	aretace@struktura^0,w,c
+  1947   0019C4  6ED9               	movwf	fsr2l,c
+  1948   0019C6  6ADA               	clrf	fsr2h,c
+  1949   0019C8  0E06               	movlw	6
+  1950   0019CA  26D9               	addwf	fsr2l,f,c
+  1951   0019CC  0E01               	movlw	1
+  1952   0019CE  6EDE               	movwf	postinc2,c
+  1953   0019D0  0E00               	movlw	0
+  1954   0019D2  6EDD               	movwf	postdec2,c
+  1955                           
+  1956                           ;source/aretace.c: 19:                 struktura->zaaretovane = 1;
+  1957   0019D4  5049               	movf	aretace@struktura^0,w,c
+  1958   0019D6  6ED9               	movwf	fsr2l,c
+  1959   0019D8  6ADA               	clrf	fsr2h,c
+  1960   0019DA  0E08               	movlw	8
+  1961   0019DC  26D9               	addwf	fsr2l,f,c
+  1962   0019DE  0E01               	movlw	1
+  1963   0019E0  6EDE               	movwf	postinc2,c
+  1964   0019E2  0E00               	movlw	0
+  1965   0019E4  6EDD               	movwf	postdec2,c
+  1966   0019E6  EF68  F00D         	goto	l206
+  1967   0019EA                     l1363:
+  1968                           
+  1969                           ;source/aretace.c: 25:             if (struktura->filtrovane == 0){
+  1970   0019EA  5049               	movf	aretace@struktura^0,w,c
+  1971   0019EC  6ED9               	movwf	fsr2l,c
+  1972   0019EE  6ADA               	clrf	fsr2h,c
+  1973   0019F0  0E02               	movlw	2
+  1974   0019F2  26D9               	addwf	fsr2l,f,c
+  1975   0019F4  50DE               	movf	postinc2,w,c
+  1976   0019F6  10DE               	iorwf	postinc2,w,c
+  1977   0019F8  A4D8               	btfss	status,2,c
+  1978   0019FA  EF01  F00D         	goto	u771
+  1979   0019FE  EF03  F00D         	goto	u770
+  1980   001A02                     u771:
+  1981   001A02  EF68  F00D         	goto	l206
+  1982   001A06                     u770:
+  1983   001A06                     
+  1984                           ;source/aretace.c: 26:                 struktura->stav_aretace = as2;
+  1985   001A06  5049               	movf	aretace@struktura^0,w,c
+  1986   001A08  6ED9               	movwf	fsr2l,c
+  1987   001A0A  6ADA               	clrf	fsr2h,c
+  1988   001A0C  0E06               	movlw	6
+  1989   001A0E  26D9               	addwf	fsr2l,f,c
+  1990   001A10  0E02               	movlw	2
+  1991   001A12  6EDE               	movwf	postinc2,c
+  1992   001A14  0E00               	movlw	0
+  1993   001A16  6EDD               	movwf	postdec2,c
+  1994   001A18  EF68  F00D         	goto	l206
+  1995   001A1C                     l1367:
+  1996                           
+  1997                           ;source/aretace.c: 33:             if (struktura->filtrovane == 1){
+  1998   001A1C  5049               	movf	aretace@struktura^0,w,c
+  1999   001A1E  6ED9               	movwf	fsr2l,c
+  2000   001A20  6ADA               	clrf	fsr2h,c
+  2001   001A22  0E02               	movlw	2
+  2002   001A24  26D9               	addwf	fsr2l,f,c
+  2003   001A26  04DE               	decf	postinc2,w,c
+  2004   001A28  10DE               	iorwf	postinc2,w,c
+  2005   001A2A  A4D8               	btfss	status,2,c
+  2006   001A2C  EF1A  F00D         	goto	u781
+  2007   001A30  EF1C  F00D         	goto	u780
+  2008   001A34                     u781:
+  2009   001A34  EF68  F00D         	goto	l206
+  2010   001A38                     u780:
+  2011   001A38                     
+  2012                           ;source/aretace.c: 34:                 struktura->stav_aretace = as3;
+  2013   001A38  5049               	movf	aretace@struktura^0,w,c
+  2014   001A3A  6ED9               	movwf	fsr2l,c
+  2015   001A3C  6ADA               	clrf	fsr2h,c
+  2016   001A3E  0E06               	movlw	6
+  2017   001A40  26D9               	addwf	fsr2l,f,c
+  2018   001A42  0E03               	movlw	3
+  2019   001A44  6EDE               	movwf	postinc2,c
+  2020   001A46  0E00               	movlw	0
+  2021   001A48  6EDD               	movwf	postdec2,c
+  2022                           
+  2023                           ;source/aretace.c: 35:                 struktura->zaaretovane = 0;
+  2024   001A4A  5049               	movf	aretace@struktura^0,w,c
+  2025   001A4C  6ED9               	movwf	fsr2l,c
+  2026   001A4E  6ADA               	clrf	fsr2h,c
+  2027   001A50  0E08               	movlw	8
+  2028   001A52  26D9               	addwf	fsr2l,f,c
+  2029   001A54  6ADE               	clrf	postinc2,c
+  2030   001A56  6ADD               	clrf	postdec2,c
+  2031   001A58  EF68  F00D         	goto	l206
+  2032   001A5C                     l1371:
+  2033                           
+  2034                           ;source/aretace.c: 41:             if (struktura->filtrovane == 0){
+  2035   001A5C  5049               	movf	aretace@struktura^0,w,c
+  2036   001A5E  6ED9               	movwf	fsr2l,c
+  2037   001A60  6ADA               	clrf	fsr2h,c
+  2038   001A62  0E02               	movlw	2
+  2039   001A64  26D9               	addwf	fsr2l,f,c
+  2040   001A66  50DE               	movf	postinc2,w,c
+  2041   001A68  10DE               	iorwf	postinc2,w,c
+  2042   001A6A  A4D8               	btfss	status,2,c
+  2043   001A6C  EF3A  F00D         	goto	u791
+  2044   001A70  EF3C  F00D         	goto	u790
+  2045   001A74                     u791:
+  2046   001A74  EF68  F00D         	goto	l206
+  2047   001A78                     u790:
+  2048   001A78                     
+  2049                           ;source/aretace.c: 42:                 struktura->stav_aretace = as0;
+  2050   001A78  5049               	movf	aretace@struktura^0,w,c
+  2051   001A7A  6ED9               	movwf	fsr2l,c
+  2052   001A7C  6ADA               	clrf	fsr2h,c
+  2053   001A7E  0E06               	movlw	6
+  2054   001A80  26D9               	addwf	fsr2l,f,c
+  2055   001A82  6ADE               	clrf	postinc2,c
+  2056   001A84  6ADD               	clrf	postdec2,c
+  2057   001A86  EF68  F00D         	goto	l206
+  2058   001A8A                     l1377:
+  2059   001A8A  5049               	movf	aretace@struktura^0,w,c
+  2060   001A8C  6ED9               	movwf	fsr2l,c
+  2061   001A8E  6ADA               	clrf	fsr2h,c
+  2062   001A90  0E06               	movlw	6
+  2063   001A92  26D9               	addwf	fsr2l,f,c
+  2064   001A94  CFDE F04A          	movff	postinc2,??_aretace
+  2065   001A98  CFDD F04B          	movff	postdec2,??_aretace+1
+  2066                           
+  2067                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+  2068                           ; Switch size 1, requested type "simple"
+  2069                           ; Number of cases is 1, Range of values is 0 to 0
+  2070                           ; switch strategies available:
+  2071                           ; Name         Instructions Cycles
+  2072                           ; simple_byte            4     3 (average)
+  2073                           ;	Chosen strategy is simple_byte
+  2074   001A9C  504B               	movf	(??_aretace+1)^0,w,c
+  2075   001A9E  0A00               	xorlw	0	; case 0
+  2076   001AA0  B4D8               	btfsc	status,2,c
+  2077   001AA2  EF55  F00D         	goto	l1883
+  2078   001AA6  EF68  F00D         	goto	l206
+  2079   001AAA                     l1883:
+  2080                           
+  2081                           ; Switch size 1, requested type "simple"
+  2082                           ; Number of cases is 4, Range of values is 0 to 3
+  2083                           ; switch strategies available:
+  2084                           ; Name         Instructions Cycles
+  2085                           ; simple_byte           13     7 (average)
+  2086                           ;	Chosen strategy is simple_byte
+  2087   001AAA  504A               	movf	??_aretace^0,w,c
+  2088   001AAC  0A00               	xorlw	0	; case 0
+  2089   001AAE  B4D8               	btfsc	status,2,c
+  2090   001AB0  EFD3  F00C         	goto	l1359
+  2091   001AB4  0A01               	xorlw	1	; case 1
+  2092   001AB6  B4D8               	btfsc	status,2,c
+  2093   001AB8  EFF5  F00C         	goto	l1363
+  2094   001ABC  0A03               	xorlw	3	; case 2
+  2095   001ABE  B4D8               	btfsc	status,2,c
+  2096   001AC0  EF0E  F00D         	goto	l1367
+  2097   001AC4  0A01               	xorlw	1	; case 3
+  2098   001AC6  B4D8               	btfsc	status,2,c
+  2099   001AC8  EF2E  F00D         	goto	l1371
+  2100   001ACC  EF68  F00D         	goto	l206
+  2101   001AD0                     l206:
+  2102   001AD0  0012               	return		;funcret
+  2103   001AD2                     __end_of_aretace:
+  2104                           	callstack 0
+  2105                           
+  2106 ;; *************** function ___lmul *****************
+  2107 ;; Defined at:
+  2108 ;;		line 15 in file "/opt/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c"
+  2109 ;; Parameters:    Size  Location     Type
+  2110 ;;  multiplier      4    7[COMRAM] unsigned long 
+  2111 ;;  multiplicand    4   11[COMRAM] unsigned long 
+  2112 ;; Auto vars:     Size  Location     Type
+  2113 ;;  product         4   15[COMRAM] unsigned long 
+  2114 ;; Return value:  Size  Location     Type
+  2115 ;;                  4    7[COMRAM] unsigned long 
+  2116 ;; Registers used:
+  2117 ;;		wreg, status,2, status,0
+  2118 ;; Tracked objects:
+  2119 ;;		On entry : 0/0
+  2120 ;;		On exit  : 0/0
+  2121 ;;		Unchanged: 0/0
+  2122 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2123 ;;      Params:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2124 ;;      Locals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2125 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2126 ;;      Totals:        12       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2127 ;;Total ram usage:       12 bytes
+  2128 ;; Hardware stack levels used: 1
+  2129 ;; Hardware stack levels required when called: 2
+  2130 ;; This function calls:
+  2131 ;;		Nothing
+  2132 ;; This function is called by:
+  2133 ;;		_main
+  2134 ;; This function uses a non-reentrant model
+  2135 ;;
+  2136                           
+  2137                           	psect	text5
+  2138   001C64                     __ptext5:
+  2139                           	callstack 0
+  2140   001C64                     ___lmul:
+  2141                           	callstack 28
+  2142   001C64  0E00               	movlw	0
+  2143   001C66  6E51               	movwf	___lmul@product^0,c
+  2144   001C68  0E00               	movlw	0
+  2145   001C6A  6E52               	movwf	(___lmul@product+1)^0,c
+  2146   001C6C  0E00               	movlw	0
+  2147   001C6E  6E53               	movwf	(___lmul@product+2)^0,c
+  2148   001C70  0E00               	movlw	0
+  2149   001C72  6E54               	movwf	(___lmul@product+3)^0,c
+  2150   001C74                     l1459:
+  2151   001C74  A049               	btfss	___lmul@multiplier^0,0,c
+  2152   001C76  EF3F  F00E         	goto	u1001
+  2153   001C7A  EF41  F00E         	goto	u1000
+  2154   001C7E                     u1001:
+  2155   001C7E  EF49  F00E         	goto	l1463
+  2156   001C82                     u1000:
+  2157   001C82  504D               	movf	___lmul@multiplicand^0,w,c
+  2158   001C84  2651               	addwf	___lmul@product^0,f,c
+  2159   001C86  504E               	movf	(___lmul@multiplicand+1)^0,w,c
+  2160   001C88  2252               	addwfc	(___lmul@product+1)^0,f,c
+  2161   001C8A  504F               	movf	(___lmul@multiplicand+2)^0,w,c
+  2162   001C8C  2253               	addwfc	(___lmul@product+2)^0,f,c
+  2163   001C8E  5050               	movf	(___lmul@multiplicand+3)^0,w,c
+  2164   001C90  2254               	addwfc	(___lmul@product+3)^0,f,c
+  2165   001C92                     l1463:
+  2166   001C92  90D8               	bcf	status,0,c
+  2167   001C94  364D               	rlcf	___lmul@multiplicand^0,f,c
+  2168   001C96  364E               	rlcf	(___lmul@multiplicand+1)^0,f,c
+  2169   001C98  364F               	rlcf	(___lmul@multiplicand+2)^0,f,c
+  2170   001C9A  3650               	rlcf	(___lmul@multiplicand+3)^0,f,c
+  2171   001C9C  90D8               	bcf	status,0,c
+  2172   001C9E  324C               	rrcf	(___lmul@multiplier+3)^0,f,c
+  2173   001CA0  324B               	rrcf	(___lmul@multiplier+2)^0,f,c
+  2174   001CA2  324A               	rrcf	(___lmul@multiplier+1)^0,f,c
+  2175   001CA4  3249               	rrcf	___lmul@multiplier^0,f,c
+  2176   001CA6  5049               	movf	___lmul@multiplier^0,w,c
+  2177   001CA8  104A               	iorwf	(___lmul@multiplier+1)^0,w,c
+  2178   001CAA  104B               	iorwf	(___lmul@multiplier+2)^0,w,c
+  2179   001CAC  104C               	iorwf	(___lmul@multiplier+3)^0,w,c
+  2180   001CAE  A4D8               	btfss	status,2,c
+  2181   001CB0  EF5C  F00E         	goto	u1011
+  2182   001CB4  EF5E  F00E         	goto	u1010
+  2183   001CB8                     u1011:
+  2184   001CB8  EF3A  F00E         	goto	l1459
+  2185   001CBC                     u1010:
+  2186   001CBC  C051  F049         	movff	___lmul@product,?___lmul
+  2187   001CC0  C052  F04A         	movff	___lmul@product+1,?___lmul+1
+  2188   001CC4  C053  F04B         	movff	___lmul@product+2,?___lmul+2
+  2189   001CC8  C054  F04C         	movff	___lmul@product+3,?___lmul+3
+  2190   001CCC  0012               	return		;funcret
+  2191   001CCE                     __end_of___lmul:
+  2192                           	callstack 0
+  2193                           
+  2194 ;; *************** function ___aldiv *****************
+  2195 ;; Defined at:
+  2196 ;;		line 7 in file "/opt/microchip/xc8/v2.45/pic/sources/c99/common/aldiv.c"
+  2197 ;; Parameters:    Size  Location     Type
+  2198 ;;  dividend        4    7[COMRAM] long 
+  2199 ;;  divisor         4   11[COMRAM] long 
+  2200 ;; Auto vars:     Size  Location     Type
+  2201 ;;  quotient        4    2[BANK0 ] long 
+  2202 ;;  sign            1    1[BANK0 ] unsigned char 
+  2203 ;;  counter         1    0[BANK0 ] unsigned char 
+  2204 ;; Return value:  Size  Location     Type
+  2205 ;;                  4    7[COMRAM] long 
+  2206 ;; Registers used:
+  2207 ;;		wreg, status,2, status,0
+  2208 ;; Tracked objects:
+  2209 ;;		On entry : 0/0
+  2210 ;;		On exit  : 0/0
+  2211 ;;		Unchanged: 0/0
+  2212 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2213 ;;      Params:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2214 ;;      Locals:         0       6       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2215 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2216 ;;      Totals:         8       6       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2217 ;;Total ram usage:       14 bytes
+  2218 ;; Hardware stack levels used: 1
+  2219 ;; Hardware stack levels required when called: 2
+  2220 ;; This function calls:
+  2221 ;;		Nothing
+  2222 ;; This function is called by:
+  2223 ;;		_main
+  2224 ;; This function uses a non-reentrant model
+  2225 ;;
+  2226                           
+  2227                           	psect	text6
+  2228   001AD2                     __ptext6:
+  2229                           	callstack 0
+  2230   001AD2                     ___aldiv:
+  2231                           	callstack 28
+  2232   001AD2  0E00               	movlw	0
+  2233   001AD4  0100               	movlb	0	; () banked
+  2234   001AD6  6F61               	movwf	___aldiv@sign& (0+255),b
+  2235   001AD8                     
+  2236                           ; BSR set to: 0
+  2237   001AD8  BE50               	btfsc	(___aldiv@divisor+3)^0,7,c
+  2238   001ADA  EF73  F00D         	goto	u1340
+  2239   001ADE  EF71  F00D         	goto	u1341
+  2240   001AE2                     u1341:
+  2241   001AE2  EF7D  F00D         	goto	l1657
+  2242   001AE6                     u1340:
+  2243   001AE6                     
+  2244                           ; BSR set to: 0
+  2245   001AE6  1E50               	comf	(___aldiv@divisor+3)^0,f,c
+  2246   001AE8  1E4F               	comf	(___aldiv@divisor+2)^0,f,c
+  2247   001AEA  1E4E               	comf	(___aldiv@divisor+1)^0,f,c
+  2248   001AEC  6C4D               	negf	___aldiv@divisor^0,c
+  2249   001AEE  0E00               	movlw	0
+  2250   001AF0  224E               	addwfc	(___aldiv@divisor+1)^0,f,c
+  2251   001AF2  224F               	addwfc	(___aldiv@divisor+2)^0,f,c
+  2252   001AF4  2250               	addwfc	(___aldiv@divisor+3)^0,f,c
+  2253   001AF6                     
+  2254                           ; BSR set to: 0
+  2255   001AF6  0E01               	movlw	1
+  2256   001AF8  6F61               	movwf	___aldiv@sign& (0+255),b
+  2257   001AFA                     l1657:
+  2258                           
+  2259                           ; BSR set to: 0
+  2260   001AFA  BE4C               	btfsc	(___aldiv@dividend+3)^0,7,c
+  2261   001AFC  EF84  F00D         	goto	u1350
+  2262   001B00  EF82  F00D         	goto	u1351
+  2263   001B04                     u1351:
+  2264   001B04  EF8E  F00D         	goto	l1663
+  2265   001B08                     u1350:
+  2266   001B08                     
+  2267                           ; BSR set to: 0
+  2268   001B08  1E4C               	comf	(___aldiv@dividend+3)^0,f,c
+  2269   001B0A  1E4B               	comf	(___aldiv@dividend+2)^0,f,c
+  2270   001B0C  1E4A               	comf	(___aldiv@dividend+1)^0,f,c
+  2271   001B0E  6C49               	negf	___aldiv@dividend^0,c
+  2272   001B10  0E00               	movlw	0
+  2273   001B12  224A               	addwfc	(___aldiv@dividend+1)^0,f,c
+  2274   001B14  224B               	addwfc	(___aldiv@dividend+2)^0,f,c
+  2275   001B16  224C               	addwfc	(___aldiv@dividend+3)^0,f,c
+  2276   001B18                     
+  2277                           ; BSR set to: 0
+  2278   001B18  0E01               	movlw	1
+  2279   001B1A  1B61               	xorwf	___aldiv@sign& (0+255),f,b
+  2280   001B1C                     l1663:
+  2281                           
+  2282                           ; BSR set to: 0
+  2283   001B1C  0E00               	movlw	0
+  2284   001B1E  6F62               	movwf	___aldiv@quotient& (0+255),b
+  2285   001B20  0E00               	movlw	0
+  2286   001B22  6F63               	movwf	(___aldiv@quotient+1)& (0+255),b
+  2287   001B24  0E00               	movlw	0
+  2288   001B26  6F64               	movwf	(___aldiv@quotient+2)& (0+255),b
+  2289   001B28  0E00               	movlw	0
+  2290   001B2A  6F65               	movwf	(___aldiv@quotient+3)& (0+255),b
+  2291   001B2C                     
+  2292                           ; BSR set to: 0
+  2293   001B2C  504D               	movf	___aldiv@divisor^0,w,c
+  2294   001B2E  104E               	iorwf	(___aldiv@divisor+1)^0,w,c
+  2295   001B30  104F               	iorwf	(___aldiv@divisor+2)^0,w,c
+  2296   001B32  1050               	iorwf	(___aldiv@divisor+3)^0,w,c
+  2297   001B34  B4D8               	btfsc	status,2,c
+  2298   001B36  EF9F  F00D         	goto	u1361
+  2299   001B3A  EFA1  F00D         	goto	u1360
+  2300   001B3E                     u1361:
+  2301   001B3E  EFD7  F00D         	goto	l1685
+  2302   001B42                     u1360:
+  2303   001B42                     
+  2304                           ; BSR set to: 0
+  2305   001B42  0E01               	movlw	1
+  2306   001B44  6F60               	movwf	___aldiv@counter& (0+255),b
+  2307   001B46  EFAB  F00D         	goto	l1671
+  2308   001B4A                     l1669:
+  2309                           
+  2310                           ; BSR set to: 0
+  2311   001B4A  90D8               	bcf	status,0,c
+  2312   001B4C  364D               	rlcf	___aldiv@divisor^0,f,c
+  2313   001B4E  364E               	rlcf	(___aldiv@divisor+1)^0,f,c
+  2314   001B50  364F               	rlcf	(___aldiv@divisor+2)^0,f,c
+  2315   001B52  3650               	rlcf	(___aldiv@divisor+3)^0,f,c
+  2316   001B54  2B60               	incf	___aldiv@counter& (0+255),f,b
+  2317   001B56                     l1671:
+  2318                           
+  2319                           ; BSR set to: 0
+  2320   001B56  AE50               	btfss	(___aldiv@divisor+3)^0,7,c
+  2321   001B58  EFB0  F00D         	goto	u1371
+  2322   001B5C  EFB2  F00D         	goto	u1370
+  2323   001B60                     u1371:
+  2324   001B60  EFA5  F00D         	goto	l1669
+  2325   001B64                     u1370:
+  2326   001B64                     l1673:
+  2327                           
+  2328                           ; BSR set to: 0
+  2329   001B64  90D8               	bcf	status,0,c
+  2330   001B66  3762               	rlcf	___aldiv@quotient& (0+255),f,b
+  2331   001B68  3763               	rlcf	(___aldiv@quotient+1)& (0+255),f,b
+  2332   001B6A  3764               	rlcf	(___aldiv@quotient+2)& (0+255),f,b
+  2333   001B6C  3765               	rlcf	(___aldiv@quotient+3)& (0+255),f,b
+  2334   001B6E                     
+  2335                           ; BSR set to: 0
+  2336   001B6E  504D               	movf	___aldiv@divisor^0,w,c
+  2337   001B70  5C49               	subwf	___aldiv@dividend^0,w,c
+  2338   001B72  504E               	movf	(___aldiv@divisor+1)^0,w,c
+  2339   001B74  584A               	subwfb	(___aldiv@dividend+1)^0,w,c
+  2340   001B76  504F               	movf	(___aldiv@divisor+2)^0,w,c
+  2341   001B78  584B               	subwfb	(___aldiv@dividend+2)^0,w,c
+  2342   001B7A  5050               	movf	(___aldiv@divisor+3)^0,w,c
+  2343   001B7C  584C               	subwfb	(___aldiv@dividend+3)^0,w,c
+  2344   001B7E  A0D8               	btfss	status,0,c
+  2345   001B80  EFC4  F00D         	goto	u1381
+  2346   001B84  EFC6  F00D         	goto	u1380
+  2347   001B88                     u1381:
+  2348   001B88  EFCF  F00D         	goto	l1681
+  2349   001B8C                     u1380:
+  2350   001B8C                     
+  2351                           ; BSR set to: 0
+  2352   001B8C  504D               	movf	___aldiv@divisor^0,w,c
+  2353   001B8E  5E49               	subwf	___aldiv@dividend^0,f,c
+  2354   001B90  504E               	movf	(___aldiv@divisor+1)^0,w,c
+  2355   001B92  5A4A               	subwfb	(___aldiv@dividend+1)^0,f,c
+  2356   001B94  504F               	movf	(___aldiv@divisor+2)^0,w,c
+  2357   001B96  5A4B               	subwfb	(___aldiv@dividend+2)^0,f,c
+  2358   001B98  5050               	movf	(___aldiv@divisor+3)^0,w,c
+  2359   001B9A  5A4C               	subwfb	(___aldiv@dividend+3)^0,f,c
+  2360   001B9C                     
+  2361                           ; BSR set to: 0
+  2362   001B9C  8162               	bsf	___aldiv@quotient& (0+255),0,b
+  2363   001B9E                     l1681:
+  2364                           
+  2365                           ; BSR set to: 0
+  2366   001B9E  90D8               	bcf	status,0,c
+  2367   001BA0  3250               	rrcf	(___aldiv@divisor+3)^0,f,c
+  2368   001BA2  324F               	rrcf	(___aldiv@divisor+2)^0,f,c
+  2369   001BA4  324E               	rrcf	(___aldiv@divisor+1)^0,f,c
+  2370   001BA6  324D               	rrcf	___aldiv@divisor^0,f,c
+  2371   001BA8                     
+  2372                           ; BSR set to: 0
+  2373   001BA8  2F60               	decfsz	___aldiv@counter& (0+255),f,b
+  2374   001BAA  EFB2  F00D         	goto	l1673
+  2375   001BAE                     l1685:
+  2376                           
+  2377                           ; BSR set to: 0
+  2378   001BAE  5161               	movf	___aldiv@sign& (0+255),w,b
+  2379   001BB0  B4D8               	btfsc	status,2,c
+  2380   001BB2  EFDD  F00D         	goto	u1391
+  2381   001BB6  EFDF  F00D         	goto	u1390
+  2382   001BBA                     u1391:
+  2383   001BBA  EFE7  F00D         	goto	l1689
+  2384   001BBE                     u1390:
+  2385   001BBE                     
+  2386                           ; BSR set to: 0
+  2387   001BBE  1F65               	comf	(___aldiv@quotient+3)& (0+255),f,b
+  2388   001BC0  1F64               	comf	(___aldiv@quotient+2)& (0+255),f,b
+  2389   001BC2  1F63               	comf	(___aldiv@quotient+1)& (0+255),f,b
+  2390   001BC4  6D62               	negf	___aldiv@quotient& (0+255),b
+  2391   001BC6  0E00               	movlw	0
+  2392   001BC8  2363               	addwfc	(___aldiv@quotient+1)& (0+255),f,b
+  2393   001BCA  2364               	addwfc	(___aldiv@quotient+2)& (0+255),f,b
+  2394   001BCC  2365               	addwfc	(___aldiv@quotient+3)& (0+255),f,b
+  2395   001BCE                     l1689:
+  2396                           
+  2397                           ; BSR set to: 0
+  2398   001BCE  C062  F049         	movff	___aldiv@quotient,?___aldiv
+  2399   001BD2  C063  F04A         	movff	___aldiv@quotient+1,?___aldiv+1
+  2400   001BD6  C064  F04B         	movff	___aldiv@quotient+2,?___aldiv+2
+  2401   001BDA  C065  F04C         	movff	___aldiv@quotient+3,?___aldiv+3
+  2402   001BDE                     
+  2403                           ; BSR set to: 0
+  2404   001BDE  0012               	return		;funcret
+  2405   001BE0                     __end_of___aldiv:
+  2406                           	callstack 0
+  2407                           
+  2408 ;; *************** function _low_isr *****************
+  2409 ;; Defined at:
+  2410 ;;		line 219 in file "source/main.c"
+  2411 ;; Parameters:    Size  Location     Type
+  2412 ;;		None
+  2413 ;; Auto vars:     Size  Location     Type
+  2414 ;;		None
+  2415 ;; Return value:  Size  Location     Type
+  2416 ;;                  1    wreg      void 
+  2417 ;; Registers used:
+  2418 ;;		wreg, status,2, status,0
+  2419 ;; Tracked objects:
+  2420 ;;		On entry : 0/0
+  2421 ;;		On exit  : 0/0
+  2422 ;;		Unchanged: 0/0
+  2423 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2424 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2425 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2426 ;;      Temps:          7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2427 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2428 ;;Total ram usage:        7 bytes
+  2429 ;; Hardware stack levels used: 1
+  2430 ;; Hardware stack levels required when called: 1
+  2431 ;; This function calls:
+  2432 ;;		Nothing
+  2433 ;; This function is called by:
+  2434 ;;		Interrupt level 1
+  2435 ;; This function uses a non-reentrant model
+  2436 ;;
+  2437                           
+  2438                           	psect	intcodelo
+  2439   000018                     __pintcodelo:
+  2440                           	callstack 0
+  2441   000018                     _low_isr:
+  2442                           	callstack 28
+  2443                           
+  2444                           ; BSR set to: 0
+  2445                           ;incstack = 0
+  2446   000018  8058               	bsf	int$flags,0,c	;set compiler interrupt flag (level 1)
+  2447   00001A  CFD8 F046          	movff	status,??_low_isr+4
+  2448   00001E  CFE8 F047          	movff	wreg,??_low_isr+5
+  2449   000022  CFE0 F048          	movff	bsr,??_low_isr+6
+  2450   000026                     
+  2451                           ;source/main.c: 220:     if (INTCONbits.TMR0IF == 1){
+  2452   000026  A4F2               	btfss	242,2,c	;volatile
+  2453   000028  EF18  F000         	goto	i1u67_21
+  2454   00002C  EF1A  F000         	goto	i1u67_20
+  2455   000030                     i1u67_21:
+  2456   000030  EF46  F000         	goto	i1l1289
+  2457   000034                     i1u67_20:
+  2458   000034                     
+  2459                           ;source/main.c: 221:         TMR0H = 0xD8;
+  2460   000034  0ED8               	movlw	216
+  2461   000036  6ED7               	movwf	215,c	;volatile
+  2462                           
+  2463                           ;source/main.c: 222:         TMR0L = 0xEF;
+  2464   000038  0EEF               	movlw	239
+  2465   00003A  6ED6               	movwf	214,c	;volatile
+  2466   00003C                     
+  2467                           ;source/main.c: 223:         INTCONbits.TMR0IF = 0;
+  2468   00003C  94F2               	bcf	242,2,c	;volatile
+  2469   00003E                     
+  2470                           ;source/main.c: 225:         if (citac_ms < 10){
+  2471   00003E  BE10               	btfsc	(_citac_ms+1)^0,7,c
+  2472   000040  EF2D  F000         	goto	i1u68_20
+  2473   000044  5010               	movf	(_citac_ms+1)^0,w,c
+  2474   000046  E107               	bnz	i1u68_21
+  2475   000048  0E0A               	movlw	10
+  2476   00004A  5C0F               	subwf	_citac_ms^0,w,c
+  2477   00004C  B0D8               	btfsc	status,0,c
+  2478   00004E  EF2B  F000         	goto	i1u68_21
+  2479   000052  EF2D  F000         	goto	i1u68_20
+  2480   000056                     i1u68_21:
+  2481   000056  EF35  F000         	goto	i1l1283
+  2482   00005A                     i1u68_20:
+  2483   00005A                     
+  2484                           ;source/main.c: 226:             citac_ms = citac_ms + 1;
+  2485   00005A  0E01               	movlw	1
+  2486   00005C  240F               	addwf	_citac_ms^0,w,c
+  2487   00005E  6E0F               	movwf	_citac_ms^0,c
+  2488   000060  0E00               	movlw	0
+  2489   000062  2010               	addwfc	(_citac_ms+1)^0,w,c
+  2490   000064  6E10               	movwf	(_citac_ms+1)^0,c
+  2491                           
+  2492                           ;source/main.c: 227:         }
+  2493   000066  EF44  F000         	goto	i1l125
+  2494   00006A                     i1l1283:
+  2495   00006A  0E0A               	movlw	10
+  2496   00006C  180F               	xorwf	_citac_ms^0,w,c
+  2497   00006E  1010               	iorwf	(_citac_ms+1)^0,w,c
+  2498   000070  A4D8               	btfss	status,2,c
+  2499   000072  EF3D  F000         	goto	i1u69_21
+  2500   000076  EF3F  F000         	goto	i1u69_20
+  2501   00007A                     i1u69_21:
+  2502   00007A  EF44  F000         	goto	i1l125
+  2503   00007E                     i1u69_20:
+  2504   00007E                     
+  2505                           ;source/main.c: 229:             ADCON0bits.GO = 1;
+  2506   00007E  82C2               	bsf	194,1,c	;volatile
+  2507   000080                     
+  2508                           ;source/main.c: 230:             citac_ms = 0;
+  2509   000080  0E00               	movlw	0
+  2510   000082  6E10               	movwf	(_citac_ms+1)^0,c
+  2511   000084  0E00               	movlw	0
+  2512   000086  6E0F               	movwf	_citac_ms^0,c
+  2513   000088                     i1l125:
+  2514                           
+  2515                           ;source/main.c: 232:         casove_preruseni = 1;
+  2516   000088  0E01               	movlw	1
+  2517   00008A  6E11               	movwf	_casove_preruseni^0,c
+  2518   00008C                     i1l1289:
+  2519                           
+  2520                           ;source/main.c: 235:     if (PIR1bits.ADIF == 1){
+  2521   00008C  AC9E               	btfss	158,6,c	;volatile
+  2522   00008E  EF4B  F000         	goto	i1u70_21
+  2523   000092  EF4D  F000         	goto	i1u70_20
+  2524   000096                     i1u70_21:
+  2525   000096  EF72  F000         	goto	i1l128
+  2526   00009A                     i1u70_20:
+  2527   00009A                     
+  2528                           ;source/main.c: 236:         ADprevod = ADRESH;
+  2529   00009A  50C4               	movf	196,w,c	;volatile
+  2530   00009C  6E01               	movwf	_ADprevod^0,c
+  2531   00009E  6A02               	clrf	(_ADprevod+1)^0,c
+  2532   0000A0  6A03               	clrf	(_ADprevod+2)^0,c
+  2533   0000A2  6A04               	clrf	(_ADprevod+3)^0,c
+  2534   0000A4                     
+  2535                           ;source/main.c: 237:         ADprevod = ADprevod << 8;
+  2536   0000A4  C001  F043         	movff	_ADprevod,??_low_isr+1
+  2537   0000A8  C002  F044         	movff	_ADprevod+1,??_low_isr+2
+  2538   0000AC  C003  F045         	movff	_ADprevod+2,??_low_isr+3
+  2539   0000B0  6A42               	clrf	??_low_isr^0,c
+  2540   0000B2  C042  F001         	movff	??_low_isr,_ADprevod
+  2541   0000B6  C043  F002         	movff	??_low_isr+1,_ADprevod+1
+  2542   0000BA  C044  F003         	movff	??_low_isr+2,_ADprevod+2
+  2543   0000BE  C045  F004         	movff	??_low_isr+3,_ADprevod+3
+  2544   0000C2                     
+  2545                           ;source/main.c: 238:         ADprevod = ADRESL + ADprevod;
+  2546   0000C2  50C3               	movf	195,w,c	;volatile
+  2547   0000C4  2401               	addwf	_ADprevod^0,w,c
+  2548   0000C6  6E01               	movwf	_ADprevod^0,c
+  2549   0000C8  0E00               	movlw	0
+  2550   0000CA  2002               	addwfc	(_ADprevod+1)^0,w,c
+  2551   0000CC  6E02               	movwf	(_ADprevod+1)^0,c
+  2552   0000CE  0E00               	movlw	0
+  2553   0000D0  2003               	addwfc	(_ADprevod+2)^0,w,c
+  2554   0000D2  6E03               	movwf	(_ADprevod+2)^0,c
+  2555   0000D4  0E00               	movlw	0
+  2556   0000D6  2004               	addwfc	(_ADprevod+3)^0,w,c
+  2557   0000D8  6E04               	movwf	(_ADprevod+3)^0,c
+  2558   0000DA                     
+  2559                           ;source/main.c: 239:         PIR1bits.ADIF = 0;
+  2560   0000DA  9C9E               	bcf	158,6,c	;volatile
+  2561   0000DC                     
+  2562                           ;source/main.c: 240:         ADhotovo = 1;
+  2563   0000DC  0E00               	movlw	0
+  2564   0000DE  6E0E               	movwf	(_ADhotovo+1)^0,c
+  2565   0000E0  0E01               	movlw	1
+  2566   0000E2  6E0D               	movwf	_ADhotovo^0,c
+  2567   0000E4                     i1l128:
+  2568   0000E4  C048  FFE0         	movff	??_low_isr+6,bsr
+  2569   0000E8  C047  FFE8         	movff	??_low_isr+5,wreg
+  2570   0000EC  C046  FFD8         	movff	??_low_isr+4,status
+  2571   0000F0  9058               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+  2572   0000F2  0010               	retfie	
+  2573   0000F4                     __end_of_low_isr:
+  2574                           	callstack 0
+  2575                           
+  2576 ;; *************** function _high_isr *****************
+  2577 ;; Defined at:
+  2578 ;;		line 192 in file "source/main.c"
+  2579 ;; Parameters:    Size  Location     Type
+  2580 ;;		None
+  2581 ;; Auto vars:     Size  Location     Type
+  2582 ;;		None
+  2583 ;; Return value:  Size  Location     Type
+  2584 ;;                  1    wreg      void 
+  2585 ;; Registers used:
+  2586 ;;		wreg, status,2, status,0
+  2587 ;; Tracked objects:
+  2588 ;;		On entry : 0/0
+  2589 ;;		On exit  : 0/0
+  2590 ;;		Unchanged: 0/0
+  2591 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2592 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2593 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2594 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2595 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2596 ;;Total ram usage:        0 bytes
+  2597 ;; Hardware stack levels used: 1
+  2598 ;; This function calls:
+  2599 ;;		Nothing
+  2600 ;; This function is called by:
+  2601 ;;		Interrupt level 2
+  2602 ;; This function uses a non-reentrant model
+  2603 ;;
+  2604                           
+  2605                           	psect	intcode
+  2606   000008                     __pintcode:
+  2607                           	callstack 0
+  2608   000008                     _high_isr:
+  2609                           	callstack 28
+  2610                           
+  2611                           ;incstack = 0
+  2612   000008  8258               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
+  2613   00000A  EFF0  F00D         	goto	int_func
+  2614                           
+  2615                           	psect	intcode_body
+  2616   001BE0                     __pintcode_body:
+  2617                           	callstack 28
+  2618   001BE0                     int_func:
+  2619                           	callstack 28
+  2620   001BE0                     
+  2621                           ;source/main.c: 194:     if (PIR1bits.CCP1IF == 1){
+  2622   001BE0  A49E               	btfss	158,2,c	;volatile
+  2623   001BE2  EFF5  F00D         	goto	i2u64_41
+  2624   001BE6  EFF7  F00D         	goto	i2u64_40
+  2625   001BEA                     i2u64_41:
+  2626   001BEA  EF30  F00E         	goto	i2l118
+  2627   001BEE                     i2u64_40:
+  2628   001BEE                     
+  2629                           ;source/main.c: 195:   if (PORTCbits.RC2 == 1){
+  2630   001BEE  A482               	btfss	130,2,c	;volatile
+  2631   001BF0  EFFC  F00D         	goto	i2u65_41
+  2632   001BF4  EFFE  F00D         	goto	i2u65_40
+  2633   001BF8                     i2u65_41:
+  2634   001BF8  EF08  F00E         	goto	i2l1257
+  2635   001BFC                     i2u65_40:
+  2636   001BFC                     
+  2637                           ;source/main.c: 196:    CCP1CON = 0b00001001;
+  2638   001BFC  0E09               	movlw	9
+  2639   001BFE  6EBB               	movwf	187,c	;volatile
+  2640   001C00                     
+  2641                           ;source/main.c: 197:    sum = sum + puls;
+  2642   001C00  500B               	movf	_puls^0,w,c
+  2643   001C02  2456               	addwf	_sum^0,w,c
+  2644   001C04  6E56               	movwf	_sum^0,c
+  2645   001C06  500C               	movf	(_puls+1)^0,w,c
+  2646   001C08  2057               	addwfc	(_sum+1)^0,w,c
+  2647   001C0A  6E57               	movwf	(_sum+1)^0,c
+  2648                           
+  2649                           ;source/main.c: 198:   }
+  2650   001C0C  EF2B  F00E         	goto	i2l1267
+  2651   001C10                     i2l1257:
+  2652                           
+  2653                           ;source/main.c: 200:    CCP1CON = 0b00001000;
+  2654   001C10  0E08               	movlw	8
+  2655   001C12  6EBB               	movwf	187,c	;volatile
+  2656   001C14                     
+  2657                           ;source/main.c: 201:    sum = sum + mezera;
+  2658   001C14  5005               	movf	_mezera^0,w,c
+  2659   001C16  2456               	addwf	_sum^0,w,c
+  2660   001C18  6E56               	movwf	_sum^0,c
+  2661   001C1A  5006               	movf	(_mezera+1)^0,w,c
+  2662   001C1C  2057               	addwfc	(_sum+1)^0,w,c
+  2663   001C1E  6E57               	movwf	(_sum+1)^0,c
+  2664   001C20                     
+  2665                           ;source/main.c: 203:    if (new_puls){
+  2666   001C20  5007               	movf	_new_puls^0,w,c
+  2667   001C22  1008               	iorwf	(_new_puls+1)^0,w,c
+  2668   001C24  B4D8               	btfsc	status,2,c
+  2669   001C26  EF17  F00E         	goto	i2u66_41
+  2670   001C2A  EF19  F00E         	goto	i2u66_40
+  2671   001C2E                     i2u66_41:
+  2672   001C2E  EF2B  F00E         	goto	i2l1267
+  2673   001C32                     i2u66_40:
+  2674   001C32                     
+  2675                           ;source/main.c: 204:     puls = puls_back + 2500;
+  2676   001C32  0EC4               	movlw	196
+  2677   001C34  2409               	addwf	_puls_back^0,w,c
+  2678   001C36  6E0B               	movwf	_puls^0,c
+  2679   001C38  0E09               	movlw	9
+  2680   001C3A  200A               	addwfc	(_puls_back+1)^0,w,c
+  2681   001C3C  6E0C               	movwf	(_puls+1)^0,c
+  2682                           
+  2683                           ;source/main.c: 205:     mezera = 50000 - puls;
+  2684   001C3E  500B               	movf	_puls^0,w,c
+  2685   001C40  0850               	sublw	80
+  2686   001C42  6E05               	movwf	_mezera^0,c
+  2687   001C44  500C               	movf	(_puls+1)^0,w,c
+  2688   001C46  A0D8               	btfss	status,0,c
+  2689   001C48  2AE8               	incf	wreg,f,c
+  2690   001C4A  08C3               	sublw	195
+  2691   001C4C  6E06               	movwf	(_mezera+1)^0,c
+  2692   001C4E                     
+  2693                           ;source/main.c: 206:     new_puls = 0;
+  2694   001C4E  0E00               	movlw	0
+  2695   001C50  6E08               	movwf	(_new_puls+1)^0,c
+  2696   001C52  0E00               	movlw	0
+  2697   001C54  6E07               	movwf	_new_puls^0,c
+  2698   001C56                     i2l1267:
+  2699                           
+  2700                           ;source/main.c: 209:   PIR1bits.CCP1IF = 0;
+  2701   001C56  949E               	bcf	158,2,c	;volatile
+  2702   001C58                     
+  2703                           ;source/main.c: 211:   CCPR1H = (sum>>8);
+  2704   001C58  5057               	movf	(_sum+1)^0,w,c
+  2705   001C5A  6EBD               	movwf	189,c	;volatile
+  2706   001C5C                     
+  2707                           ;source/main.c: 212:   CCPR1L = (sum&0x00FF);
+  2708   001C5C  C056  FFBC         	movff	_sum,4028	;volatile
+  2709   001C60                     i2l118:
+  2710   001C60  9258               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  2711   001C62  0011               	retfie		f
+  2712   001C64                     __end_of_high_isr:
+  2713                           	callstack 0
+  2714                           
+  2715                           	psect	smallconst
+  2716   001000                     __psmallconst:
+  2717                           	callstack 0
+  2718   001000  00                 	db	0
+  2719   001001  00                 	db	0	; dummy byte at the end
+  2720   000000                     
+  2721                           	psect	rparam
+  2722   000000                     
+  2723                           	psect	temp
+  2724   000058                     btemp:
+  2725                           	callstack 0
+  2726   000058                     	ds	1
+  2727   000000                     int$flags	set	btemp
+  2728   000000                     wtemp8	set	btemp+1
+  2729   000000                     ttemp5	set	btemp+1
+  2730   000000                     ttemp6	set	btemp+4
+  2731   000000                     ttemp7	set	btemp+8
+  2732                           
+  2733                           	psect	config
+  2734                           
+  2735                           ;Config register CONFIG1L @ 0x1FFF8
+  2736                           ;	Watchdog Timer Enable bit
+  2737                           ;	WDTEN = OFF, WDT disabled (control is placed on SWDTEN bit)
+  2738                           ;	Stack Overflow/Underflow Reset Enable bit
+  2739                           ;	STVREN = ON, Reset on stack overflow/underflow enabled
+  2740                           ;	Extended Instruction Set Enable bit
+  2741                           ;	XINST = OFF, Instruction set extension and Indexed Addressing mode disabled (Legacy mo
+      +                          de)
+  2742                           ;	Background Debugger Enable bit
+  2743                           ;	DEBUG = 0x1, unprogrammed default
+  2744   01FFF8                     	org	131064
+  2745   01FFF8  A0                 	db	160
+  2746                           
+  2747                           ;Config register CONFIG1H @ 0x1FFF9
+  2748                           ;	Code Protection bit
+  2749                           ;	CP0 = OFF, Program memory is not code-protected
+  2750   01FFF9                     	org	131065
+  2751   01FFF9  F4                 	db	244
+  2752                           
+  2753                           ;Config register CONFIG2L @ 0x1FFFA
+  2754                           ;	Oscillator Selection bits
+  2755                           ;	FOSC = HSPLL, HS oscillator, PLL enabled
+  2756                           ;	Fail-Safe Clock Monitor Enable bit
+  2757                           ;	FCMEN = OFF, Fail-Safe Clock Monitor disabled
+  2758                           ;	Two-Speed Start-up (Internal/External Oscillator Switchover) Control bit
+  2759                           ;	IESO = OFF, Two-Speed Start-up disabled
+  2760   01FFFA                     	org	131066
+  2761   01FFFA  05                 	db	5
+  2762                           
+  2763                           ;Config register CONFIG2H @ 0x1FFFB
+  2764                           ;	Watchdog Timer Postscaler Select bits
+  2765                           ;	WDTPS = 32768, 1:32768
+  2766   01FFFB                     	org	131067
+  2767   01FFFB  FF                 	db	255
+  2768                           
+  2769                           ;Config register CONFIG3L @ 0x1FFFC
+  2770                           ;	External Address Bus Shift Enable bit
+  2771                           ;	EASHFT = 0x1, unprogrammed default
+  2772                           ;	External Memory Bus Configuration bits
+  2773                           ;	MODE = MM, Microcontroller mode - External bus disabled
+  2774                           ;	Data Bus Width Select bit
+  2775                           ;	BW = 0x1, unprogrammed default
+  2776                           ;	External Bus Wait Enable bit
+  2777                           ;	WAIT = 0x1, unprogrammed default
+  2778   01FFFC                     	org	131068
+  2779   01FFFC  F8                 	db	248
+  2780                           
+  2781                           ;Config register CONFIG3H @ 0x1FFFD
+  2782                           ;	unspecified, using default values
+  2783                           ;	ECCP2 MUX bit
+  2784                           ;	CCP2MX = 0x1, unprogrammed default
+  2785                           ;	ECCPx MUX bit
+  2786                           ;	ECCPMX = 0x1, unprogrammed default
+  2787                           ;	PMP Pin Multiplex bit
+  2788                           ;	PMPMX = 0x1, unprogrammed default
+  2789                           ;	MSSP Address Masking Mode Select bit
+  2790                           ;	MSSPMSK = 0x1, unprogrammed default
+  2791   01FFFD                     	org	131069
+  2792   01FFFD  FF                 	db	255
+  2793                           tosu	equ	0xFFF
+  2794                           tosh	equ	0xFFE
+  2795                           tosl	equ	0xFFD
+  2796                           stkptr	equ	0xFFC
+  2797                           pclatu	equ	0xFFB
+  2798                           pclath	equ	0xFFA
+  2799                           pcl	equ	0xFF9
+  2800                           tblptru	equ	0xFF8
+  2801                           tblptrh	equ	0xFF7
+  2802                           tblptrl	equ	0xFF6
+  2803                           tablat	equ	0xFF5
+  2804                           prodh	equ	0xFF4
+  2805                           prodl	equ	0xFF3
+  2806                           indf0	equ	0xFEF
+  2807                           postinc0	equ	0xFEE
+  2808                           postdec0	equ	0xFED
+  2809                           preinc0	equ	0xFEC
+  2810                           plusw0	equ	0xFEB
+  2811                           fsr0h	equ	0xFEA
+  2812                           fsr0l	equ	0xFE9
+  2813                           wreg	equ	0xFE8
+  2814                           indf1	equ	0xFE7
+  2815                           postinc1	equ	0xFE6
+  2816                           postdec1	equ	0xFE5
+  2817                           preinc1	equ	0xFE4
+  2818                           plusw1	equ	0xFE3
+  2819                           fsr1h	equ	0xFE2
+  2820                           fsr1l	equ	0xFE1
+  2821                           bsr	equ	0xFE0
+  2822                           indf2	equ	0xFDF
+  2823                           postinc2	equ	0xFDE
+  2824                           postdec2	equ	0xFDD
+  2825                           preinc2	equ	0xFDC
+  2826                           plusw2	equ	0xFDB
+  2827                           fsr2h	equ	0xFDA
+  2828                           fsr2l	equ	0xFD9
+  2829                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         65
+    Persistent  2
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94     20      87
+    BANK0           160      6       6
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15           64      0       0
+
+Pointer List with Targets:
+
+    aretace@struktura	PTR struct . size(1) Largest target is 10
+		 -> S3(COMRAM[10]), S4(COMRAM[10]), 
+
+    filtr@struktura	PTR struct . size(1) Largest target is 10
+		 -> S3(COMRAM[10]), S4(COMRAM[10]), stopa_A(COMRAM[10]), stopa_B(COMRAM[10]), 
+
+    smerOtaceniPocitadloHran@koder	PTR struct . size(1) Largest target is 8
+		 -> koder(COMRAM[8]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->___lmul
+
+Critical Paths under _low_isr in COMRAM
+
+    None.
+
+Critical Paths under _high_isr in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->___aldiv
+
+Critical Paths under _low_isr in BANK0
+
+    None.
+
+Critical Paths under _high_isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _low_isr in BANK1
+
+    None.
+
+Critical Paths under _high_isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _low_isr in BANK2
+
+    None.
+
+Critical Paths under _high_isr in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _low_isr in BANK3
+
+    None.
+
+Critical Paths under _high_isr in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _low_isr in BANK4
+
+    None.
+
+Critical Paths under _high_isr in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _low_isr in BANK5
+
+    None.
+
+Critical Paths under _high_isr in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _low_isr in BANK6
+
+    None.
+
+Critical Paths under _high_isr in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _low_isr in BANK7
+
+    None.
+
+Critical Paths under _high_isr in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _low_isr in BANK8
+
+    None.
+
+Critical Paths under _high_isr in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _low_isr in BANK9
+
+    None.
+
+Critical Paths under _high_isr in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _low_isr in BANK10
+
+    None.
+
+Critical Paths under _high_isr in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _low_isr in BANK11
+
+    None.
+
+Critical Paths under _high_isr in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _low_isr in BANK12
+
+    None.
+
+Critical Paths under _high_isr in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _low_isr in BANK13
+
+    None.
+
+Critical Paths under _high_isr in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _low_isr in BANK14
+
+    None.
+
+Critical Paths under _high_isr in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Critical Paths under _low_isr in BANK15
+
+    None.
+
+Critical Paths under _high_isr in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 1     1      0    3155
+                                             19 COMRAM     1     1      0
+                            ___aldiv
+                             ___lmul
+                            _aretace
+                              _filtr
+             _preambleInitialization
+           _smerOtaceniPocitadloHran
+ ---------------------------------------------------------------------------------
+ (1) _smerOtaceniPocitadloHran                             5     4      1     978
+                                              7 COMRAM     5     4      1
+ ---------------------------------------------------------------------------------
+ (1) _preambleInitialization                               0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _filtr                                                3     2      1     788
+                                              7 COMRAM     3     2      1
+ ---------------------------------------------------------------------------------
+ (1) _aretace                                              3     2      1     394
+                                              7 COMRAM     3     2      1
+ ---------------------------------------------------------------------------------
+ (1) ___lmul                                              12     4      8     370
+                                              7 COMRAM    12     4      8
+ ---------------------------------------------------------------------------------
+ (1) ___aldiv                                             14     6      8     625
+                                              7 COMRAM     8     0      8
+                                              0 BANK0      6     6      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 1
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (2) _low_isr                                              7     7      0       0
+                                              0 COMRAM     7     7      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (3) _high_isr                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   ___aldiv
+   ___lmul
+   _aretace
+   _filtr
+   _preambleInitialization
+   _smerOtaceniPocitadloHran
+
+ _low_isr (ROOT)
+
+ _high_isr (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             F3F      0       0      53        0.0%
+BITBANK14          100      0       0      32        0.0%
+BANK14             100      0       0      33        0.0%
+BITBANK13          100      0       0      30        0.0%
+BANK13             100      0       0      31        0.0%
+BITBANK12          100      0       0      28        0.0%
+BANK12             100      0       0      29        0.0%
+BITBANK11          100      0       0      26        0.0%
+BANK11             100      0       0      27        0.0%
+BITBANK10          100      0       0      24        0.0%
+BANK10             100      0       0      25        0.0%
+BITBANK9           100      0       0      22        0.0%
+BANK9              100      0       0      23        0.0%
+BITBANK8           100      0       0      20        0.0%
+BANK8              100      0       0      21        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      6       6       5        3.8%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E     14      57       1       92.6%
+BITBANK15           40      0       0      34        0.0%
+BANK15              40      0       0      35        0.0%
+BITBIGSFRllll       28      0       0      51        0.0%
+BITBIGSFRllhhh      1B      0       0      43        0.0%
+BITBIGSFRhhl        19      0       0      37        0.0%
+BITBIGSFRhhh         D      0       0      36        0.0%
+BITBIGSFRlhhhll      8      0       0      41        0.0%
+BITBIGSFRllhl        7      0       0      48        0.0%
+BITBIGSFRllhhll      3      0       0      47        0.0%
+BITBIGSFRlhl         3      0       0      42        0.0%
+BITBIGSFRlhhhll      2      0       0      40        0.0%
+BITBIGSFRlhhhlh      2      0       0      39        0.0%
+BITBIGSFRllhhll      1      0       0      45        0.0%
+BITBIGSFRllhhll      1      0       0      46        0.0%
+BITBIGSFRllhhlh      1      0       0      44        0.0%
+BITBIGSFRlhhhh       1      0       0      38        0.0%
+BITBIGSFRlllhh       1      0       0      49        0.0%
+BITBIGSFRlllhl       1      0       0      50        0.0%
+BIGSFR               0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      5D      52        0.0%
+DATA                 0      0      5D       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
+Symbol Table                                                                                   Tue Jan  9 14:20:00 2024
+
+                              l90 15A2                                l92 15E8                                _S3 0026  
+                              l94 16EE                                _S4 0030                                bsr 0FE0  
+                             l106 1792                               l213 1098                               l206 1AD0  
+                             l217 1140                               l250 1CCC                               l235 140C  
+                             l317 1BDE                               l183 1838                               l167 1D06  
+                             l249 1CBC                               l193 19A0                               l179 17E6  
+                             l189 18EE                               l911 1CCE                               l921 1CF6  
+                             l913 1CD2                               l923 1CF8                               l915 1CD4  
+                             l925 1D02                               l917 1CDA                               l927 1D04  
+                             l919 1CE4                               u710 17BE                               u711 17BA  
+                             u720 1810                               u800 101E                               u721 180C  
+                             u801 101A                               u730 1862                               u810 103A  
+                             u731 185E                               u811 1036                               u740 18C6  
+                             u900 11FE                               u820 1056                               u741 18C2  
+                             u901 11FA                               u821 1052                               u750 1918  
+                             u910 121A                               u830 10C6                               u751 1914  
+                             u911 1216                               u831 10C2                               u760 19C2  
+                             u920 1248                               u840 10E2                               u761 19BE  
+                             u921 1244                               u841 10DE                               u770 1A06  
+                             u930 12A6                               u850 10FE                               u771 1A02  
+                             u931 12A2                               u851 10FA                               u780 1A38  
+                             u940 12C2                               u860 116E                               u781 1A34  
+                             u941 12BE                               u861 116A                               u790 1A78  
+                             u950 12F0                               u870 118A                               u791 1A74  
+                             u951 12EC                               u871 1186                               u960 134E  
+                             u880 11B8                               u961 134A                               u881 11B4  
+                             u970 136A                               u890 11D4                               u971 1366  
+                             u891 11D0                               u980 1394                               u981 1390  
+                             u990 13B0                               u991 13AC                               _sum 0056  
+                             wreg 0FE8        ??_smerOtaceniPocitadloHran 004A                              l1321 17BE  
+                            l1401 10FE                              l1331 184A                              l1323 17D4  
+                            l1411 11A0                              l1403 1110                              l1341 18DC  
+                            l1333 1862                              l1325 17F8                              l1317 17A2  
+                            l1421 121A                              l1413 11B8                              l1405 1156  
+                            l1343 1900                              l1335 188A                              l1327 1810  
+                            l1319 17A6                              l1351 1952                              l1431 12C2  
+                            l1423 1248                              l1415 11D4                              l1407 116E  
+                            l1361 19C2                              l1345 1918                              l1337 18AE  
+                            l1329 1826                              l1441 136A                              l1433 12F0  
+                            l1425 125E                              l1417 11E6                              l1409 118A  
+                            l1371 1A5C                              l1363 19EA                              l1347 192E  
+                            l1339 18C6                              l1443 137C                              l1435 1302  
+                            l1419 11FE                              l1427 128E                              l1451 13C6  
+                            l1461 1C82                              l1373 1A78                              l1365 1A06  
+                            l1357 19A2                              l1445 1394                              l1437 1336  
+                            l1429 12A6                              l1701 141C                              l1463 1C92  
+                            l1367 1A1C                              l1359 19A6                              l1447 13B0  
+                            l1439 134E                              l1391 1056                              l1383 1002  
+                            l1711 142A                              l1703 1420                              l1465 1C9C  
+                            l1457 1C64                              l1369 1A38                              l1377 1A8A  
+                            l1393 106C                              l1385 1006                              l1801 171A  
+                            l1721 143E                              l1713 142C                              l1705 1422  
+                            l1651 1AD8                              l1459 1C74                              l1387 101E  
+                            l1395 10AE                              l1811 175C                              l1803 172C  
+                            l1731 149C                              l1723 144E                              l1715 142E  
+                            l1707 1426                              l1661 1B18                              l1653 1AE6  
+                            l1397 10C6                              l1389 103A                              l1813 1768  
+                            l1805 1734                              l1741 14E2                              l1733 14A4  
+                            l1725 1468                              l1717 1436                              l1709 1428  
+                            l1671 1B56                              l1663 1B1C                              l1655 1AF6  
+                            l1399 10E2                              l1815 177E                              l1807 1746  
+                            l1751 152E                              l1743 14F2                              l1735 14C6  
+                            l1727 1470                              l1719 143A                              l1681 1B9E  
+                            l1673 1B64                              l1665 1B2C                              l1657 1AFA  
+                            l1649 1AD2                              l1817 178A                              l1809 174A  
+                            l1761 1574                              l1753 1540                              l1745 1504  
+                            l1737 14D0                              l1729 1478                              l1683 1BA8  
+                            l1675 1B6E                              l1667 1B42                              l1659 1B08  
+                            l1771 15C8                              l1763 158A                              l1755 1546  
+                            l1747 1516                              l1739 14DA                              l1677 1B8C  
+                            l1669 1B4A                              l1685 1BAE                              l1781 1600  
+                            l1773 15D0                              l1765 159C                              l1757 155C  
+                            l1749 151C                              l1693 140E                              l1687 1BBE  
+                            l1679 1B9C                              l1791 167E                              l1783 1622  
+                            l1775 15E2                              l1759 156E                              l1767 15A6  
+                            l1695 1412                              l1689 1BCE                              l1881 1972  
+                            l1793 16B2                              l1785 1636                              l1777 15EA  
+                            l1769 15C0                              l1697 1416                              l1883 1AAA  
+                            l1795 16E6                              l1787 1656                              l1779 15EE  
+                            l1699 1418                              l1797 1700                              l1789 1666  
+                            l1879 13E6                              l1799 1712                              _ADIE 7CEE  
+                            u1000 1C82                              u1001 1C7E                              u1010 1CBC  
+                            u1011 1CB8                              u1400 144E                              u1401 144A  
+                            u1410 1460                              u1411 1458                              u1340 1AE6  
+                            u1500 1540                              u1341 1AE2                              u1501 153C  
+                            u1350 1B08                              u1510 155C                              u1430 1494  
+                            u1351 1B04                              u1511 1558                              u1431 148C  
+                            u1360 1B42                              u1600 1700                              u1520 156E  
+                            u1440 14B6                              u1361 1B3E                              u1601 16FC  
+                            u1521 156A                              u1441 14AE                              u1425 1480  
+                            u1370 1B64                              u1610 1712                              u1530 158A  
+                            u1426 1482                              u1418 1462                              u1371 1B60  
+                            u1611 170E                              u1531 1586                              u1380 1B8C  
+                            u1620 172C                              u1540 159C                              _LATH 0F90  
+                            u1381 1B88                              u1621 1728                              u1541 1598  
+                            u1390 1BBE                              u1630 1746                              u1550 15B8  
+                            u1470 1504                              u1438 1496                              u1391 1BBA  
+                            u1631 1742                              u1551 15B0                              u1471 1500  
+                            u1455 14CE                              u1640 175C                              u1560 15E2  
+                            u1480 1516                              u1456 14D0                              u1448 14B8  
+                            u1641 1758                              u1561 15DE                              u1481 1512  
+                            u1465 14D8                              u1650 177E                              u1570 1600  
+                            u1490 152E                              u1466 14DA                              u1651 177A  
+                            u1571 15FC                              u1491 152A                              u1580 1622  
+                            u1581 161E                              u1590 1656                              u1558 15BA  
+                            u1591 1652                              _PIE1 0F9D                  aretace@struktura 0049  
+                            _main 140E                              fsr2h 0FDA                              _puls 000B  
+                            fsr2l 0FD9                              btemp 0058                              prodh 0FF4  
+                            prodl 0FF3                              start 00F4                      ___param_bank 0000  
+                 __end_of___aldiv 1BE0                             ?_main 0042                             _T0CON 0FD5  
+                           _T1CON 0FCD                             i1l125 0088                             i1l128 00E4  
+                           i2l118 1C60                             _TMR0H 0FD7                             _TMR0L 0FD6  
+                           _PORTH 0F87                             _TRISD 0F95                             _TRISF 0F97  
+                           _TRISH 0F99                             _TRISJ 0F9A               ___lmul@multiplicand 004D  
+                 __end_of_aretace 1AD2                             _filtr 17A2                             _koder 003A  
+                 __end_of_low_isr 00F4                             ttemp5 0059                             ttemp6 005C  
+                           ttemp7 0060                             status 0FD8                             wtemp8 0059  
+                 __initialization 1D08                      __end_of_main 17A2                            ??_main 0055  
+                   __activetblptr 0003                            _ADCON0 0FC2                            _ADCON1 0FC1  
+                          ?_filtr 0049                            _ADRESH 0FC4                            _ADRESL 0FC3  
+                          _CCPR1H 0FBD                            _CCPR1L 0FBC                            i1l1281 005A  
+                          i1l1273 0026                            i1l1291 009A                            i1l1283 006A  
+                          i1l1275 0034                            i1l1293 00A4                            i1l1285 007E  
+                          i1l1277 003C                            i1l1295 00C2                            i1l1287 0080  
+                          i1l1279 003E                            i1l1297 00DA                            i1l1289 008C  
+                          i1l1299 00DC                            i2l1251 1BEE                            i2l1261 1C20  
+                          i2l1253 1BFC                            i2l1271 1C5C                            i2l1263 1C32  
+                          i2l1255 1C00                            i2l1265 1C4E                            i2l1257 1C10  
+                          i2l1249 1BE0                            i2l1259 1C14                            i2l1267 1C56  
+                          i2l1269 1C58     smerOtaceniPocitadloHran@koder 0049                  __end_of_high_isr 1C64  
+                          ___lmul 1C64                         ??___aldiv 0051            _preambleInitialization 1CCE  
+                          clear_0 1D0E                            _mezera 0005                            isa$std 0001  
+                       ??_aretace 004A  __end_of_smerOtaceniPocitadloHran 140E                      __mediumconst 0000  
+                       ??_low_isr 0042                        __accesstop 0060           __end_of__initialization 1D14  
+                   ___rparam_used 0001                    __pcstackCOMRAM 0042                     __end_of_filtr 19A2  
+                         ??_filtr 004A                        __pnvCOMRAM 0056                           ?___lmul 0049  
+                         _CCP1CON 0FBB                    ___lmul@product 0051                  _casove_preruseni 0011  
+                         _INTCON2 0FF1                           i1u70_20 009A                           i1u70_21 0096  
+                         i1u67_20 0034                           i1u67_21 0030                           i1u68_20 005A  
+                         i1u68_21 0056                           i1u69_20 007E                           i1u69_21 007A  
+                         i2u64_40 1BEE                           i2u64_41 1BEA                           i2u65_40 1BFC  
+                         i2u65_41 1BF8                           i2u66_40 1C32                           i2u66_41 1C2E  
+                       ?_high_isr 0042                           __Hparam 0000         ?_smerOtaceniPocitadloHran 0049  
+                         __Lparam 0000                           ___aldiv 1AD2                      __psmallconst 1000  
+                         __pcinit 1D08                           __ramtop 1000                           _aretace 19A2  
+                         __ptext0 140E                           __ptext1 1002                           __ptext2 1CCE  
+                         __ptext3 17A2                           __ptext4 19A2                           __ptext5 1C64  
+                         __ptext6 1AD2                         _T0CONbits 0FD5                  ___aldiv@dividend 0049  
+                         _low_isr 0018                           _stopa_A 001C                           _stopa_B 0012  
+                      ??_high_isr 0042                    __pintcode_body 1BE0              end_of_initialization 1D14  
+                         int_func 1BE0           ?_preambleInitialization 0042                  ___aldiv@quotient 0062  
+                         postdec2 0FDD                           postinc0 0FEE                           postinc2 0FDE  
+                       _PORTCbits 0F82                         _PORTDbits 0F83                         _PORTFbits 0F85  
+                       _PORTJbits 0F88                         _TRISCbits 0F94                         _TRISFbits 0F97  
+  __end_of_preambleInitialization 1D08                    filtr@struktura 0049                    __end_of___lmul 1CCE  
+             start_initialization 1D08                          ??___lmul 0051                       __pbssCOMRAM 0001  
+                   __pcstackBANK0 0060                         __pintcode 0008                          ?___aldiv 0049  
+                     __pintcodelo 0018                          ?_aretace 0049                       __smallconst 1000  
+                        ?_low_isr 0042                   ___aldiv@divisor 004D                   ___aldiv@counter 0060  
+                        _IPR1bits 0F9F                          _PIE1bits 0F9D                          _ADhotovo 000D  
+                        _ADprevod 0001                          _PIR1bits 0F9E                          _RCONbits 0FD0  
+                       _puls_back 0009                        _ADCON0bits 0FC2                 ___lmul@multiplier 0049  
+        _smerOtaceniPocitadloHran 1002                          __Hrparam 0000                          __Lrparam 0000  
+                        _citac_ms 000F                          _high_isr 0008                          _new_puls 0007  
+                        isa$xinst 0000                          int$flags 0058                       _OSCTUNEbits 0F9B  
+                      _INTCONbits 0FF2                          intlevel1 0000                          intlevel2 0000  
+                      _OSCCONbits 0FD3                      ___aldiv@sign 0061          ??_preambleInitialization 0049  

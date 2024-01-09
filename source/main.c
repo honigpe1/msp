@@ -98,7 +98,7 @@ void main(void)
           S4.vstup = PORTJbits.RJ7;
           filtr(&S4); //vyfiltrovani tlacitka S4
           aretace(&S4);  //aretace tlacitka S4
-          PORTDbits.RD7 = S4.filtrovane; //zobrazeni vysledku aretace S4 na diodu 
+          PORTDbits.RD7 = S4.zaaretovane; //zobrazeni vysledku aretace S4 na diodu 
           
           stopa_A.vstup = PORTJbits.RJ0; //nacteni a filtrace proudu A
           filtr(&stopa_A);          
@@ -111,12 +111,20 @@ void main(void)
           koder.B = stopa_B.filtrovane;
           
           smerOtaceniPocitadloHran(&koder); //zjisteni smeru a pocet otocek
-          if (koder.pocet == 0){ //zobrazeni minima
+          
+          if (koder.pocet == 0 && S4.zaaretovane == 0){ //zobrazeni minima
               PORTFbits.RF2 = 1;
           }
-          else if (koder.pocet == 255){ //zobrazeni maxima
+          else if (koder.pocet == 255 && S4.zaaretovane == 0){ //zobrazeni maxima
               PORTFbits.RF1 = 1;
           }
+          else if (ADprevod == 0 && S4.zaaretovane == 1){ //zobrazeni minima
+              PORTFbits.RF2 = 1;
+          }
+          else if (ADprevod == 255 && S4.zaaretovane == 1){ //zobrazeni maxima
+              PORTFbits.RF1 = 1;
+          }
+          
           else{ //vypnuti indikace
               PORTFbits.RF2 = 0;
               PORTFbits.RF1 = 0;
